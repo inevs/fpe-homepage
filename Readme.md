@@ -17,3 +17,8 @@ To shut everything down (This will remove the containers entirely and you will n
 
 ## HOW TOs
 
+### Create new dump
+
+```
+mysqldump -h 127.0.0.1 -uroot -pexample --databases fpe | gzip -c > database/dump.sql.gz 
+```
