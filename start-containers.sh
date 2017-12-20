@@ -4,7 +4,7 @@ echo "Starting database and web server"
 docker-compose up -d
 
 echo "Waiting until containers are ready"
-sleep 2
+sleep 5
 
 echo "Importing database dump"
 
