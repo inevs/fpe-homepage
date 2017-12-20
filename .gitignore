@@ -1,4 +1,7 @@
 # Ignore paths that contain generated content.
-files/
-sites/*/files
-sites/*/private
+sites/*/files/config*
+sites/*/files/php
+sites/*/files/languages
+sites/*/files/translations
+sites/*/files/css
+sites/*/files/js
