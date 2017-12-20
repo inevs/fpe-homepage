@@ -22,4 +22,4 @@ echo "###### Importing database dump ######"
 echo "###### Fixing permissions of sites directory to ######"
 sudo chmod a+w -R sites
 
-echo "###### Done ######"
+echo "###### Installation complete! Now go to http://localhost:8080 ######"
