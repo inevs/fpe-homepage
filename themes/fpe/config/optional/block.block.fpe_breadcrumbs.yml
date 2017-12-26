@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - basic
-id: basic_breadcrumbs
-theme: basic
+    - fpe
+id: fpe_breadcrumbs
+theme: fpe
 region: content
 weight: -45
 provider: null

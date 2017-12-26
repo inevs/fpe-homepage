@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - basic
-id: basic_page_title
-theme: basic
+    - fpe
+id: fpe_page_title
+theme: fpe
 region: content
 weight: -50
 provider: null

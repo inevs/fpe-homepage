@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - basic
-id: basic_branding
-theme: basic
+    - fpe
+id: fpe_branding
+theme: fpe
 region: header
 weight: 0
 provider: null

@@ -10,7 +10,7 @@ use Drupal\Core\Cache\CacheableMetadata;
 /**
  * Prepares variables for the html.html.twig template.
  */
-function basic_preprocess_html(&$variables) {
+function fpe_preprocess_html(&$variables) {
   try {
     $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
   }
@@ -49,7 +49,7 @@ function basic_preprocess_html(&$variables) {
 /**
  * Prepares variables for the field.html.twig template.
  */
-function basic_preprocess_field(&$variables, $hook) {
+function fpe_preprocess_field(&$variables, $hook) {
   // Make additional variables available to the template.
   $variables['bundle'] = $variables['element']['#bundle'];
 }

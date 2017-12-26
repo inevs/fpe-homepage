@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - basic
-id: basic_local_tasks
-theme: basic
+    - fpe
+id: fpe_local_tasks
+theme: fpe
 region: content
 weight: -40
 provider: null

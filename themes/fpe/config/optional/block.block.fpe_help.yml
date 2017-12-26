@@ -4,9 +4,9 @@ dependencies:
   module:
     - help
   theme:
-    - basic
-id: basic_help
-theme: basic
+    - fpe
+id: fpe_help
+theme: fpe
 region: help
 weight: -30
 provider: null

@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - basic
-id: basic_footer
-theme: basic
+    - fpe
+id: fpe_footer
+theme: fpe
 region: footer
 weight: 0
 provider: null

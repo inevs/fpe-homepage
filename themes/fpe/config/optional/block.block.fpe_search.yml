@@ -4,9 +4,9 @@ dependencies:
   module:
     - search
   theme:
-    - basic
-id: basic_search
-theme: basic
+    - fpe
+id: fpe_search
+theme: fpe
 region: sidebar_first
 weight: -1
 provider: null
