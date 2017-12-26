@@ -4,13 +4,13 @@ services:
   drupal:
     depends_on:
       - db
-    image: drupal:8.2-apache
+    image: drupal:8.4-apache
     ports:
       - 8080:80
     volumes:
       - /var/www/html/modules
       - /var/www/html/profiles
-      - ./themes:/var/www/html/themes:Z
+      - ./themes/fpe:/var/www/html/themes/fpe:ro
       # this takes advantage of the feature in Docker that a new anonymous
       # volume (which is what we're creating here) will be initialized with the
       # existing content of the image at the same location
@@ -29,10 +29,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: example
 
-  sass:
+  grunt:
     depends_on:
       - drupal
     image: digitallyseamless/nodejs-bower-grunt
-    command: bash -c 'npm install && grunt'
+    command: bash -c "npm install && grunt"
     volumes:
-      - ./themes/fpe:/data:Z
+      - ./themes/fpe/:/data/:z
