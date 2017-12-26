@@ -20,6 +20,6 @@ echo "###### Importing database dump ######"
 ./database/import-dump.sh
 
 echo "###### Fixing permissions of sites directory. Please provide your root password to do so. ######"
-sudo chmod -R a+w sites
+sudo chmod -R a+w sites themes
 
 echo "###### Installation complete! Now go to http://localhost:8080 ######"
