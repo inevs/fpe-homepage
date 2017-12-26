@@ -2,6 +2,8 @@ version: '3.1'
 
 services:
   drupal:
+    depends_on:
+      - db
     image: drupal:8.2-apache
     ports:
       - 8080:80
@@ -26,3 +28,11 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
+
+  sass:
+    depends_on:
+      - drupal
+    image: digitallyseamless/nodejs-bower-grunt
+    command: bash -c 'npm install && grunt'
+    volumes:
+      - ./themes/fpe:/data:Z
