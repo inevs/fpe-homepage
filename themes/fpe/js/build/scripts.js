@@ -1,2 +1,2 @@
-!function(Drupal,$,window){Drupal.behaviors.basic={attach:function(context,settings){$(window).load(function(){}),$(window).resize(function(){}),$(window).scroll(function(){})}}}(Drupal,jQuery,this);
+!function(Drupal,$){"use strict";Drupal.behaviors.fpe={attach:function(context,settings){$(window).on("load",function(){}),$(window).on("resize",function(){}),$(window).on("scroll",function(){})}}}(Drupal,jQuery);
 //# sourceMappingURL=scripts.js.map

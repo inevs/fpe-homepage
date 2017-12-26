@@ -148,17 +148,21 @@ dl {
   margin-bottom: 0.75em;
 }
 
-dl dt {
+dt {
   font-weight: 600;
   margin-top: 0.75em;
 }
 
-dl dd {
+dd {
   margin: 0;
 }
 
-picture,
-img {
+figure {
+  margin: 0;
+}
+
+img,
+picture {
   max-width: 100%;
   height: auto;
   vertical-align: top;
