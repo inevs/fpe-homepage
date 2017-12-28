@@ -22,3 +22,10 @@ To shut everything down (This will remove the containers entirely and you will n
 ```
 mysqldump -h 127.0.0.1 -uroot -pexample --databases fpe | gzip -c > database/dump.sql.gz 
 ```
+
+or simply call ```./database/create-dump.sh```
+
+## TODOs prior to GoLive
+
+* Disable comments for all articles: https://www.inmotionhosting.com/support/edu/drupal-8/comments/disable-article-comment
+* Comments Modul deinstallieren
