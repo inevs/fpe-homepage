@@ -158,17 +158,20 @@ html {
   clear: both;
 }
 
-#header, #footer,
-#sidebar-first,
-#sidebar-second,
-#navigation {
-  background: rgba(170, 170, 170, 0.2);
-}
-
 #header,
 #footer,
 .mission,
 .breadcrumb,
 .node {
   clear: both;
+}
+
+.layout-container {
+  max-width: 1200px;
+  margin: auto;
+  background-color: #0c2340;
+}
+
+.site-logo img {
+  max-width: 50%;
 }
