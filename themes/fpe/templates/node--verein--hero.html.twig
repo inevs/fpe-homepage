@@ -1,0 +1,15 @@
+{% set bg_color = '#eee' %}
+{% if node.field_color %}
+	{% set bg_color = node.field_color.value %}
+{% endif %}
+<div class="verein__hero" style="background-color: {{bg_color}}">
+	{% if node.field_homepage %}
+		<a href="{{node.field_homepage.uri}}">
+	{% endif %}
+
+	{{ content }}
+
+	{% if node.field_homepage %}
+		</a>
+	{% endif %}
+</div>
