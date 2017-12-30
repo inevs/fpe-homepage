@@ -90,3 +90,11 @@ html {
 .block-fpe-content .feed-icon {
   display: none;
 }
+
+.block-fpe-content h2 {
+  font-size: 20px;
+}
+
+.block-fpe-content .article__tags {
+  display: none;
+}
