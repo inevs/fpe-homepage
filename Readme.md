@@ -17,6 +17,9 @@ To shut everything down (This will remove the containers entirely and you will n
 
 ## HOW TOs
 
+### Make changes to a template
+Even though the template cache should be disabled, it sometimes seems to be neccessary to reload the themplates. To do so, go to http://localhost:8080/core/reload.php
+
 ### Create new dump
 
 ```
