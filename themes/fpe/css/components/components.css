@@ -11,9 +11,38 @@ html {
   display: inline-block;
 }
 
-#navigation li {
+#block-fpe-branding {
+  background-color: #0c2340;
+  background: url(../../images/optimized/header_bg_left.svg);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+}
+
+.navigation {
+  padding: 12px 60px 12px 260px;
+  background: #fff;
+}
+
+.navigation .menu {
   list-style-type: none;
-  display: inline-block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+
+.navigation .menu-item {
+  margin: 8px 0;
+}
+
+.navigation .menu-item a {
+  text-transform: uppercase;
+  color: #0c2340;
+}
+
+.navigation .menu-item a.is-active {
+  color: #ffd100;
 }
 
 .site-name {

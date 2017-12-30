@@ -1,5 +1,15 @@
 // Navigation styles
-#navigation
-  li
+.navigation
+  padding: 12px 60px 12px 260px
+  background: $pirates-white
+  .menu
     list-style-type: none
-    display: inline-block
+    display: flex
+    justify-content: space-between
+    &-item
+      margin: 8px 0
+      a
+        text-transform: uppercase
+        color: $pirates-blue
+        &.is-active
+          color: $pirates-yellow
