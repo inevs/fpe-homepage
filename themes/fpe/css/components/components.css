@@ -60,3 +60,33 @@ html {
 .pager__item a {
   display: inline-block;
 }
+
+.block-fpe-content .views-element-container > div {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 999 0 auto;
+      flex: 999 0 auto;
+}
+
+.block-fpe-content .views-row {
+  width: 33.333%;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+}
+
+.block-fpe-content article {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column-reverse;
+      flex-direction: column-reverse;
+  padding: 0 15px;
+}
+
+.block-fpe-content article img {
+  width: 100%;
+}
+
+.block-fpe-content .feed-icon {
+  display: none;
+}
