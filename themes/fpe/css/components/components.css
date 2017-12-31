@@ -85,6 +85,8 @@ html {
 
 .block-fpe-content article .submitted {
   color: #ffd100;
+  padding: 0 17.6px;
+  padding: 0 1.1rem;
   font-size: 11.2px;
   font-size: 0.7rem;
 }
