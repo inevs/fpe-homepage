@@ -28,7 +28,7 @@
 
       {% if display_submitted %}
         <div class="submitted">
-          {{ date }}
+          {{ date.value|date("d.m.Y") }}
           {{ metadata }}
         </div>
       {% endif %}
