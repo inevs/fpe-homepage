@@ -8,13 +8,13 @@ services:
     ports:
       - 8080:80
     volumes:
-      - /var/www/html/modules
       - /var/www/html/profiles
       - ./themes/fpe:/var/www/html/themes/fpe:ro
       # this takes advantage of the feature in Docker that a new anonymous
       # volume (which is what we're creating here) will be initialized with the
       # existing content of the image at the same location
       - ./sites:/var/www/html/sites:Z
+      - ./modules:/var/www/html/modules:z
     restart: always
 
   db:

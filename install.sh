@@ -19,7 +19,11 @@ done
 echo "###### Importing database dump ######"
 ./database/import-dump.sh
 
-echo "###### Fixing permissions of sites directory. Please provide your root password to do so. ######"
-sudo chmod -R a+w sites themes
+echo "###### Changing ownership to www-data ######"
+DRUPAL_ID=$(docker ps --filter='name=fpehomepage_drupal' -q)
+docker exec $DRUPAL_ID bash -c 'chown -R www-data:www-data /var/www/html/sites'
+
+echo "###### Fixing file permissions. Please provide your root password to do so. ######"
+sudo chmod -R a+w sites themes modules
 
 echo "###### Installation complete! Now go to http://localhost:8080 ######"
