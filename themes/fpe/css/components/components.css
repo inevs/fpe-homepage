@@ -116,3 +116,36 @@ html {
 .block-fpe-content .article__tags {
   display: none;
 }
+
+.article.hero {
+  position: relative;
+}
+
+.article.hero header {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  text-align: right;
+}
+
+.article.hero h2 {
+  font-size: 2.5em;
+  font-weight: 800;
+  margin: 0;
+}
+
+.article.hero h2 div {
+  display: inline-block;
+  padding: 16px 24px;
+  padding: 1rem 1.5rem;
+  max-width: 700px;
+  background-color: rgba(255, 209, 0, 0.4);
+}
+
+.article.hero h3 div {
+  display: inline-block;
+  color: #ffd100;
+  background-color: #0c2340;
+  padding: 8px 24px;
+  padding: 0.5rem 1.5rem;
+}
