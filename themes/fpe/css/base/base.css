@@ -287,5 +287,10 @@ abbr {
 }
 
 #block-fpe-page-title h1 {
+  font-size: 25.6px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 16px 16px;
+  padding: 1.0rem 1.0rem;
   color: #ffd100;
 }
