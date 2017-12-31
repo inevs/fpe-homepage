@@ -83,6 +83,12 @@ html {
   padding: 0 15px;
 }
 
+.block-fpe-content article .submitted {
+  color: #ffd100;
+  font-size: 11.2px;
+  font-size: 0.7rem;
+}
+
 .block-fpe-content article img {
   width: 100%;
   height: 160px;
@@ -98,6 +104,13 @@ html {
   font-size: 17.6px;
   font-size: 1.1rem;
   font-weight: normal;
+  padding: 16px 17.6px;
+  padding: 1rem 1.1rem;
+  background: url(../../images/optimized/arrow-right.svg);
+  background-repeat: no-repeat;
+  background-position: -16px top;
+  background-position: -1rem top;
+  background-size: 3rem;
 }
 
 .block-fpe-content .article__tags {
