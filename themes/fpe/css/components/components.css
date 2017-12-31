@@ -71,6 +71,8 @@ html {
 .block-fpe-content header {
   padding-top: 16px;
   padding-top: 1rem;
+  padding-left: 32px;
+  padding-left: 2rem;
 }
 
 .block-fpe-content .views-row {
@@ -90,8 +92,6 @@ html {
 
 .block-fpe-content article .submitted {
   color: #ffd100;
-  padding: 0 17.6px;
-  padding: 0 1.1rem;
   font-size: 11.2px;
   font-size: 0.7rem;
 }
@@ -126,7 +126,8 @@ html {
   border-color: transparent transparent transparent #ffd100;
   display: inline-block;
   vertical-align: middle;
-  margin-right: 5px;
+  margin-left: -24px;
+  margin-left: -1.5rem;
 }
 
 .article.hero {
