@@ -85,6 +85,9 @@ html {
 
 .block-fpe-content article img {
   width: 100%;
+  height: 160px;
+  height: 10rem;
+  object-fit: cover;
 }
 
 .block-fpe-content .feed-icon {
@@ -92,7 +95,9 @@ html {
 }
 
 .block-fpe-content h2 {
-  font-size: 20px;
+  font-size: 17.6px;
+  font-size: 1.1rem;
+  font-weight: normal;
 }
 
 .block-fpe-content .article__tags {
