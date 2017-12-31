@@ -3,6 +3,9 @@
     display: flex
     flex: 999 0 auto
 
+  header
+    padding-top: 1rem
+  
   .views-row
     width: 33.333%
     hyphens: auto
@@ -28,12 +31,19 @@
   h2
     font-size: 1.1rem
     font-weight: normal
-    padding: 1rem 1.1rem
-    background: url(../../images/optimized/arrow-right.svg)
-    background-repeat: no-repeat
-    background-position: -1rem top
-    background-size: 3rem
 
   .article__tags
     display: none
+
+
+.block-fpe-content h2:before
+  content: ''
+  width: 0px
+  height: 0px
+  border-style: solid
+  border-width: 10px 0px 10px 15px
+  border-color: transparent transparent transparent $pirates-yellow
+  display: inline-block
+  vertical-align: middle
+  margin-right: 5px
 

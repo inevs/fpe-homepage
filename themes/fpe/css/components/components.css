@@ -68,6 +68,11 @@ html {
       flex: 999 0 auto;
 }
 
+.block-fpe-content header {
+  padding-top: 16px;
+  padding-top: 1rem;
+}
+
 .block-fpe-content .views-row {
   width: 33.333%;
   -webkit-hyphens: auto;
@@ -106,17 +111,22 @@ html {
   font-size: 17.6px;
   font-size: 1.1rem;
   font-weight: normal;
-  padding: 16px 17.6px;
-  padding: 1rem 1.1rem;
-  background: url(../../images/optimized/arrow-right.svg);
-  background-repeat: no-repeat;
-  background-position: -16px top;
-  background-position: -1rem top;
-  background-size: 3rem;
 }
 
 .block-fpe-content .article__tags {
   display: none;
+}
+
+.block-fpe-content h2:before {
+  content: '';
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 10px 0px 10px 15px;
+  border-color: transparent transparent transparent #ffd100;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
 }
 
 .article.hero {
