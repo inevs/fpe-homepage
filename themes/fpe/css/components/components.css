@@ -73,6 +73,13 @@ html {
   padding-top: 1rem;
   padding-left: 32px;
   padding-left: 2rem;
+  height: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
 }
 
 .block-fpe-content .views-row {
@@ -88,6 +95,9 @@ html {
   -ms-flex-direction: column-reverse;
       flex-direction: column-reverse;
   padding: 0 15px;
+  height: 100%;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
 }
 
 .block-fpe-content article .submitted {
