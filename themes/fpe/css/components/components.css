@@ -136,7 +136,8 @@ html {
   object-fit: cover;
 }
 
-.block-fpe-content .news-item .feed-icon {
+.block-fpe-content .news-item .feed-icon,
+.block-fpe-content .news-item .author {
   display: none;
 }
 

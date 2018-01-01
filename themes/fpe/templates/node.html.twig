@@ -28,7 +28,12 @@
 
       {% if display_submitted %}
         <div class="submitted">
-          {{ date.value|date("d.m.Y") }}
+          <span class="date">
+            {{ date.value|date("d.m.Y") }}
+          </span>
+          <div class="author">
+            {{ author_name }}
+          </div>
           {{ metadata }}
         </div>
       {% endif %}
