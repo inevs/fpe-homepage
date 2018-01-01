@@ -21,40 +21,43 @@
       width: 20%
     hyphens: auto
 
-  article
-    display: flex
-    flex-direction: column-reverse
-    padding: 0 15px
-    height: 100%
-    justify-content: space-between
+    article
+      display: flex
+      flex-direction: column-reverse
+      padding: 0 15px
+      height: 100%
+      justify-content: space-between
 
-    .submitted
-      color: $pirates-yellow
-      font-size: 0.7rem
-      padding-bottom: 1.0rem
+      .submitted
+        color: $pirates-yellow
+        font-size: 0.7rem
+        padding-bottom: 1.0rem
 
-    img
-      width: 100%
-      height: 10rem
-      object-fit: cover
+      img
+        width: 100%
+        height: 10rem
+        object-fit: cover
 
+    .feed-icon
+      display: none
+
+    h2
+      font-size: 1.1rem
+      font-weight: normal
+
+    .article__tags
+      display: none
+      
   .feed-icon
     display: none
 
-  h2
-    font-size: 1.1rem
-    font-weight: normal
-
-  .article__tags
-    display: none
-
-.block-fpe-content h2:before
-  content: ''
-  width: 0px
-  height: 0px
-  border-style: solid
-  border-width: 10px 0px 10px 15px
-  border-color: transparent transparent transparent $pirates-yellow
-  display: inline-block
-  vertical-align: middle
-  margin-left: -1.2rem
+  h2:before
+    content: ''
+    width: 0px
+    height: 0px
+    border-style: solid
+    border-width: 10px 0px 10px 15px
+    border-color: transparent transparent transparent $pirates-yellow
+    display: inline-block
+    vertical-align: middle
+    margin-left: -1.2rem
