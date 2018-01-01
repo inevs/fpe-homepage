@@ -1,0 +1,19 @@
+// Here we define the breakpoints which will become the upper border for each media size.
+$small-breakpoint:  640px  !default
+$medium-breakpoint: 1024px !default
+$large-breakpoint:  1440px !default
+
+// Media Queries
+$screen: "only screen" !default
+
+$landscape: "#{$screen} and (orientation: landscape)" !default
+$portrait: "#{$screen} and (orientation: portrait)" !default
+
+$small-up: $screen !default
+$small-only: "#{$screen} and (max-width: #{$small-breakpoint})" !default
+
+$medium-up: "#{$screen} and (min-width:#{$small-breakpoint + 1})" !default
+$medium-only: "#{$screen} and (min-width:#{$small-breakpoint + 1}) and (max-width:#{$medium-breakpoint})" !default
+
+$large-up: "#{$screen} and (min-width:#{$medium-breakpoint + 1})" !default
+$large-only: "#{$screen} and (min-width:#{$medium-breakpoint + 1}) and (max-width:#{$large-breakpoint})" !default

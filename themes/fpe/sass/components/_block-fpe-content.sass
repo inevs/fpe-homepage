@@ -1,7 +1,8 @@
 .block-fpe-content
   .views-element-container > div
-    display: flex
-    flex: 999 0 auto
+    @media #{$medium-up}
+      display: flex
+      flex: 999 0 auto
 
   header
     padding-top: 1rem
@@ -11,8 +12,13 @@
     flex-direction: column
     justify-content: space-between
 
-  .views-row
-    width: 33.333%
+  .news-item
+    @media #{$medium-only}
+      width: 33%
+      &:nth-last-of-type(2n) 
+        display: none
+    @media #{$large-up}
+      width: 20%
     hyphens: auto
 
   article
