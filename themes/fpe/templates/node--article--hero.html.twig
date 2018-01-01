@@ -17,15 +17,17 @@
 <article{{ attributes.addClass(classes) }}>
   <header>
     <h2>
-      {% if content.field_hero_headline %}
+      {% if node.field_hero_headline.value|length %}
         {{ content.field_hero_headline }}
       {% else %}
         {{ label }}
       {% endif %}
     </h2>
-    <h3>
-      {{ content.field_subheadline }}
-    </h3>
+    {% if node.field_subheadline.value|length %}
+      <h3>
+        {{ content.field_subheadline }}
+      </h3>
+    {% endif %}
   </header>
   {{ content.field_image }}
 </article><!-- /.node -->

@@ -24,7 +24,9 @@ $left-padding-h3: tan(40deg) * ($font-size-h3 + 2 * $vertical-padding-h3)
     margin: 0
     @media #{$large-up}
       font-size: $font-size-title-large
-    div
+    div,
+    span
+      display: block
       padding: $vertical-padding-h2 $right-padding
       background-color: transparentize($pirates-yellow, .55)
       @media #{$medium-up}
@@ -39,7 +41,8 @@ $left-padding-h3: tan(40deg) * ($font-size-h3 + 2 * $vertical-padding-h3)
       margin-top: -$vertical-padding-h2
     @media #{$large-up}
       font-size: $font-size-subtitle-large
-    div
+    div,
+    span
       display: inline-block
       color: $pirates-yellow
       background-color: $pirates-blue

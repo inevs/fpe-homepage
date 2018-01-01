@@ -199,14 +199,17 @@ html {
   }
 }
 
-.article.hero h2 div {
+.article.hero h2 div,
+.article.hero h2 span {
+  display: block;
   padding: 7.2px 16px;
   padding: 0.45rem 1rem;
   background-color: rgba(255, 209, 0, 0.45);
 }
 
 @media only screen and (min-width: 641px) {
-  .article.hero h2 div {
+  .article.hero h2 div,
+  .article.hero h2 span {
     padding: 0.45rem 1rem 0.45rem 3.77595rem;
     display: inline-block;
     max-width: 80%;
@@ -235,7 +238,8 @@ html {
   }
 }
 
-.article.hero h3 div {
+.article.hero h3 div,
+.article.hero h3 span {
   display: inline-block;
   color: #ffd100;
   background-color: #0c2340;
@@ -244,7 +248,8 @@ html {
 }
 
 @media only screen and (min-width: 641px) {
-  .article.hero h3 div {
+  .article.hero h3 div,
+  .article.hero h3 span {
     padding: 0.35rem 1rem 0.35rem 2.76211rem;
     clip-path: polygon(1.76211rem 0, 100% 0, 100% 100%, 0 100%);
     -webkit-clip-path: polygon(1.76211rem 0, 100% 0, 100% 100%, 0 100%);
