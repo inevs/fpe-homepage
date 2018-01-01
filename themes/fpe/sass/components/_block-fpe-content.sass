@@ -3,6 +3,7 @@
     @media #{$medium-up}
       display: flex
       flex: 999 0 auto
+      flex-wrap: wrap
 
   header
     padding-top: 1rem
@@ -12,11 +13,14 @@
     flex-direction: column
     justify-content: space-between
 
+  .frontpage-news
+    @media #{$medium-only}
+      &:nth-last-of-type(2n) 
+        display: none
+
   .news-item
     @media #{$medium-only}
       width: 33%
-      &:nth-last-of-type(2n) 
-        display: none
     @media #{$large-up}
       width: 20%
     hyphens: auto
