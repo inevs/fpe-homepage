@@ -147,7 +147,8 @@ html {
 .article.hero header {
   position: absolute;
   right: 0;
-  top: 30%;
+  bottom: 32px;
+  bottom: 2rem;
   text-align: right;
 }
 
@@ -159,16 +160,29 @@ html {
 
 .article.hero h2 div {
   display: inline-block;
-  padding: 16px 24px;
-  padding: 1rem 1.5rem;
+  padding: 7.2px 16px 7.2px 60.415px;
+  padding: 0.45rem 1rem 0.45rem 3.77595rem;
   max-width: 700px;
-  background-color: rgba(255, 209, 0, 0.4);
+  background-color: rgba(255, 209, 0, 0.45);
+  -webkit-clip-path: polygon(3.77595rem 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path--moz-clip-path: polygon(3.77595rem 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path--ms-clip-path: polygon(3.77595rem 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path-clip-path: polygon(3.77595rem 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.article.hero h3 {
+  margin-top: -7.2px;
+  margin-top: -0.45rem;
 }
 
 .article.hero h3 div {
   display: inline-block;
   color: #ffd100;
+  padding: 5.6px 16px 5.6px 44.193px;
+  padding: 0.35rem 1rem 0.35rem 2.76211rem;
+  -webkit-clip-path: polygon(1.76211rem 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path--moz-clip-path: polygon(1.76211rem 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path--ms-clip-path: polygon(1.76211rem 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path-clip-path: polygon(1.76211rem 0, 100% 0, 100% 100%, 0 100%);
   background-color: #0c2340;
-  padding: 8px 24px;
-  padding: 0.5rem 1.5rem;
 }

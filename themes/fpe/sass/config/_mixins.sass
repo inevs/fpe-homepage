@@ -17,3 +17,10 @@
     margin-right: flex-gutter()
   &:nth-child(#{$nth}+1)
     clear: none
+
+
+@mixin clip-path($clip)
+	-webkit-clip-path: $clip
+  -moz-clip-path: $clip
+  -ms-clip-path: $clip
+  clip-path: $clip

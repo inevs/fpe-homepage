@@ -1,10 +1,15 @@
-$hero-padding: 1.5rem
+$_hero-right-padding: 1rem
+$_hero-vertical-padding-h2: $font-size-h2 / 4 
+$_hero-left-padding-h2: tan(40deg) * (2 * $font-size-h2 + 2 * $_hero-vertical-padding-h2)
+$_hero-vertical-padding-h3: $font-size-h3 / 4 
+$_hero-left-padding-h3: tan(40deg) * ($font-size-h3 + 2 * $_hero-vertical-padding-h3)
+
 .article.hero
   position: relative
   header
     position: absolute
     right: 0
-    top: 30%
+    bottom: 2rem
     text-align: right    
   h2
     font-size: 2.5em
@@ -12,12 +17,15 @@ $hero-padding: 1.5rem
     margin: 0
     div
       display: inline-block
-      padding: 1rem $hero-padding
+      padding: $_hero-vertical-padding-h2 $_hero-right-padding $_hero-vertical-padding-h2 $_hero-left-padding-h2
       max-width: 700px
-      background-color: transparentize($pirates-yellow, .6)
+      background-color: transparentize($pirates-yellow, .55)
+      @include clip-path(polygon($_hero-left-padding-h2 0,100% 0,100% 100%,0 100%))
   h3
+    margin-top: -$_hero-vertical-padding-h2
     div
       display: inline-block
       color: $pirates-yellow
+      padding: $_hero-vertical-padding-h3 $_hero-right-padding $_hero-vertical-padding-h3 $_hero-left-padding-h3 + 1rem
+      @include clip-path(polygon($_hero-left-padding-h3 0,100% 0,100% 100%,0 100%))
       background-color: $pirates-blue
-      padding: .5rem $hero-padding
