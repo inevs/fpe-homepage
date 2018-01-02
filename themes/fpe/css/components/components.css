@@ -261,6 +261,49 @@ html {
   }
 }
 
+.game--layout-hero {
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fff;
+  color: #0c2340;
+  border-bottom: 3px solid #ffd100;
+}
+
+.game--layout-hero > header {
+  width: 30%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.game--layout-hero > header .game__title {
+  font-weight: normal;
+  font-size: 33.33333px;
+  margin: 0 auto;
+}
+
+.game--layout-hero > header .game__title:before {
+  content: 'Next Game';
+}
+
+.game--layout-hero > header .game__title a {
+  display: none;
+}
+
+.game--layout-hero > header .submitted {
+  display: none;
+}
+
+.game--layout-hero > .content {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.game--layout-hero .team--layout-hero > header {
+  display: none;
+}
+
 body.detail-article #block-fpe-page-title {
   display: none;
 }

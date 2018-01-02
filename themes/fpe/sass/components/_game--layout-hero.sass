@@ -1,0 +1,27 @@
+$hero-height: 100px
+
+.game--layout-hero
+	display: flex
+	background-color: $pirates-white
+	color: $pirates-blue
+	border-bottom: 3px solid $pirates-yellow
+	> header
+		width: 30%
+		display: flex
+		align-items: center
+		.game__title
+			font-weight: normal
+			font-size: $hero-height / 3
+			margin: 0 auto
+			&:before
+				content: 'Next Game'
+			a
+				display: none
+		.submitted
+			display: none
+	> .content
+		display: flex
+
+	.team--layout-hero
+		> header
+			display: none
