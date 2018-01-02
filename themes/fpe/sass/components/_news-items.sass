@@ -1,17 +1,12 @@
 $font-size-title: 1.1rem
 
 .news-items
-  @media #{$medium-up}
-    display: flex
-    flex: 999 0 auto
-    flex-wrap: wrap
-    margin-bottom: $base-spacing
-  header
-    padding-top: 1rem
-    height: 100%
-    display: flex
-    flex-direction: column
-    justify-content: space-between
+  .view-unformatted
+    @media #{$medium-up}
+      display: flex
+      flex: 999 0 auto
+      flex-wrap: wrap
+      margin-bottom: $base-spacing
 
   .frontpage-news
     @media #{$medium-only}
@@ -32,6 +27,13 @@ $font-size-title: 1.1rem
       margin-bottom: $base-spacing
       height: 100%
       justify-content: space-between
+    
+      header
+        padding-top: 1rem
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: space-between
 
       .submitted
         color: $pirates-yellow
