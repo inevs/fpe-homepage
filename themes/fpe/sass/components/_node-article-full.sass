@@ -1,0 +1,31 @@
+// Everything for the article node detail page
+
+body.detail-article
+  #block-fpe-page-title
+    display: none
+  article.article--layout-full
+    display: flex
+    flex-direction: column
+    .article__image
+      order: 0
+    h1
+      order: 1
+      @include centered-container
+      margin-top: $base-spacing
+      margin-bottom: $small-spacing
+    .submitted
+      order: 3
+      @include centered-container
+      color: $pirates-yellow
+      font-weight: bold
+      margin-bottom: $base-spacing
+      .author
+        &:before
+          content: '|'
+        display: inline-block
+    .article__body
+      order: 5
+      @include centered-container
+    .article__tags
+      order: 10
+      @include centered-container

@@ -24,3 +24,14 @@
 	-webkit-clip-path: $clip
 	-moz-clip-path: $clip
 	-ms-clip-path: $clip
+
+@mixin centered-container
+  margin-left: 2rem
+  margin-right: 2rem
+  @media #{$medium-up}
+    width: 90%
+    margin-left: auto
+    margin-right: auto
+  @media #{$large-up}
+    width: 800px
+

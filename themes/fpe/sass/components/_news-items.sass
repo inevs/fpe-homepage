@@ -1,13 +1,13 @@
-.block-fpe-content
-  .views-element-container > div
-    @media #{$medium-up}
-      display: flex
-      flex: 999 0 auto
-      flex-wrap: wrap
+$font-size-title: 1.1rem
 
+.news-items
+  @media #{$medium-up}
+    display: flex
+    flex: 999 0 auto
+    flex-wrap: wrap
+    margin-bottom: $base-spacing
   header
     padding-top: 1rem
-    padding-left: 1.3rem
     height: 100%
     display: flex
     flex-direction: column
@@ -28,32 +28,32 @@
     article
       display: flex
       flex-direction: column-reverse
-      padding: 0 15px
+      padding: 0 $small-spacing
+      margin-bottom: $base-spacing
       height: 100%
       justify-content: space-between
 
       .submitted
         color: $pirates-yellow
-        font-size: 0.7rem
-        padding-bottom: 1.0rem
+        font-size: 75%
+        margin-left: $font-size-title
 
       img
+        height: 15rem
         width: 100%
-        height: 10rem
         object-fit: cover
+        @media #{$medium-up}
+          height: 10rem
 
-    .feed-icon,
-    .author
-      display: none
 
     h2
-      font-size: 1.1rem
+      font-size: $font-size-title
       font-weight: normal
+      margin-left: $font-size-title
 
-    .article__tags
-      display: none
-      
-  .feed-icon
+  .article__tags,
+  .feed-icon,
+  .author
     display: none
 
   h2:before
@@ -61,8 +61,9 @@
     width: 0px
     height: 0px
     border-style: solid
-    border-width: 10px 0px 10px 15px
+    border-width: $font-size-title / 2 0 $font-size-title / 2 $font-size-title / 2
     border-color: transparent transparent transparent $pirates-yellow
     display: inline-block
     vertical-align: middle
-    margin-left: -1.2rem
+    margin-right: 0.2rem
+    margin-left: -$font-size-title

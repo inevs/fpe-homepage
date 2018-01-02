@@ -15,19 +15,28 @@
 ] %}
 
 <article{{ attributes.addClass(classes) }}>
-  <header>
-    <h2>
-      {% if node.field_hero_headline.value|length %}
-        {{ content.field_hero_headline }}
-      {% else %}
-        {{ label }}
-      {% endif %}
-    </h2>
-    {% if node.field_subheadline.value|length %}
-      <h3>
-        {{ content.field_subheadline }}
-      </h3>
-    {% endif %}
-  </header>
-  {{ content.field_image }}
+  {% if label %}
+    <h1{{ title_attributes.addClass(title_classes) }}>
+      {{ label }}
+    </h1>
+  {% endif %}
+
+  {% if display_submitted %}
+    <div class="submitted">
+      <span class="date">
+        {{ date.value|date("d.m.Y") }}
+      </span>
+      <div class="author">
+        {{ author_name }}
+      </div>
+      {{ metadata }}
+    </div>
+  {% endif %}
+
+  {% if not node.published %}
+    <p class="node--unpublished">{{ 'Unpublished'|t }}</p>
+  {% endif %}
+
+  {{ content|without('links') }}
+
 </article><!-- /.node -->
