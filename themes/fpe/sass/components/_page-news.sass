@@ -1,0 +1,21 @@
+// Everything news list related
+body.page-news
+  .view-news
+    display: flex
+    flex-wrap: wrap
+  .news-item
+    article
+      .article__image
+        img
+          width: 100%
+          height: 10rem
+          object-fit: cover
+    &:first-of-type
+      width: 100%
+      background: red
+    &:not(:first-child)
+      padding: 0 $small-spacing
+      @media #{$medium-up}
+        width: 50%
+      @media #{$large-up}
+        width: 33.3333%
