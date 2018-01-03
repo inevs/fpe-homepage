@@ -1,5 +1,33 @@
-.pager__item
-  display: inline
 
-  a
-    display: inline-block
+.pager
+  text-align: center
+  padding-bottom: 1rem
+
+  .pager__item
+    display: inline
+
+  .pager__items 
+    li
+      margin: 5px
+      background-color: white
+      color: $pirates-blue
+      border-style: solid
+      display: inline-block
+      transform: skewX(-36deg)
+
+      span
+        transform: skewX(36deg)
+        display: inline-block
+
+    .pager__page
+      border-color: white
+      border-width: 0.2rem 3rem
+
+    .pager__button
+      border-color: $pirates-yellow
+      background-color: $pirates-yellow
+      border-width: 0.2rem 1.3rem
+
+    a
+      color: $pirates-blue
+    
