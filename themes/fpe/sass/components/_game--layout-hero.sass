@@ -1,14 +1,15 @@
 $hero-height: 100px
 
 .game--layout-hero
-	display: flex
+	@include row()
 	background-color: $pirates-white
 	color: $pirates-blue
 	border-bottom: 3px solid $pirates-yellow
+
 	> header
-		width: 30%
-		display: flex
-		align-items: center
+		@include span-columns(1 of 3)
+		vertical-align: middle
+		text-align: center
 		.game__title
 			font-weight: normal
 			font-size: $hero-height / 3
@@ -20,7 +21,19 @@ $hero-height: 100px
 		.submitted
 			display: none
 	> .content
-		display: flex
+		@include span-columns(2 of 3)
+
+	.game__home-team,
+	.game__guest-team
+		@include span-columns(3 of 8)
+		width: 40%
+		.verein__image
+			img
+				display: block
+				margin: 0 auto
+	.game__timestamp,
+	.game__location
+		@include span-columns(1)
 
 	.team--layout-hero
 		> header

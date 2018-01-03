@@ -1,24 +1,27 @@
 
 .news-items
   .view-unformatted
-    @media #{$medium-up}
+    @include media($medium-screen-up)
       display: flex
       flex: 999 0 auto
       flex-wrap: wrap
       margin-bottom: $base-spacing
 
   .frontpage-news
-    @media #{$medium-only}
+    @include media($medium-screen-up)
       &:nth-last-of-type(2n) 
         display: none
+    @include media($large-screen-up)
+      &:nth-last-of-type(2n) 
+        display: initial
 
-  .feed-icon
+  .feed-icon,
     display: none
 
 .news-item
-  @media #{$medium-only}
+  @include media($medium-screen-up)
     width: 33%
-  @media #{$large-up}
+  @include media($large-screen-up)
     width: 20%
   hyphens: auto
 
@@ -47,7 +50,7 @@
       height: 15rem
       width: 100%
       object-fit: cover
-      @media #{$medium-up}
+      @include media($medium-screen-up)
         height: 10rem
 
 
@@ -57,7 +60,6 @@
     margin-left: $font-size-title
 
   .article__tags,
-  .feed-icon,
   .author
     display: none
 

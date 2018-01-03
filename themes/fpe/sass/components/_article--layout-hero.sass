@@ -15,21 +15,21 @@ $left-padding-h3: tan(40deg) * ($font-size-h3 + 2 * $vertical-padding-h3)
     position: absolute
     right: 0
     bottom: 0.5rem
-    @media #{$medium-up}
+    @include media($medium-screen-up)
       bottom: 2rem
       text-align: right    
   h2
     font-size: $font-size-title
     font-weight: 800
     margin: 0
-    @media #{$large-up}
+    @include media($large-screen-up)
       font-size: $font-size-title-large
     div,
     span
       display: block
       padding: $vertical-padding-h2 $right-padding
       background-color: transparentize($pirates-yellow, .55)
-      @media #{$medium-up}
+      @include media($medium-screen-up)
         padding: $vertical-padding-h2 $right-padding $vertical-padding-h2 $left-padding-h2
         display: inline-block
         max-width: 80%
@@ -37,9 +37,9 @@ $left-padding-h3: tan(40deg) * ($font-size-h3 + 2 * $vertical-padding-h3)
   h3
     font-size: $font-size-subtitle
     margin: 0
-    @media #{$medium-up}
+    @include media($medium-screen-up)
       margin-top: -$vertical-padding-h2
-    @media #{$large-up}
+    @include media($large-screen-up)
       font-size: $font-size-subtitle-large
     div,
     span
@@ -47,6 +47,6 @@ $left-padding-h3: tan(40deg) * ($font-size-h3 + 2 * $vertical-padding-h3)
       color: $pirates-yellow
       background-color: $pirates-blue
       padding: $vertical-padding-h3 $right-padding
-      @media #{$medium-up}
+      @include media($medium-screen-up)
         padding: $vertical-padding-h3 $right-padding $vertical-padding-h3 $left-padding-h3 + 1rem
         @include clip-path(polygon($left-padding-h3 0,100% 0,100% 100%,0 100%))

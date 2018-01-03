@@ -28,11 +28,11 @@
 @mixin centered-container
   margin-left: 2rem
   margin-right: 2rem
-  @media #{$medium-up}
+  @include media($medium-screen-up)
     width: 90%
     margin-left: auto
     margin-right: auto
-  @media #{$large-up}
+  @include media($large-screen-up)
     width: 800px
 
 @mixin right-arrow

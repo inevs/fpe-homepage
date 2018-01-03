@@ -15,7 +15,7 @@ body.page-news
       background: red
     &:not(:first-child)
       padding: 0 $small-spacing
-      @media #{$medium-up}
+      @include media($medium-screen-up)
         width: 50%
-      @media #{$large-up}
+      @include media($large-screen-up)
         width: 33.3333%

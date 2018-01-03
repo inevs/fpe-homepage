@@ -226,25 +226,25 @@ h6 a {
 }
 
 h1 {
-  font-size: 35.2px;
-  font-size: 2.2rem;
+  font-size: 32px;
+  font-size: 2rem;
   font-weight: 800;
 }
 
-@media only screen and (max-width: 640px) {
+@media screen and (min-width: 45em) {
   h1 {
-    font-size: 1.54rem;
+    font-size: 2.6rem;
   }
 }
 
 h2 {
-  font-size: 28.8px;
-  font-size: 1.8rem;
+  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 22.4px;
-  font-size: 1.4rem;
+  font-size: 20.8px;
+  font-size: 1.3rem;
 }
 
 h4 {
