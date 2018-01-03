@@ -429,10 +429,18 @@ html {
   display: block;
   margin-right: 2.35765%;
   width: 74.41059%;
+  font-size: 10.656px;
+  font-size: 0.666rem;
 }
 
 .game--layout-hero > .content:last-child {
   margin-right: 0;
+}
+
+@media screen and (min-width: 45em) {
+  .game--layout-hero > .content {
+    font-size: inherit;
+  }
 }
 
 .game--layout-hero .game__home-team,

@@ -26,6 +26,9 @@ $hero-height: 100px
 			display: none
 	> .content
 		@include span-columns(9)
+		font-size: 0.666rem
+		@include media($medium-screen-up)
+			font-size: inherit
 
 	.game__home-team,
 	.game__guest-team
