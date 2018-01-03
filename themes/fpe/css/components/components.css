@@ -114,6 +114,10 @@ html {
   }
 }
 
+.news-items .feed-icon {
+  display: none;
+}
+
 .news-item {
   -webkit-hyphens: auto;
       -ms-hyphens: auto;
