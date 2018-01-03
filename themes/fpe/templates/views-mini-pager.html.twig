@@ -24,9 +24,7 @@
       {% if items.current %}
         <li class="pager__item pager__page">
           <span>
-            {% trans %}
-              Page {{ items.current }}
-            {% endtrans %}
+              {{ items.current }} / {{ items|length }}
           </span>
         </li>
       {% endif %}
