@@ -385,9 +385,8 @@ html {
 .game--layout-hero > header {
   float: left;
   display: block;
-  margin-right: 9.09091%;
-  width: 27.27273%;
-  vertical-align: middle;
+  margin-right: 2.35765%;
+  width: 23.23176%;
   text-align: center;
 }
 
@@ -397,12 +396,24 @@ html {
 
 .game--layout-hero > header .game__title {
   font-weight: normal;
-  font-size: 33.33333px;
-  margin: 0 auto;
+  margin: 0;
+  line-height: 100px;
+}
+
+@media screen and (min-width: 60em) {
+  .game--layout-hero > header .game__title {
+    font-size: 33.33333px;
+  }
 }
 
 .game--layout-hero > header .game__title:before {
-  content: 'Next Game';
+  content: 'Next';
+}
+
+@media screen and (min-width: 45em) {
+  .game--layout-hero > header .game__title:before {
+    content: 'Next Game';
+  }
 }
 
 .game--layout-hero > header .game__title a {
@@ -416,8 +427,8 @@ html {
 .game--layout-hero > .content {
   float: left;
   display: block;
-  margin-right: 9.09091%;
-  width: 63.63636%;
+  margin-right: 2.35765%;
+  width: 74.41059%;
 }
 
 .game--layout-hero > .content:last-child {
@@ -428,14 +439,31 @@ html {
 .game--layout-hero .game__guest-team {
   float: left;
   display: block;
-  margin-right: 3.22581%;
-  width: 35.48387%;
-  width: 40%;
+  margin-right: 2.35765%;
+  width: 31.76157%;
 }
 
 .game--layout-hero .game__home-team:last-child,
 .game--layout-hero .game__guest-team:last-child {
   margin-right: 0;
+}
+
+.game--layout-hero .game__home-team .verein__hero,
+.game--layout-hero .game__guest-team .verein__hero {
+  height: 100px;
+  clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
+  -webkit-clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
+  -moz-clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
+  -ms-clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.game--layout-hero .game__home-team .verein__hero a,
+.game--layout-hero .game__guest-team .verein__hero a {
+  width: 100%;
 }
 
 .game--layout-hero .game__home-team .verein__image img,
@@ -446,15 +474,23 @@ html {
 
 .game--layout-hero .game__timestamp,
 .game--layout-hero .game__location {
+  padding-right: 16px;
+  padding-right: 1rem;
   float: left;
   display: block;
-  margin-right: 2.12766%;
-  width: 6.38298%;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  margin-right: 0;
 }
 
 .game--layout-hero .game__timestamp:last-child,
 .game--layout-hero .game__location:last-child {
   margin-right: 0;
+}
+
+.game--layout-hero .game__timestamp {
+  margin-top: 24px;
+  margin-top: 1.5rem;
 }
 
 .game--layout-hero .team--layout-hero > header {
