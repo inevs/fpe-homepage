@@ -26,7 +26,6 @@
         color: white
         font-size: 10px
         padding: 0 0.5rem
-        border-right: 1px solid #ffffff
 
       a
         text-transform: uppercase
@@ -34,7 +33,10 @@
         &.is-active
           color: $pirates-yellow
 
-      li:last-of-type 
-        border-right: 0px
+      li:first-child
+        border-right: 1px solid
+
+      li:nth-child(2)
+        flex-grow: 2
 
   
