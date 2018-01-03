@@ -83,6 +83,34 @@ html {
       flex-grow: 2;
 }
 
+.menu--fussbereich-user .menu li:nth-last-child(2), .menu--footer .menu li:nth-last-child(2) {
+  font-size: 0;
+}
+
+.menu--fussbereich-user .menu li:nth-last-child(2):before, .menu--footer .menu li:nth-last-child(2):before {
+  display: block;
+  content: ' ';
+  background-image: url(../../images/optimized/facebook.svg);
+  background-size: 40px 40px;
+  height: 40px;
+  width: 40px;
+  margin: -20px -5px 0 20px;
+}
+
+.menu--fussbereich-user .menu li:last-child, .menu--footer .menu li:last-child {
+  font-size: 0;
+}
+
+.menu--fussbereich-user .menu li:last-child:before, .menu--footer .menu li:last-child:before {
+  display: block;
+  content: ' ';
+  background-image: url(../../images/optimized/rss.svg);
+  background-size: 40px 40px;
+  height: 40px;
+  width: 40px;
+  margin-top: -20px;
+}
+
 .site-name {
   font-size: 2.2em;
   line-height: 1.3em;
