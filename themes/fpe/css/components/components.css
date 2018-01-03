@@ -45,20 +45,20 @@ html {
   color: #ffd100;
 }
 
-.menu--footer {
+.menu--fussbereich-user, .menu--footer {
   background-color: #0c2340;
   padding: 32px;
   padding: 2rem;
 }
 
-.menu--footer .menu {
+.menu--fussbereich-user .menu, .menu--footer .menu {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: start;
       justify-content: flex-start;
 }
 
-.menu--footer .menu .menu-item {
+.menu--fussbereich-user .menu .menu-item, .menu--footer .menu .menu-item {
   color: white;
   font-size: 10px;
   padding: 0 8px;
@@ -66,16 +66,16 @@ html {
   border-right: 1px solid #ffffff;
 }
 
-.menu--footer .menu a {
+.menu--fussbereich-user .menu a, .menu--footer .menu a {
   text-transform: uppercase;
   color: white;
 }
 
-.menu--footer .menu a.is-active {
+.menu--fussbereich-user .menu a.is-active, .menu--footer .menu a.is-active {
   color: #ffd100;
 }
 
-.menu--footer .menu li:last-of-type {
+.menu--fussbereich-user .menu li:last-of-type, .menu--footer .menu li:last-of-type {
   border-right: 0px;
 }
 
