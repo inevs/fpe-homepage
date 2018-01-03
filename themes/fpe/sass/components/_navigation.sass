@@ -40,25 +40,27 @@
         flex-grow: 2
 
       li:nth-last-child(2)
-        font-size: 0
-        &:before
-          display: block
+        a
+          display: inline-block
           content: ' '
           background-image: url(../../images/optimized/facebook.svg)
           background-size: 40px 40px
           height: 40px
           width: 40px
           margin: -20px -5px 0 20px
+          overflow: overlay
+          color: rgba(0, 0, 0, 0)
 
       li:last-child
-        font-size: 0
-        &:before
-          display: block
+        a
+          display: inline-block
           content: ' '
           background-image: url(../../images/optimized/rss.svg)
           background-size: 40px 40px
           height: 40px
           width: 40px
           margin-top: -20px
+          overflow: overlay
+          color: rgba(0, 0, 0, 0)
 
   
