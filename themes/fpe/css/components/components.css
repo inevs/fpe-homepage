@@ -13,10 +13,10 @@ html {
 
 #block-fpe-branding {
   background-color: #0c2340;
-  background: url(../../images/optimized/header_bg_left.svg);
+  background: url(../../images/optimized/header_bg_left.svg), url(../../images/optimized/pirates-logo.svg);
   background-repeat: no-repeat;
-  background-position: left center;
-  background-size: contain;
+  background-position: left center, right center;
+  background-size: contain, 40%;
 }
 
 .navigation {
