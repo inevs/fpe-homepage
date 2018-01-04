@@ -74,6 +74,15 @@ html {
   color: #ffd100;
 }
 
+.menu--fussbereich-user .menu li, .menu--footer .menu li {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+
 .menu--fussbereich-user .menu li:first-child, .menu--footer .menu li:first-child {
   border-right: 1px solid;
 }
