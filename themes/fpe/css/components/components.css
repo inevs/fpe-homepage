@@ -216,7 +216,6 @@ html {
         flex: 999 0 auto;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    margin-bottom: 1.5em;
   }
 }
 
@@ -260,7 +259,6 @@ html {
   -ms-flex-direction: column-reverse;
       flex-direction: column-reverse;
   padding: 0 0.75em;
-  margin-bottom: 1.5em;
   height: 100%;
   -ms-flex-pack: justify;
       justify-content: space-between;
