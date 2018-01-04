@@ -167,12 +167,39 @@ html {
 
 .pager {
   text-align: center;
-  padding-bottom: 16px;
-  padding-bottom: 1rem;
+  padding: 16px;
+  padding: 1rem;
 }
 
 .pager .pager__item {
   display: inline;
+}
+
+.pager .pager__items {
+  overflow: hidden;
+  text-align: center;
+}
+
+.pager .pager__items:before, .pager .pager__items:after {
+  background-color: #ffd100;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.pager .pager__items:before {
+  right: 16px;
+  right: 1rem;
+  margin-left: -50%;
+}
+
+.pager .pager__items:after {
+  left: 16px;
+  left: 1rem;
+  margin-right: -50%;
 }
 
 .pager .pager__items li {
