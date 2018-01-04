@@ -171,68 +171,60 @@ html {
   padding: 1rem;
 }
 
-.pager .pager__item {
-  display: inline;
+@media screen and (min-width: 20em) {
+  .pager__item {
+    display: inline;
+  }
+  .pager__items li {
+    margin: 5px;
+    background-color: white;
+    color: #0c2340;
+    border-style: solid;
+    display: inline-block;
+    -ms-transform: skewX(-36deg);
+        transform: skewX(-36deg);
+  }
+  .pager__items li span {
+    -ms-transform: skewX(36deg);
+        transform: skewX(36deg);
+    display: inline-block;
+  }
+  .pager__items .pager__page {
+    border-color: white;
+    border-width: 0.2rem 3rem;
+  }
+  .pager__items .pager__button {
+    border-color: #ffd100;
+    background-color: #ffd100;
+    border-width: 0.2rem 1.3rem;
+  }
+  .pager__items a {
+    color: #0c2340;
+  }
 }
 
-.pager .pager__items {
-  overflow: hidden;
-  text-align: center;
-}
-
-.pager .pager__items:before, .pager .pager__items:after {
-  background-color: #ffd100;
-  content: "";
-  display: inline-block;
-  height: 1px;
-  position: relative;
-  vertical-align: middle;
-  width: 50%;
-}
-
-.pager .pager__items:before {
-  right: 16px;
-  right: 1rem;
-  margin-left: -50%;
-}
-
-.pager .pager__items:after {
-  left: 16px;
-  left: 1rem;
-  margin-right: -50%;
-}
-
-.pager .pager__items li {
-  margin: 5px;
-  background-color: white;
-  color: #0c2340;
-  border-style: solid;
-  display: inline-block;
-  -ms-transform: skewX(-36deg);
-      transform: skewX(-36deg);
-}
-
-.pager .pager__items li span {
-  -ms-transform: skewX(36deg);
-      transform: skewX(36deg);
-  display: inline-block;
-}
-
-.pager .pager__items .pager__page {
-  border-color: white;
-  border-width: 3.2px 48px;
-  border-width: 0.2rem 3rem;
-}
-
-.pager .pager__items .pager__button {
-  border-color: #ffd100;
-  background-color: #ffd100;
-  border-width: 3.2px 20.8px;
-  border-width: 0.2rem 1.3rem;
-}
-
-.pager .pager__items a {
-  color: #0c2340;
+@media screen and (min-width: 45em) {
+  .pager__items {
+    overflow: hidden;
+    text-align: center;
+  }
+  .pager__items:before, .pager__items:after {
+    background-color: #ffd100;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+  }
+  .pager__items:before {
+    right: 1rem;
+    margin-left: -50%;
+  }
+  .pager__items:after {
+    left: 1rem;
+    margin-right: -50%;
+  }
 }
 
 @media screen and (min-width: 45em) {

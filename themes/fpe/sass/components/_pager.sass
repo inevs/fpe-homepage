@@ -3,29 +3,10 @@
   text-align: center
   padding: 1rem
 
+@include media($small-screen-up)  
   .pager__item
     display: inline
-
   .pager__items
-    overflow: hidden
-    text-align: center
-    
-    &:before,
-    &:after
-      background-color: $pirates-yellow
-      content: ""
-      display: inline-block
-      height: 1px
-      position: relative
-      vertical-align: middle
-      width: 50%
-    &:before
-      right: 1rem
-      margin-left: -50%
-    &:after
-      left: 1rem
-      margin-right: -50%
-
     li
       margin: 5px
       background-color: white
@@ -49,4 +30,25 @@
 
     a
       color: $pirates-blue
+
+
+@include media($medium-screen-up)
+  .pager__items
+    overflow: hidden
+    text-align: center
     
+    &:before,
+    &:after
+      background-color: $pirates-yellow
+      content: ""
+      display: inline-block
+      height: 1px
+      position: relative
+      vertical-align: middle
+      width: 50%
+    &:before
+      right: 1rem
+      margin-left: -50%
+    &:after
+      left: 1rem
+      margin-right: -50%
