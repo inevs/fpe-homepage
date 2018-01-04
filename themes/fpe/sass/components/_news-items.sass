@@ -1,33 +1,37 @@
 
 .news-items
+  margin: 0 $small-spacing
   .view-unformatted
     @include media($medium-screen-up)
       display: flex
       flex: 999 0 auto
       flex-wrap: wrap
 
-  .frontpage-news
+  .news-item
     @include media($medium-screen-up)
-      &:nth-last-of-type(2n) 
-        display: none
+      width: 33%
     @include media($large-screen-up)
-      &:nth-last-of-type(2n) 
-        display: initial
+      width: 20%
+    hyphens: auto
+    @include media($large-screen-up)
+      &:last-child
+        article
+          margin-right: 0
+    @include media($medium-screen-only)
+      &:nth-last-child(-n+2) 
+        display: none
+      &:nth-last-child(-n+3) 
+        article
+          margin-right: 0
 
   .feed-icon,
     display: none
 
-.news-item
-  @include media($medium-screen-up)
-    width: 33%
-  @include media($large-screen-up)
-    width: 20%
-  hyphens: auto
 
   article
     display: flex
     flex-direction: column-reverse
-    padding: 0 $small-spacing
+    margin-right: $small-spacing
     height: 100%
     justify-content: space-between
   
