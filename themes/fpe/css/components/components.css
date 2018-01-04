@@ -47,8 +47,18 @@ html {
 
 .menu--fussbereich-user, .menu--footer {
   background-color: #0c2340;
-  padding: 32px;
-  padding: 2rem;
+}
+
+@media screen and (min-width: 20em) {
+  .menu--fussbereich-user, .menu--footer {
+    padding: 10px 0px;
+  }
+}
+
+@media screen and (min-width: 45em) {
+  .menu--fussbereich-user, .menu--footer {
+    padding: 1rem 2rem;
+  }
 }
 
 .menu--fussbereich-user .menu, .menu--footer .menu {

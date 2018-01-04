@@ -16,7 +16,10 @@
 
 .menu--fussbereich-user, .menu--footer
     background-color: $pirates-blue
-    padding: 2rem
+    @include media($small-screen-up)
+      padding: 10px 0px
+    @include media($medium-screen-up)
+      padding: 1rem 2rem
 
     .menu
       display: flex
