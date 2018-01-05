@@ -1,21 +1,76 @@
 // Everything news list related
+$_hero-offset-from-bottom: 2 * $base-spacing
+$_hero-base-font-size: 1rem
+$_learn-more-height: 1.5 * $_hero-base-font-size
+$_hero-padding-left: 3 * $base-spacing
 body.page-news
+
+  .image-hero
+    background-repeat: no-repeat
+    background-size: cover
+
+  .image-hero
+    padding-top: percentage(9 / 21)
+
   .view-news
-    display: flex
-    flex-wrap: wrap
-  .news-item
-    article
-      .article__image
-        img
-          width: 100%
-          height: 10rem
-          object-fit: cover
-    &:first-of-type
-      width: 100%
-      background: red
-    &:not(:first-child)
-      padding: 0 $small-spacing
-      @include media($medium-screen-up)
-        width: 50%
-      @include media($large-screen-up)
-        width: 33.3333%
+    .news-item
+      position: relative
+      
+      // Images
+      // It is important to hide the parent so that the hero image is only loaded for first article
+      .views-field-field-image
+        display: none
+      &:first-child
+        .views-field-field-image
+          display: block
+        .image-small
+          display: none
+      
+        // Headline
+        .views-field-field-hero-headline
+          position: absolute
+          right: 0
+          bottom: $small-spacing + ($_learn-more-height * 2 / 3)
+          @include media($medium-screen-up)
+            bottom: $_hero-offset-from-bottom + ($_learn-more-height * 2 / 3)
+          text-align: right
+          padding: $small-spacing $small-spacing $small-spacing $_hero-padding-left
+          max-width: 90%
+          @include media($medium-screen-up)
+            max-width: 75%
+          @include media($large-screen-up)
+            max-width: 50%
+          background-color: transparentize($pirates-blue, .25)
+          @include clip-path(polygon($_hero-padding-left 0,100% 0,100% 100%,0 100%))
+          h2
+            margin: 0
+            font-size: $_hero-base-font-size * 1.3
+            font-weight: 700
+            @include media($medium-screen-up)
+              font-size: $_hero-base-font-size * 1.8
+            @include media($large-screen-up)
+              font-size: $_hero-base-font-size * 2.2
+              font-weight: 800
+
+        // Mehr erfahren
+        .views-field-view-node
+          position: absolute
+          bottom: $small-spacing
+          @include media($medium-screen-up)
+            bottom: $_hero-offset-from-bottom
+          right: $base-spacing
+          text-transform: uppercase
+          background-color: $pirates-yellow
+          padding: 0 $base-spacing * 2
+          font-size: $_hero-base-font-size
+          font-weight: 600
+          line-height: $_learn-more-height
+          @include media($medium-screen-up)
+            font-size: $_hero-base-font-size * 1.2
+            line-height: $_learn-more-height * 1.2
+          @include clip-path(polygon(10% 0,100% 0,90% 100%,0 100%))
+          a
+            color: $pirates-blue
+            &:focus,
+            &:hover
+              color: shade($action-color, 25%)
