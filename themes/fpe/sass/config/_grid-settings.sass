@@ -22,6 +22,7 @@ $medium-screen: 720px
 $large-screen:  960px
 
 // Define your mobile first breakpoints using min-width
+$small-screen-only:  new-breakpoint(max-width #{$medium-screen - 1} 12)
 $small-screen-up:			new-breakpoint(min-width $small-screen 12)
 $medium-screen-up:		new-breakpoint(min-width $medium-screen 12)
 $medium-screen-only:  new-breakpoint(min-width $medium-screen max-width #{$large-screen - 1} 12)

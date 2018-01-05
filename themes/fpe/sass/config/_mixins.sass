@@ -35,14 +35,20 @@
   @include media($large-screen-up)
     width: 800px
 
-@mixin right-arrow
-    content: ''
-    width: 0px
-    height: 0px
-    border-style: solid
-    border-width: $font-size-title / 2 0 $font-size-title / 2 $font-size-title / 2
-    border-color: transparent transparent transparent $pirates-yellow
-    display: inline-block
-    vertical-align: middle
-    margin-right: 0.2rem
-    margin-left: -$font-size-title
+@mixin right-arrow($font-size)
+  background-image: url(../../images/optimized/arrow.svg)
+  background-repeat: no-repeat
+  background-size: $font-size / 2
+  background-position-y: $font-size / 4
+  padding-left: $font-size
+
+@mixin hyphens-auto
+  -ms-word-break: break-all
+  word-break: break-all
+
+  // Non standard for webkit
+  word-break: break-word
+
+  -webkit-hyphens: auto
+  -moz-hyphens: auto
+  hyphens: auto

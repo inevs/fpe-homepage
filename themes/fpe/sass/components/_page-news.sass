@@ -3,29 +3,47 @@ $_hero-offset-from-bottom: 2 * $base-spacing
 $_hero-base-font-size: 1rem
 $_learn-more-height: 1.5 * $_hero-base-font-size
 $_hero-padding-left: 3 * $base-spacing
+
 body.page-news
+  .block-fpe-page-title
+    display: none
 
   .image-hero
     background-repeat: no-repeat
     background-size: cover
-
-  .image-hero
     padding-top: percentage(9 / 21)
 
   .view-news
+    @include row
     .news-item
       position: relative
+      margin-bottom: $base-spacing
       
       // Images
       // It is important to hide the parent so that the hero image is only loaded for first article
       .views-field-field-image
         display: none
+
+      // Hero
       &:first-child
+        @include span-columns(1 of 1)
+        @include omega
+        // Hack für die News Überschrift die an der falschen Stelle im DOM hängt
+        margin-bottom: $font-size-h2 + 2 * $base-spacing
+        &:after
+          content: 'News'
+          position: absolute
+          color: $pirates-yellow
+          font-size: $font-size-h2
+          margin-top: $base-spacing
+          text-transform: uppercase
+          
         .views-field-field-image
           display: block
-        .image-small
+        .image-small,
+        .views-field-created,
+        .views-field-term-node-tid
           display: none
-      
         // Headline
         .views-field-field-hero-headline
           position: absolute
@@ -52,7 +70,7 @@ body.page-news
               font-size: $_hero-base-font-size * 2.2
               font-weight: 800
 
-        // Mehr erfahren
+        // Mehr erfahren im Hero
         .views-field-view-node
           position: absolute
           bottom: $small-spacing
@@ -74,3 +92,56 @@ body.page-news
             &:focus,
             &:hover
               color: shade($action-color, 25%)
+
+      // Alle anderen Artikel
+      $_article_base_font_size: 1.2rem
+
+      &:not(:first-child)
+        display: flex !important
+        flex-flow: row wrap
+        & > *
+          flex: 1 100%
+
+        .views-field-field-image-1
+          order: 0
+        .views-field-field-hero-headline
+          order: 1
+        .views-field-created
+          order: 2
+          flex: 0 auto
+        .views-field-term-node-tid
+          order: 2
+          flex: 1 auto
+        .views-field-view-node
+          display: none
+        @include media($small-screen-only)
+          @include span-columns(1 of 1)
+        @include media($medium-screen-only)
+          @include span-columns(6 of 12)
+          @include omega(2n+1)
+        @include media($large-screen-up)
+          @include span-columns(4 of 12)
+          @include omega(3n+1)
+
+        .views-field-field-hero-headline
+          @include right-arrow($_article_base_font_size)
+          margin-top: $small-spacing
+          display: flex
+          h2
+            font-size: $_article_base_font_size
+            font-weight: 600
+            @include hyphens-auto
+
+        .views-field-created,
+        .views-field-term-node-tid
+          font-size: $_article_base_font_size * 0.75
+          color: $pirates-yellow
+        .views-field-created
+          margin-left: $_article_base_font_size
+          margin-right: $small-spacing / 2
+        .views-field-term-node-tid
+          &:before
+            content: '- '
+
+      img
+        width: 100%
