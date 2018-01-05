@@ -980,3 +980,43 @@ body.page-news .view-news .news-item:not(:first-child) .views-field-term-node-ti
 body.page-news .view-news .news-item img {
   width: 100%;
 }
+
+.block-views-block-tabelle-block-1 {
+  padding: 24px;
+  padding: 1.5rem;
+}
+
+.block-views-block-tabelle-block-1 h2 {
+  background-color: #ffd100;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+  -moz-clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+  -ms-clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+  color: #0c2340;
+  display: inline-block;
+  padding: 5px 60px 5px 10px;
+  margin-bottom: 5px;
+  font-size: 19.2px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.block-views-block-tabelle-block-1 table {
+  margin: 0;
+}
+
+.block-views-block-tabelle-block-1 table th {
+  background-color: #fff;
+  color: #0c2340;
+  padding: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  -ms-transform: skewX(-36deg);
+      transform: skewX(-36deg);
+}
+
+.block-views-block-tabelle-block-1 table th span {
+  -ms-transform: skewX(36deg);
+      transform: skewX(36deg);
+  display: inline-block;
+}
