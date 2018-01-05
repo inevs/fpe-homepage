@@ -52,3 +52,37 @@
   -webkit-hyphens: auto
   -moz-hyphens: auto
   hyphens: auto
+
+@mixin horizontal-line
+  overflow: hidden
+  text-align: center
+  &:before,
+  &:after
+    background-color: $pirates-yellow
+    content: ""
+    display: inline-block
+    height: 1px
+    position: relative
+    vertical-align: middle
+    width: 50%
+  &:before
+    right: $small-spacing
+    margin-left: -50%
+  &:after
+    left: $small-spacing
+    margin-right: -50%
+  > *
+    display: inline-block
+
+@mixin salmi
+  text-transform: uppercase
+  padding: 0 $base-spacing * 2
+  margin: 0
+  line-height: 2
+  @include clip-path(polygon(10% 0,100% 0,90% 100%,0 100%))
+
+@mixin inverted-link
+  color: $pirates-blue
+  &:focus,
+  &:hover
+    color: $action-color-inverted

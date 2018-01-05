@@ -77,21 +77,17 @@ body.page-news
           @include media($medium-screen-up)
             bottom: $_hero-offset-from-bottom
           right: $base-spacing
-          text-transform: uppercase
+          @include salmi
           background-color: $pirates-yellow
-          padding: 0 $base-spacing * 2
           font-size: $_hero-base-font-size
           font-weight: 600
-          line-height: $_learn-more-height
           @include media($medium-screen-up)
             font-size: $_hero-base-font-size * 1.2
-            line-height: $_learn-more-height * 1.2
-          @include clip-path(polygon(10% 0,100% 0,90% 100%,0 100%))
           a
             color: $pirates-blue
             &:focus,
             &:hover
-              color: shade($action-color, 25%)
+              color: $action-color-inverted
 
       // Alle anderen Artikel
       $_article_base_font_size: 1.2rem
