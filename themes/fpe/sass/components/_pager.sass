@@ -3,52 +3,34 @@
   text-align: center
   padding: 1rem
 
-@include media($small-screen-up)  
-  .pager__item
-    display: inline
-  .pager__items
-    li
-      margin: 5px
-      background-color: white
-      color: $pirates-blue
-      border-style: solid
+.pager__item
+  display: inline
+.pager__items
+  li
+    margin: 5px
+    background-color: white
+    color: $pirates-blue
+    border-style: solid
+    display: inline-block
+    transform: skewX(-36deg)
+
+    span
+      transform: skewX(36deg)
       display: inline-block
-      transform: skewX(-36deg)
 
-      span
-        transform: skewX(36deg)
-        display: inline-block
+  .pager__page
+    border-color: white
+    border-width: 0.2rem 3rem
 
-    .pager__page
-      border-color: white
-      border-width: 0.2rem 3rem
+  .pager__button
+    border-color: $pirates-yellow
+    background-color: $pirates-yellow
+    border-width: 0.2rem 1.3rem
 
-    .pager__button
-      border-color: $pirates-yellow
-      background-color: $pirates-yellow
-      border-width: 0.2rem 1.3rem
-
-    a
-      color: $pirates-blue
+  a
+    color: $pirates-blue
 
 
 @include media($medium-screen-up)
   .pager__items
-    overflow: hidden
-    text-align: center
-    
-    &:before,
-    &:after
-      background-color: $pirates-yellow
-      content: ""
-      display: inline-block
-      height: 1px
-      position: relative
-      vertical-align: middle
-      width: 50%
-    &:before
-      right: 1rem
-      margin-left: -50%
-    &:after
-      left: 1rem
-      margin-right: -50%
+    @include horizontal-line
