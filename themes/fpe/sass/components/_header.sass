@@ -5,8 +5,7 @@
   background-position: left center, right center
   background-size: contain, 40%
 
-  @include media($small-screen-up)
-    height: 60px
+  height: 60px
   @include media($medium-screen-up)
     height: 150px
 
@@ -14,9 +13,8 @@
 	img
 		position: relative
 		z-index: 1
-		@include media($small-screen-up)
-			max-height: 70px
-			margin: 12px 0 -30px 10px
+		max-height: 70px
+		margin: 12px 0 -30px 10px
 		@include media($medium-screen-up)
 			max-height: 160px
 			margin: 20px 0 -30px 40px
