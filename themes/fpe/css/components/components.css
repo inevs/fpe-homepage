@@ -342,6 +342,11 @@ html {
   display: none;
 }
 
+.news-items footer {
+  margin-top: 12px;
+  margin-top: 0.75rem;
+}
+
 .news-items footer .all-news-link {
   overflow: hidden;
   text-align: center;
@@ -379,7 +384,7 @@ html {
   padding: 0 48px;
   padding: 0 3rem;
   margin: 0;
-  line-height: 150%;
+  line-height: 2;
   clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
   -webkit-clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
   -moz-clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
@@ -870,7 +875,7 @@ body.page-news .view-news .news-item:first-child .views-field-view-node {
   padding: 0 48px;
   padding: 0 3rem;
   margin: 0;
-  line-height: 150%;
+  line-height: 2;
   clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
   -webkit-clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
   -moz-clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
