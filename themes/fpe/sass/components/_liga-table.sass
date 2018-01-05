@@ -17,12 +17,32 @@
     th
       background-color: $pirates-white
       color: $pirates-blue
+      border-right: 5px solid $pirates-blue
       padding: 5px
       text-transform: uppercase
       font-size: 12px
       transform: skewX(-36deg)
+      &:nth-of-type(2)
+        width: 70%
+        padding-left: 10px
 
       span
         transform: skewX(36deg)
         display: inline-block
-        
+    
+    td.views-field-field-platz
+      font-size: 20px
+
+    td.views-field-field-image
+      display: flex
+      flex-direction: row
+      align-items: center
+
+    td
+      padding: 0
+      img
+        background-color: $pirates-white
+        width: 200px
+        height: 100px
+        @include clip-path(polygon(30% 0,100% 0,70% 100%,0 100%))
+
