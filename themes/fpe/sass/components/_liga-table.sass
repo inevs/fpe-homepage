@@ -13,17 +13,33 @@
 
   table
     margin: 0
-    
-    th
-      background-color: $pirates-white
-      color: $pirates-blue
-      border-right: 5px solid $pirates-blue
-      font-size: 12px
-      @include salmi
+    th,
+    td
       padding: 0
-      &:nth-of-type(2)
-        width: 70%
-        padding-left: $base-spacing
+    
+    thead
+      th
+        color: $pirates-blue
+        border: 0
+        font-size: 12px
+        text-transform: uppercase
+        margin-left: 5px
+        width: calc(100% + 5px)
+        span
+          display: block
+          line-height: 2
+          @include clip-path(polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%))
+          background-color: $pirates-white
+        &:first-child
+          span
+            @include clip-path(polygon(0 0, 100% 0, calc(100% - 1rem) 100%, 0 100%))
+        &:last-child
+          span
+            @include clip-path(polygon(1rem 0, 100% 0, 100% 100%, 0 100%))
+        &:nth-of-type(2)
+          width: 70%
+          span
+            padding-left: $base-spacing
     
     td.views-field-field-platz
       font-size: 20px

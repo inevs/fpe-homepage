@@ -1061,29 +1061,49 @@ body.page-news .view-news .news-item img {
   margin: 0;
 }
 
-.block-views-block-tabelle-block-1 table th {
-  background-color: #fff;
-  color: #0c2340;
-  border-right: 5px solid #0c2340;
-  font-size: 12px;
-  text-transform: uppercase;
-  padding: 0 48px;
-  padding: 0 3rem;
-  margin: 0;
-  line-height: 2;
-  -ms-transform: skewX(-36deg);
-      transform: skewX(-36deg);
+.block-views-block-tabelle-block-1 table th,
+.block-views-block-tabelle-block-1 table td {
   padding: 0;
 }
 
-.block-views-block-tabelle-block-1 table th > * {
-  display: inline-block;
-  -ms-transform: skewX(36deg);
-      transform: skewX(36deg);
+.block-views-block-tabelle-block-1 table thead th {
+  color: #0c2340;
+  border: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-left: 5px;
+  width: calc(100% + 5px);
 }
 
-.block-views-block-tabelle-block-1 table th:nth-of-type(2) {
+.block-views-block-tabelle-block-1 table thead th span {
+  display: block;
+  line-height: 2;
+  clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+  -webkit-clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+  -moz-clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+  -ms-clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+  background-color: #fff;
+}
+
+.block-views-block-tabelle-block-1 table thead th:first-child span {
+  clip-path: polygon(0 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+  -moz-clip-path: polygon(0 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+  -ms-clip-path: polygon(0 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+}
+
+.block-views-block-tabelle-block-1 table thead th:last-child span {
+  clip-path: polygon(1rem 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(1rem 0, 100% 0, 100% 100%, 0 100%);
+  -moz-clip-path: polygon(1rem 0, 100% 0, 100% 100%, 0 100%);
+  -ms-clip-path: polygon(1rem 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.block-views-block-tabelle-block-1 table thead th:nth-of-type(2) {
   width: 70%;
+}
+
+.block-views-block-tabelle-block-1 table thead th:nth-of-type(2) span {
   padding-left: 24px;
   padding-left: 1.5rem;
 }
