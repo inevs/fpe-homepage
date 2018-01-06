@@ -18,17 +18,12 @@
       background-color: $pirates-white
       color: $pirates-blue
       border-right: 5px solid $pirates-blue
-      padding: 5px
-      text-transform: uppercase
       font-size: 12px
-      transform: skewX(-36deg)
+      @include salmi
+      padding: 0
       &:nth-of-type(2)
         width: 70%
-        padding-left: 10px
-
-      span
-        transform: skewX(36deg)
-        display: inline-block
+        padding-left: $base-spacing
     
     td.views-field-field-platz
       font-size: 20px

@@ -378,17 +378,24 @@ html {
   display: inline-block;
 }
 
-.news-items footer .all-news-link a {
+.news-items footer .all-news-link > span {
   background-color: #ffd100;
   text-transform: uppercase;
   padding: 0 48px;
   padding: 0 3rem;
   margin: 0;
   line-height: 2;
-  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-  -webkit-clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-  -moz-clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-  -ms-clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+  -ms-transform: skewX(-45deg);
+      transform: skewX(-45deg);
+}
+
+.news-items footer .all-news-link > span > * {
+  display: inline-block;
+  -ms-transform: skewX(45deg);
+      transform: skewX(45deg);
+}
+
+.news-items footer .all-news-link a {
   color: #0c2340;
 }
 
@@ -876,10 +883,8 @@ body.page-news .view-news .news-item:first-child .views-field-view-node {
   padding: 0 3rem;
   margin: 0;
   line-height: 2;
-  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-  -webkit-clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-  -moz-clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-  -ms-clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+  -ms-transform: skewX(-45deg);
+      transform: skewX(-45deg);
   background-color: #ffd100;
   font-size: 16px;
   font-size: 1rem;
@@ -890,6 +895,12 @@ body.page-news .view-news .news-item:first-child .views-field-view-node {
   body.page-news .view-news .news-item:first-child .views-field-view-node {
     bottom: 3rem;
   }
+}
+
+body.page-news .view-news .news-item:first-child .views-field-view-node > * {
+  display: inline-block;
+  -ms-transform: skewX(45deg);
+      transform: skewX(45deg);
 }
 
 @media screen and (min-width: 720px) {
@@ -1070,22 +1081,27 @@ body.page-news .view-news .news-item img {
   background-color: #fff;
   color: #0c2340;
   border-right: 5px solid #0c2340;
-  padding: 5px;
-  text-transform: uppercase;
   font-size: 12px;
-  -ms-transform: skewX(-36deg);
-      transform: skewX(-36deg);
+  text-transform: uppercase;
+  padding: 0 48px;
+  padding: 0 3rem;
+  margin: 0;
+  line-height: 2;
+  -ms-transform: skewX(-45deg);
+      transform: skewX(-45deg);
+  padding: 0;
+}
+
+.block-views-block-tabelle-block-1 table th > * {
+  display: inline-block;
+  -ms-transform: skewX(45deg);
+      transform: skewX(45deg);
 }
 
 .block-views-block-tabelle-block-1 table th:nth-of-type(2) {
   width: 70%;
-  padding-left: 10px;
-}
-
-.block-views-block-tabelle-block-1 table th span {
-  -ms-transform: skewX(36deg);
-      transform: skewX(36deg);
-  display: inline-block;
+  padding-left: 24px;
+  padding-left: 1.5rem;
 }
 
 .block-views-block-tabelle-block-1 table td.views-field-field-platz {
