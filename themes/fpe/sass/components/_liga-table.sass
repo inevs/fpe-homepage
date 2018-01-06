@@ -55,15 +55,19 @@
     
     td.views-field-field-platz
       @include media($medium-screen-up)
-        font-size: 20px
+        font-size: 2rem
 
     td
       padding: 0
       height: 2rem
+      @include media($medium-screen-up)
+        font-size: $font-size-h3
       img
         @include media($small-screen-only)
           display: none
         background-color: $pirates-white
         width: 200px
         height: 100px
+        vertical-align: middle
+        margin-right: 2rem
         @include clip-path(polygon(30% 0,100% 0,70% 100%,0 100%))
