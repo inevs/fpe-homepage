@@ -507,19 +507,13 @@ html {
 }
 
 .game--layout-hero > header {
+  width: 30%;
   float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 23.23176%;
-  text-align: center;
-}
-
-.game--layout-hero > header:last-child {
-  margin-right: 0;
 }
 
 .game--layout-hero > header .game__title {
   font-weight: normal;
+  text-align: center;
   margin: 0;
   line-height: 100px;
 }
@@ -549,16 +543,10 @@ html {
 }
 
 .game--layout-hero > .content {
+  width: 70%;
   float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 74.41059%;
   font-size: 10.656px;
   font-size: 0.666rem;
-}
-
-.game--layout-hero > .content:last-child {
-  margin-right: 0;
 }
 
 @media screen and (min-width: 720px) {
@@ -569,28 +557,33 @@ html {
 
 .game--layout-hero .game__home-team,
 .game--layout-hero .game__guest-team {
+  width: 30%;
   float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 31.76157%;
-}
-
-.game--layout-hero .game__home-team:last-child,
-.game--layout-hero .game__guest-team:last-child {
-  margin-right: 0;
+  padding: 0 12px;
+  padding: 0 0.75rem;
 }
 
 .game--layout-hero .game__home-team .verein__hero,
 .game--layout-hero .game__guest-team .verein__hero {
   height: 100px;
-  clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
-  -webkit-clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
-  -moz-clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
-  -ms-clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex-align: center;
       align-items: center;
+  text-transform: uppercase;
+  padding: 0 48px;
+  padding: 0 3rem;
+  margin: 0;
+  line-height: 2;
+  -ms-transform: skewX(-45deg);
+      transform: skewX(-45deg);
+  padding: 0;
+  overflow: hidden;
+}
+
+.game--layout-hero .game__home-team .verein__hero > *,
+.game--layout-hero .game__guest-team .verein__hero > * {
+  display: inline-block;
+  -ms-transform: skewX(45deg);
+      transform: skewX(45deg);
 }
 
 .game--layout-hero .game__home-team .verein__hero a,
@@ -600,24 +593,19 @@ html {
 
 .game--layout-hero .game__home-team .verein__image img,
 .game--layout-hero .game__guest-team .verein__image img {
+  margin: -25% auto;
   display: block;
-  margin: 0 auto;
+  height: 200px;
+  max-width: unset;
 }
 
 .game--layout-hero .game__timestamp,
 .game--layout-hero .game__location {
-  padding-right: 16px;
-  padding-right: 1rem;
+  padding: 0 12px;
+  padding: 0 0.75rem;
+  width: 40%;
   float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 31.76157%;
-  margin-right: 0;
-}
-
-.game--layout-hero .game__timestamp:last-child,
-.game--layout-hero .game__location:last-child {
-  margin-right: 0;
+  text-align: right;
 }
 
 .game--layout-hero .game__timestamp {
