@@ -75,14 +75,15 @@
     display: inline-block
 
 @mixin salmi
+  $angle: 36deg
   text-transform: uppercase
   padding: 0 $base-spacing * 2
   margin: 0
   line-height: 2
-  transform: skewX(-45deg)
+  transform: skewX(-$angle)
   > *
     display: inline-block
-    transform: skewX(45deg)
+    transform: skewX($angle)
 
 @mixin inverted-link
   color: $pirates-blue
