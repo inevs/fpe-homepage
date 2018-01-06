@@ -1,7 +1,7 @@
 // Everything news list related
 $_hero-offset-from-bottom: 2 * $base-spacing
 $_hero-base-font-size: 1rem
-$_learn-more-height: 1.5 * $_hero-base-font-size
+$_learn-more-height: 2 * $_hero-base-font-size
 $_hero-padding-left: 3 * $base-spacing
 
 body.page-news
@@ -15,6 +15,7 @@ body.page-news
 
   .view-news
     @include row
+    margin: 0 $small-spacing
     .news-item
       position: relative
       margin-bottom: $base-spacing
@@ -26,8 +27,9 @@ body.page-news
 
       // Hero
       &:first-child
-        @include span-columns(1 of 1)
-        @include omega
+        width: -moz-calc(100% + 1.5rem)
+        width: calc(100% + 1.5rem)
+        margin-left: -$small-spacing
         // Hack für die News Überschrift die an der falschen Stelle im DOM hängt
         margin-bottom: $font-size-h2 + 2 * $base-spacing
         &:after
@@ -35,7 +37,7 @@ body.page-news
           position: absolute
           color: $pirates-yellow
           font-size: $font-size-h2
-          margin-top: $base-spacing
+          margin: $base-spacing 0 $small-spacing $small-spacing
           text-transform: uppercase
           
         .views-field-field-image
@@ -50,7 +52,7 @@ body.page-news
           right: 0
           bottom: $small-spacing + ($_learn-more-height * 2 / 3)
           @include media($medium-screen-up)
-            bottom: $_hero-offset-from-bottom + ($_learn-more-height * 2 / 3)
+            bottom: $_hero-offset-from-bottom + (1.2 * $_learn-more-height * 2 / 3)
           text-align: right
           padding: $small-spacing $small-spacing $small-spacing $_hero-padding-left
           max-width: 90%
@@ -84,10 +86,7 @@ body.page-news
           @include media($medium-screen-up)
             font-size: $_hero-base-font-size * 1.2
           a
-            color: $pirates-blue
-            &:focus,
-            &:hover
-              color: $action-color-inverted
+            @include inverted-link
 
       // Alle anderen Artikel
       $_article_base_font_size: 1.2rem
@@ -114,10 +113,16 @@ body.page-news
           @include span-columns(1 of 1)
         @include media($medium-screen-only)
           @include span-columns(6 of 12)
-          @include omega(2n+1)
+          &:nth-child(2n+1)
+            margin-right: 0
+          &:nth-child(2n+2)
+            clear: left
         @include media($large-screen-up)
           @include span-columns(4 of 12)
-          @include omega(3n+1)
+          &:nth-child(3n+1)
+            margin-right: 0
+          &:nth-child(3n+2)
+            clear: left
 
         .views-field-field-hero-headline
           @include right-arrow($_article_base_font_size)
