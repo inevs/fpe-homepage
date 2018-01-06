@@ -660,6 +660,34 @@ body.detail-article article.article--layout-full h1 {
   }
 }
 
+body.detail-article article.article--layout-full .article__subheadline {
+  -ms-flex-order: 2;
+      order: 2;
+  margin-left: 32px;
+  margin-left: 2rem;
+  margin-right: 32px;
+  margin-right: 2rem;
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
+}
+
+@media screen and (min-width: 720px) {
+  body.detail-article article.article--layout-full .article__subheadline {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  body.detail-article article.article--layout-full .article__subheadline {
+    width: 800px;
+  }
+}
+
 body.detail-article article.article--layout-full .submitted {
   -ms-flex-order: 3;
       order: 3;
