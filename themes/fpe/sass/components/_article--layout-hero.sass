@@ -1,6 +1,6 @@
 $font-size-title: $font-size-h2
 $font-size-title-large: 2.5rem
-$font-size-subtitle: 1rem
+$font-size-subtitle: 0.9rem
 $font-size-subtitle-large: $font-size-h3
 
 $right-padding: $small-spacing
@@ -22,6 +22,7 @@ $left-padding-h3: tan(40deg) * ($font-size-h3 + 2 * $vertical-padding-h3)
     font-size: $font-size-title
     font-weight: 800
     margin: 0
+    text-align: right
     @include media($large-screen-up)
       font-size: $font-size-title-large
     div,
@@ -37,6 +38,7 @@ $left-padding-h3: tan(40deg) * ($font-size-h3 + 2 * $vertical-padding-h3)
   h3
     font-size: $font-size-subtitle
     margin: 0
+    text-align: right
     @include media($medium-screen-up)
       margin-top: -$vertical-padding-h2
     @include media($large-screen-up)
