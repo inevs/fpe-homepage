@@ -6,6 +6,7 @@
     list-style-type: none
     display: flex
     justify-content: space-between
+    font-size: $base-font-size * 1.125
     &-item
       margin: 8px 0
       a
@@ -24,11 +25,14 @@
     .menu
       display: flex
       justify-content: flex-start
+      margin-top: 1rem
 
       .menu-item
         color: white
-        font-size: 10px
         padding: 0 0.5rem
+        font-size: $base-font-size * 0.625
+        @include media($medium-screen-up)
+          font-size: $base-font-size * 0.75
 
       a
         text-transform: uppercase

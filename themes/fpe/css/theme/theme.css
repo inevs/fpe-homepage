@@ -1,7 +1,132 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800");
 html {
   box-sizing: border-box;
 }
 
 *, *::after, *::before {
   box-sizing: inherit;
+}
+
+body {
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+  margin: 0 0 12px;
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: inherit;
+}
+
+h1 {
+  font-size: 32px;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+@media screen and (min-width: 720px) {
+  h1 {
+    font-size: 2.6rem;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 20.8px;
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 19.2px;
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 17.6px;
+  font-size: 1.1rem;
+}
+
+p {
+  margin: 0 0 12px;
+  margin: 0 0 0.75rem;
+}
+
+a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+a:active, a:focus, a:hover {
+  color: #999999;
+}
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: 24px 0;
+  margin: 1.5rem 0;
+}
+
+pre, code, tt {
+  font: 1em "andale mono", "lucida console", monospace;
+  line-height: 1.5;
+}
+
+pre {
+  background-color: #efefef;
+  display: block;
+  padding: 5px;
+  margin: 5px 0;
+  border: 1px solid #aaaaaa;
+}
+
+abbr {
+  border-bottom: 1px dotted #666666;
+  cursor: help;
+  white-space: nowrap;
+}
+
+#block-fpe-page-title h1 {
+  color: #ffd100;
+  font-size: 16px;
+  font-size: 1.0rem;
+  font-weight: 500;
+  padding: 12px;
+  padding: 0.75rem;
+}
+
+@media screen and (min-width: 720px) {
+  #block-fpe-page-title h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    padding: 1.5rem;
+  }
 }

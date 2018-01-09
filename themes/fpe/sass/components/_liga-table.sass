@@ -10,26 +10,37 @@
     @include clip-path(polygon(0 0,100% 0, 90% 100%,0 100%))
     color: $pirates-blue
     display: inline-block
-    padding: 5px 60px 5px 10px
+    padding: 8px 50px 8px 10px
+    margin-top: 1.5rem
     margin-bottom: 5px
-    font-size: 1.2rem
+    font-size: $base-font-size
     font-weight: 600
+    @include media($medium-screen-up)
+      font-size: 1.75rem
 
   table
     margin: 0
     table-layout: auto
     th,
     td
-      padding: 0      
+      padding: 0
+      height: 2rem
+      font-size: $base-font-size * 0.8125
+      @include media($medium-screen-up)
+        font-size: $base-font-size * 1.125
+    tbody tr
+      height: 3rem    
     
     thead
       th
         color: $pirates-blue
         border: 0
-        font-size: 12px
         text-transform: uppercase
         margin-left: 5px
         width: calc(100% + 5px)
+        font-size: $base-font-size * 0.6875
+        @include media($medium-screen-up)
+          font-size: $base-font-size * 0.9375
         span
           display: block
           line-height: 2
@@ -52,16 +63,13 @@
             width: 70%
           span
             padding-left: $base-spacing
-    
+        
     td.views-field-field-platz
+      font-size: $base-font-size * 0.8125
       @include media($medium-screen-up)
-        font-size: 2rem
+        font-size: $font-size-h1 * 0.875
 
     td
-      padding: 0
-      height: 2rem
-      @include media($medium-screen-up)
-        font-size: $font-size-h3
       img
         @include media($small-screen-only)
           display: none
