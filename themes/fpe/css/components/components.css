@@ -1205,3 +1205,31 @@ body.page-news .view-news .news-item img {
     display: none;
   }
 }
+
+.sponsor .view {
+  background-color: #fff;
+  padding: 24px;
+  padding: 1.5rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: space-evenly;
+      justify-content: space-evenly;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.sponsor .view img {
+  height: auto;
+  width: 160px;
+  margin: 5px;
+}
+
+@media screen and (min-width: 720px) {
+  .sponsor .view img {
+    width: 20rem;
+  }
+}
