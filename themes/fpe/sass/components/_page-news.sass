@@ -36,7 +36,9 @@ body.page-news
           content: 'News'
           position: absolute
           color: $pirates-yellow
-          font-size: $font-size-h2
+          font-size: $base-font-size
+          @include media($medium-screen-up)
+            font-size: $font-size-h2
           margin: $base-spacing 0 $small-spacing $small-spacing
           text-transform: uppercase
           
@@ -89,7 +91,7 @@ body.page-news
             @include inverted-link
 
       // Alle anderen Artikel
-      $_article_base_font_size: 1.2rem
+      $_article_base_font_size: 1.125rem
 
       &:not(:first-child)
         display: flex !important
@@ -126,7 +128,7 @@ body.page-news
 
         .views-field-field-hero-headline
           @include right-arrow($_article_base_font_size)
-          margin-top: $small-spacing
+          margin-top: 2rem
           display: flex
           h2
             font-size: $_article_base_font_size

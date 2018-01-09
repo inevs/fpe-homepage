@@ -13,6 +13,9 @@ body.detail-article
       @include centered-container
       margin-top: $base-spacing
       margin-bottom: $small-spacing
+      font-size: $base-font-size * 1.875
+      @include media($medium-screen-up)
+        font-size: $base-font-size * 3.125      
     .article__subheadline
       order: 2
       @include centered-container
@@ -25,12 +28,18 @@ body.detail-article
       color: $pirates-yellow
       font-weight: bold
       margin-bottom: $base-spacing
+      font-size: $base-font-size * 0.8125
+      @include media($medium-screen-up)
+        font-size: $base-font-size * 1.125            
       .author
         &:before
           content: '|'
         display: inline-block
     .article__body
       order: 5
+      font-size: $base-font-size * 0.8125
+      @include media($medium-screen-up)
+        font-size: $base-font-size            
       @include centered-container
     .article__tags
       order: 10
