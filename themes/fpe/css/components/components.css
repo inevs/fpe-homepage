@@ -646,31 +646,36 @@ abbr {
   display: block;
 }
 
-.game--layout-hero > header {
-  width: 30%;
-  float: left;
+@media screen and (min-width: 720px) {
+  .game--layout-hero > header {
+    width: 30%;
+    float: left;
+  }
 }
 
 .game--layout-hero > header .game__title {
   font-weight: normal;
-  text-align: center;
-  margin: 0;
-  line-height: 100px;
+  text-align: left;
+  margin-left: 10px;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 720px) {
   .game--layout-hero > header .game__title {
+    text-align: center;
     font-size: 33.33333px;
+    margin: 0;
+    line-height: 100px;
   }
 }
 
 .game--layout-hero > header .game__title:before {
-  content: 'Next';
+  content: 'Next Game';
+  font-size: 16px;
 }
 
 @media screen and (min-width: 720px) {
   .game--layout-hero > header .game__title:before {
-    content: 'Next Game';
+    font-size: 3rem;
   }
 }
 
@@ -683,10 +688,16 @@ abbr {
 }
 
 .game--layout-hero > .content {
-  width: 70%;
+  width: 100%;
   float: left;
-  font-size: 10.656px;
-  font-size: 0.666rem;
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+
+@media screen and (min-width: 720px) {
+  .game--layout-hero > .content {
+    width: 70%;
+  }
 }
 
 @media screen and (min-width: 720px) {
@@ -697,10 +708,17 @@ abbr {
 
 .game--layout-hero .game__home-team,
 .game--layout-hero .game__guest-team {
-  width: 30%;
+  width: 50%;
   float: left;
   padding: 0 12px;
   padding: 0 0.75rem;
+}
+
+@media screen and (min-width: 720px) {
+  .game--layout-hero .game__home-team,
+  .game--layout-hero .game__guest-team {
+    width: 30%;
+  }
 }
 
 .game--layout-hero .game__home-team .verein__hero,
@@ -743,14 +761,25 @@ abbr {
 .game--layout-hero .game__location {
   padding: 0 12px;
   padding: 0 0.75rem;
-  width: 40%;
-  float: left;
-  text-align: right;
+}
+
+@media screen and (min-width: 720px) {
+  .game--layout-hero .game__timestamp,
+  .game--layout-hero .game__location {
+    width: 40%;
+    float: left;
+    text-align: right;
+  }
 }
 
 .game--layout-hero .game__timestamp {
   margin-top: 24px;
   margin-top: 1.5rem;
+}
+
+.game--layout-hero .game__location {
+  padding-bottom: 16px;
+  padding-bottom: 1rem;
 }
 
 .game--layout-hero .team--layout-hero > header {

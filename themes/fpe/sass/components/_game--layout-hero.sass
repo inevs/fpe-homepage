@@ -7,34 +7,41 @@ $hero-height: 100px
 	border-bottom: 3px solid $pirates-yellow
 
 	> header
-		width: 30%
-		float: left
+		@include media($medium-screen-up)
+			width: 30%
+			float: left
 		.game__title
 			font-weight: normal
-			text-align: center
-			@include media($large-screen-up)
-				font-size: $hero-height / 3
-			margin: 0
-			line-height: $hero-height
-			&:before
-				content: 'Next'
+			text-align: left
+			margin-left: 10px
 			@include media($medium-screen-up)
-				&:before
-					content: 'Next Game'
+				text-align: center
+				font-size: $hero-height / 3
+				margin: 0
+				line-height: $hero-height
+			&:before
+				content: 'Next Game'
+				font-size: $base-font-size
+				@include media($medium-screen-up)
+					font-size: 3rem				
 			a
 				display: none
 		.submitted
 			display: none
 	> .content
-		width: 70%
+		width: 100%
+		@include media($medium-screen-up)
+			width: 70%
 		float: left
-		font-size: 0.666rem
+		font-size: 0.8125rem
 		@include media($medium-screen-up)
 			font-size: inherit
 
 	.game__home-team,
 	.game__guest-team
-		width: 30%
+		width: 50%
+		@include media($medium-screen-up)
+			width: 30%
 		float: left
 		padding: 0 $small-spacing
 		.verein__hero
@@ -54,11 +61,14 @@ $hero-height: 100px
 	.game__timestamp,
 	.game__location
 		padding: 0 $small-spacing
-		width: 40%
-		float: left
-		text-align: right
+		@include media($medium-screen-up)
+			width: 40%
+			float: left
+			text-align: right
 	.game__timestamp
 		margin-top: 1.5rem
+	.game__location
+		padding-bottom: 1rem
 
 	.team--layout-hero
 		> header
