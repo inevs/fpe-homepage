@@ -70,12 +70,34 @@
         font-size: $font-size-h1 * 0.875
 
     td
-      img
-        @include media($small-screen-only)
-          display: none
-        background-color: $pirates-white
-        width: 200px
-        height: 100px
-        vertical-align: middle
-        margin-right: 2rem
-        @include clip-path(polygon(30% 0,100% 0,70% 100%,0 100%))
+      .verein__image
+        display: none
+        @include media($medium-screen-up)
+          display: inline-block
+          @include salmi
+          padding: 0
+          margin: 0 $base-spacing 0 2.5rem
+          background-color: $pirates-white
+          width: 100px
+          overflow: hidden
+          vertical-align: middle
+          // label
+          > div:first-child
+            display: none
+          // image wrapper
+          > div:last-child
+            height: 50px
+          img
+            display: none
+            @include media($medium-screen-up)
+              width: 100px
+              height: unset
+              max-width: unset
+              display: inline
+              transform: translateY(-10%)
+            @include media($large-screen-up)
+              width: 200px
+        @include media($large-screen-up)
+          width: 200px
+          > div:last-child
+            height: 100px

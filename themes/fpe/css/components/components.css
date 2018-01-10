@@ -1386,22 +1386,65 @@ body.page-news .view-news .news-item img {
   }
 }
 
-.block-views-block-tabelle-block-1 table td img {
-  background-color: #fff;
-  width: 200px;
-  height: 100px;
-  vertical-align: middle;
-  margin-right: 32px;
-  margin-right: 2rem;
-  clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
-  -webkit-clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
-  -moz-clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
-  -ms-clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
+.block-views-block-tabelle-block-1 table td .verein__image {
+  display: none;
 }
 
-@media screen and (max-width: 719px) {
-  .block-views-block-tabelle-block-1 table td img {
+@media screen and (min-width: 720px) {
+  .block-views-block-tabelle-block-1 table td .verein__image {
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 0 3rem;
+    margin: 0;
+    line-height: 2;
+    -ms-transform: skewX(-36deg);
+        transform: skewX(-36deg);
+    padding: 0;
+    margin: 0 1.5rem 0 2.5rem;
+    background-color: #fff;
+    width: 100px;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+  .block-views-block-tabelle-block-1 table td .verein__image > * {
+    display: inline-block;
+    -ms-transform: skewX(36deg);
+        transform: skewX(36deg);
+  }
+  .block-views-block-tabelle-block-1 table td .verein__image > div:first-child {
     display: none;
+  }
+  .block-views-block-tabelle-block-1 table td .verein__image > div:last-child {
+    height: 50px;
+  }
+  .block-views-block-tabelle-block-1 table td .verein__image img {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 720px) and (min-width: 720px) {
+  .block-views-block-tabelle-block-1 table td .verein__image img {
+    width: 100px;
+    height: unset;
+    max-width: unset;
+    display: inline;
+    -ms-transform: translateY(-10%);
+        transform: translateY(-10%);
+  }
+}
+
+@media screen and (min-width: 720px) and (min-width: 960px) {
+  .block-views-block-tabelle-block-1 table td .verein__image img {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .block-views-block-tabelle-block-1 table td .verein__image {
+    width: 200px;
+  }
+  .block-views-block-tabelle-block-1 table td .verein__image > div:last-child {
+    height: 100px;
   }
 }
 
