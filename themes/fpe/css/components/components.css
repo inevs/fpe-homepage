@@ -174,13 +174,13 @@ abbr {
   list-style-type: none;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
   font-size: 18px;
 }
 
 .navigation .menu-item {
-  margin: 8px 0;
+  margin: 8px;
 }
 
 .navigation .menu-item a {
