@@ -1245,6 +1245,10 @@ body.page-news .view-news .news-item img {
 }
 
 .block-views-block-tabelle-block-1 {
+  background-image: url(../../images/optimized/pirates-head-10.svg);
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: 110% center;
   padding: 24px 0;
   padding: 1.5rem 0;
 }
