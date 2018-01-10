@@ -223,6 +223,7 @@ abbr {
 }
 
 .menu--fussbereich-user .menu li, .menu--footer .menu li {
+  margin: 0;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -1464,6 +1465,8 @@ body.page-news .view-news .news-item img {
 .block-fpe-content h2 {
   font-size: 18px;
   font-size: 1.125rem;
+  padding-top: 24px;
+  padding-top: 1.5rem;
 }
 
 .block-fpe-content p {
