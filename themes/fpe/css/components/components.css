@@ -829,11 +829,80 @@ abbr {
   }
 }
 
-.game--layout-hero {
-  display: block;
+.view-next_game .views-row {
   background-color: #fff;
   color: #0c2340;
   border-bottom: 3px solid #ffd100;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.view-next_game .views-row > div {
+  display: inline-block;
+}
+
+.view-next_game .views-row > div .next-game--label {
+  line-height: 100px;
+  font-size: 16px;
+  padding: 0 12px;
+  padding: 0 0.75rem;
+}
+
+@media screen and (min-width: 720px) {
+  .view-next_game .views-row > div .next-game--label {
+    font-size: 3rem;
+  }
+}
+
+.view-next_game .views-row > div .next-game--vs {
+  line-height: 100px;
+  padding: 0 24px;
+  padding: 0 1.5rem;
+}
+
+.view-next_game .views-row .views-field-field-timestamp {
+  text-align: right;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.view-next_game .views-row .verein__hero {
+  margin-right: 24px;
+  margin-right: 1.5rem;
+  height: 100px;
+  -ms-flex-align: center;
+      align-items: center;
+  text-transform: uppercase;
+  padding: 0 48px;
+  padding: 0 3rem;
+  margin: 0;
+  line-height: 2;
+  -ms-transform: skewX(-36deg);
+      transform: skewX(-36deg);
+  padding: 0;
+  overflow: hidden;
+}
+
+.view-next_game .views-row .verein__hero > * {
+  display: inline-block;
+  -ms-transform: skewX(36deg);
+      transform: skewX(36deg);
+}
+
+.view-next_game .views-row .verein__hero a {
+  width: 100%;
+}
+
+.view-next_game .views-row .verein__image img {
+  margin: -25% auto;
+  display: block;
+  height: 200px;
+  max-width: unset;
+}
+
+.game--layout-hero {
+  display: block;
 }
 
 .game--layout-hero::after {

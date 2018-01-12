@@ -1,10 +1,43 @@
 $hero-height: 100px
 
+.view-next_game
+	.views-row
+		background-color: $pirates-white
+		color: $pirates-blue
+		border-bottom: 3px solid $pirates-yellow
+		display: flex
+		> div
+			display: inline-block
+			.next-game--label
+				line-height: $hero-height
+				font-size: $base-font-size
+				padding: 0 $small-spacing
+				@include media($medium-screen-up)
+					font-size: 3rem				
+			.next-game--vs
+				line-height: $hero-height
+				padding: 0 $base-spacing
+		.views-field-field-timestamp
+			text-align: right
+			align-self: center
+		.verein__hero
+			margin-right: $base-spacing
+			height: $hero-height
+			align-items: center
+			@include salmi
+			padding: 0
+			overflow: hidden
+			a
+				@include fill-parent
+		.verein__image
+			img
+				margin: -25% auto
+				display: block
+				height: $hero-height * 2
+				max-width: unset
+
 .game--layout-hero
 	@include row
-	background-color: $pirates-white
-	color: $pirates-blue
-	border-bottom: 3px solid $pirates-yellow
 
 	> header
 		@include media($medium-screen-up)
