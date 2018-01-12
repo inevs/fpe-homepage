@@ -130,6 +130,12 @@ abbr {
 
 @media screen and (min-width: 720px) {
   #block-fpe-branding {
+    height: 100px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  #block-fpe-branding {
     height: 150px;
   }
 }
@@ -143,35 +149,76 @@ abbr {
 
 @media screen and (min-width: 720px) {
   .site-logo img {
+    max-height: 120px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .site-logo img {
     max-height: 160px;
     margin: 20px 0 -30px 40px;
   }
 }
 
-.navigation {
-  padding: 12px 60px 12px 260px;
+.navigation.menu--main {
+  padding: 0 24px 0 240px;
+  padding: 0 1.5rem 0 240px;
   background: #fff;
 }
 
-.navigation .menu {
+@media screen and (min-width: 720px) and (max-width: 959px) {
+  .navigation.menu--main {
+    padding-left: 140px;
+  }
+}
+
+.navigation.menu--main .menu {
   list-style-type: none;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: start;
-      justify-content: flex-start;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  line-height: 3.5;
   font-size: 18px;
-}
-
-.navigation .menu-item {
-  margin: 8px;
-}
-
-.navigation .menu-item a {
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 720px) and (max-width: 959px) {
+  .navigation.menu--main .menu {
+    font-size: 16px;
+  }
+}
+
+.navigation.menu--main .menu-item a {
   color: #0c2340;
 }
 
-.navigation .menu-item a.is-active {
+.navigation.menu--main .menu-item a.is-active, .navigation.menu--main .menu-item a:hover {
+  color: #ffd100;
+}
+
+.navigation.menu--main .menu-item > .menu {
+  display: none;
+  background-color: #fff;
+  position: absolute;
+  z-index: 1;
+  line-height: 2;
+}
+
+.navigation.menu--main .menu-item > .menu:hover {
+  display: inline-block;
+}
+
+.navigation.menu--main .menu-item > .menu .menu-item {
+  padding: 0 24px;
+  padding: 0 1.5rem;
+}
+
+.navigation.menu--main .menu-item:hover > .menu {
+  display: inline-block;
+}
+
+.navigation.menu--main .menu-item.menu-item--active-trail > a {
   color: #ffd100;
 }
 

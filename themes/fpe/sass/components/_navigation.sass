@@ -1,19 +1,41 @@
 // Navigation styles
 .navigation
-  padding: 12px 60px 12px 260px
-  background: $pirates-white
-  .menu
-    list-style-type: none
-    display: flex
-    justify-content: flex-start
-    font-size: $base-font-size * 1.125
-    &-item
-      margin: 8px
-      a
-        text-transform: uppercase
-        color: $pirates-blue
-        &.is-active
-          color: $pirates-yellow
+  &.menu--main
+    padding: 0 $base-spacing 0 240px
+    @include media($medium-screen-only)
+      padding-left: 140px
+    background: $pirates-white
+    .menu
+      list-style-type: none
+      display: flex
+      justify-content: space-between
+      line-height: 3.5
+      font-size: $base-font-size * 1.125
+      @include media($medium-screen-only)
+        font-size: $base-font-size
+      text-transform: uppercase
+      &-item
+        a
+          color: $pirates-blue
+          &.is-active,
+          &:hover
+            color: $pirates-yellow
+        > .menu
+          display: none
+          &:hover
+            display: inline-block          
+          background-color: $pirates-white
+          position: absolute
+          z-index: 1
+          line-height: 2
+          .menu-item
+            padding: 0 $base-spacing
+        &:hover
+          > .menu
+            display: inline-block
+        &.menu-item--active-trail
+          > a
+            color: $pirates-yellow
 
 .menu--fussbereich-user, .menu--footer
     background-color: $pirates-blue
