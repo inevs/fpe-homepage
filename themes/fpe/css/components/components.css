@@ -260,6 +260,10 @@ abbr {
   background-image: url(../../images/optimized/rss.svg);
 }
 
+.views-element-container .tableresponsive-toggle-columns {
+  display: none;
+}
+
 .views-element-container table {
   margin: 0;
   table-layout: auto;
@@ -277,6 +281,26 @@ abbr {
   }
 }
 
+.views-element-container table th.priority-low, .views-element-container table th.priority-medium,
+.views-element-container table td.priority-low,
+.views-element-container table td.priority-medium {
+  display: none;
+}
+
+@media screen and (min-width: 720px) {
+  .views-element-container table th.priority-medium,
+  .views-element-container table td.priority-medium {
+    display: table-cell;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .views-element-container table th.priority-low,
+  .views-element-container table td.priority-low {
+    display: table-cell;
+  }
+}
+
 .views-element-container table th span {
   padding: 0 24px;
   padding: 0 1.5rem;
@@ -285,6 +309,19 @@ abbr {
 .views-element-container table th:first-child span, .views-element-container table th:last-child span {
   padding: 0 12px;
   padding: 0 0.75rem;
+}
+
+.views-element-container table td {
+  padding: 0 8px;
+  padding: 0 0.5rem;
+}
+
+.views-element-container table td:first-child {
+  padding-left: 0;
+}
+
+.views-element-container table td:last-child {
+  padding-right: 0;
 }
 
 .views-element-container table tbody tr {

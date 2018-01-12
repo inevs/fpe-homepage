@@ -1,4 +1,6 @@
 .views-element-container
+  .tableresponsive-toggle-columns
+    display: none
   table
     margin: 0
     table-layout: auto
@@ -7,6 +9,15 @@
       font-size: $base-font-size * 0.8125
       @include media($medium-screen-up)
         font-size: $base-font-size * 1.125
+      &.priority-low,
+      &.priority-medium
+        display: none
+      @include media($medium-screen-up)
+        &.priority-medium
+          display: table-cell
+      @include media($large-screen-up)
+        &.priority-low
+          display: table-cell
     th
       span
         padding: 0 $base-spacing
@@ -14,6 +25,12 @@
       &:last-child
         span
           padding: 0 $small-spacing
+    td
+      padding: 0 0.5rem
+      &:first-child
+        padding-left: 0
+      &:last-child
+        padding-right: 0
 
     tbody tr
       height: 3rem    
