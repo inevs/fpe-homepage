@@ -191,6 +191,12 @@ abbr {
     color: #fff;
     background-color: #0c2340;
   }
+  .navigation.menu--main > ul {
+    display: none;
+  }
+  .navigation.menu--main.open > ul {
+    display: block;
+  }
   .navigation.menu--main .menu-item--expanded > a {
     background-image: url(../../images/optimized/arrow-down.svg);
     background-position: right 0.75rem top 1rem;

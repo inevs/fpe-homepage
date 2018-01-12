@@ -5,7 +5,6 @@
  * In order for this JavaScript to be loaded on pages, see the instructions in
  * the README.txt next to this file.
  */
-
 // JavaScript should be made compatible with libraries other than jQuery by
 // wrapping it with an "anonymous closure". See:
 // - https://drupal.org/node/1446420
@@ -14,13 +13,15 @@
   'use strict';
 
   // To understand behaviors, see https://www.drupal.org/node/2269515
-  Drupal.behaviors.fpe = {
+  Drupal.behaviors.fpe = {    
     attach: function (context, settings) {
 
       // Execute code once the DOM is ready. $(handler) not required
       // within Drupal.behaviors.
       $(window).on('load', function () {
         // Execute code once the window is fully loaded.
+        var $menu = $('nav.menu--main');
+        $menu.on('click', function(e) { $menu.toggleClass('open'); });
       });
 
       $(window).on('resize', function () {

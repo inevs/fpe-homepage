@@ -12,10 +12,10 @@ global:
       css/theme/print.css: { media: print }
   js:
     js/modernizr.js: {}
-  #   js/build/scripts.js: {}
-  # dependencies:
-  #   - core/drupal
-  #   - core/jquery
+    js/build/scripts.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
 
   # Uncomment the code above to load scripts.js file on all pages. This file also requires JQuery to be
   # loaded on all pages. Consider implimenting your scripts through theme libraries if you wish to

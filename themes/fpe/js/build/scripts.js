@@ -1,2 +1,2 @@
-!function(Drupal,$){"use strict";Drupal.behaviors.fpe={attach:function(context,settings){$(window).on("load",function(){}),$(window).on("resize",function(){}),$(window).on("scroll",function(){})}}}(Drupal,jQuery);
+!function(Drupal,$){"use strict";Drupal.behaviors.fpe={attach:function(context,settings){$(window).on("load",function(){var $menu=$("nav.menu--main");$menu.on("click",function(e){$menu.toggleClass("open")})}),$(window).on("resize",function(){}),$(window).on("scroll",function(){})}}}(Drupal,jQuery);
 //# sourceMappingURL=scripts.js.map
