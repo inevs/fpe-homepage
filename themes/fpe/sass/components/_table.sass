@@ -1,0 +1,45 @@
+.views-element-container
+  table
+    margin: 0
+    table-layout: auto
+    th,
+    td
+      font-size: $base-font-size * 0.8125
+      @include media($medium-screen-up)
+        font-size: $base-font-size * 1.125
+    th
+      span
+        padding: 0 $base-spacing
+      &:first-child,
+      &:last-child
+        span
+          padding: 0 $small-spacing
+
+    tbody tr
+      height: 3rem    
+    
+    thead
+      th
+        color: $pirates-blue
+        border: 0
+        text-transform: uppercase
+        margin-left: 5px
+        width: calc(100% + 5px)
+        font-size: $base-font-size * 0.6875
+        @include media($medium-screen-up)
+          font-size: $base-font-size * 0.9375
+        span
+          display: block
+          line-height: 2
+          @include clip-path(polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%))
+          background-color: $pirates-white
+        &:first-child
+          @include media($small-screen-up)
+            width: 17%
+          @include media($medium-screen-up)
+            width: 7%
+          span
+            @include clip-path(polygon(0 0, 100% 0, calc(100% - 1rem) 100%, 0 100%))
+        &:last-child
+          span
+            @include clip-path(polygon(1rem 0, 100% 0, 100% 100%, 0 100%))
