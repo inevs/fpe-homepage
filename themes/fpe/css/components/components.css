@@ -264,6 +264,9 @@ abbr {
   .navigation.menu--main .menu-item > .menu .menu-item {
     padding: 0 1.5rem;
   }
+  .navigation.menu--main .menu-item > .menu .menu-item a {
+    display: block;
+  }
   .navigation.menu--main .menu-item:hover > .menu {
     display: inline-block;
   }
