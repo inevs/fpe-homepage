@@ -52,28 +52,22 @@
       li:nth-child(2)
         flex-grow: 2
 
-      li:nth-last-child(2)
-        a
-          display: inline-block
-          content: ' '
-          background-image: url(../../images/optimized/facebook.svg)
-          background-size: 40px 40px
-          height: 40px
-          width: 40px
-          margin: -20px -5px 0 20px
-          overflow: overlay
-          color: rgba(0, 0, 0, 0)
-
+      li:nth-last-child(2),
       li:last-child
         a
           display: inline-block
           content: ' '
-          background-image: url(../../images/optimized/rss.svg)
           background-size: 40px 40px
           height: 40px
           width: 40px
-          margin-top: -20px
-          overflow: overlay
           color: rgba(0, 0, 0, 0)
+
+      li:nth-last-child(2)
+        a
+          background-image: url(../../images/optimized/facebook.svg)
+
+      li:last-child
+        a
+          background-image: url(../../images/optimized/rss.svg)
 
   

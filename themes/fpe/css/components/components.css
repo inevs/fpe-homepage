@@ -241,28 +241,23 @@ abbr {
       flex-grow: 2;
 }
 
-.menu--fussbereich-user .menu li:nth-last-child(2) a, .menu--footer .menu li:nth-last-child(2) a {
+.menu--fussbereich-user .menu li:nth-last-child(2) a,
+.menu--fussbereich-user .menu li:last-child a, .menu--footer .menu li:nth-last-child(2) a,
+.menu--footer .menu li:last-child a {
   display: inline-block;
   content: ' ';
-  background-image: url(../../images/optimized/facebook.svg);
   background-size: 40px 40px;
   height: 40px;
   width: 40px;
-  margin: -20px -5px 0 20px;
-  overflow: overlay;
   color: transparent;
 }
 
+.menu--fussbereich-user .menu li:nth-last-child(2) a, .menu--footer .menu li:nth-last-child(2) a {
+  background-image: url(../../images/optimized/facebook.svg);
+}
+
 .menu--fussbereich-user .menu li:last-child a, .menu--footer .menu li:last-child a {
-  display: inline-block;
-  content: ' ';
   background-image: url(../../images/optimized/rss.svg);
-  background-size: 40px 40px;
-  height: 40px;
-  width: 40px;
-  margin-top: -20px;
-  overflow: overlay;
-  color: transparent;
 }
 
 .site-name {
