@@ -123,7 +123,7 @@ abbr {
   background-color: #0c2340;
   background: url(../../images/optimized/header_bg_left.svg), url(../../images/optimized/pirates-logo.svg);
   background-repeat: no-repeat;
-  background-position: left center, right center;
+  background-position: -5px center, right center;
   background-size: contain, 40%;
   height: 60px;
 }
