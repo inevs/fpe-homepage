@@ -1,14 +1,18 @@
 $hero-height: 100px
 
 .view-next_game
+	.team--layout-hero
+		> header
+			display: none
+
 	.views-row
 		background-color: $pirates-white
 		color: $pirates-blue
 		text-transform: uppercase
 		border-bottom: 3px solid $pirates-yellow
+		width: 100%
 		display: table
 		table-layout: fixed
-		width: 100%
 		> *
 		  display: table-cell
 		  vertical-align: middle
@@ -30,7 +34,7 @@ $hero-height: 100px
 			width: 4rem
 		.views-field-field-timestamp
 			text-align: right
-			align-self: center
+			padding-right: $small-spacing
 		.views-field-field-team-verein-2,
 		.views-field-field-team-verein-3
 			min-width: 150px
@@ -50,42 +54,4 @@ $hero-height: 100px
 				max-width: unset
 				width: auto
 				margin-top: -$hero-height / 4
-		.views-field-field-timestamp
-			padding-right: $small-spacing
 
-	.game__home-team,
-	.game__guest-team
-		width: 50%
-		@include media($medium-screen-up)
-			width: 30%
-		float: left
-		padding: 0 $small-spacing
-		.verein__hero
-			height: $hero-height
-			align-items: center
-			@include salmi
-			padding: 0
-			overflow: hidden
-			a
-				@include fill-parent
-		.verein__image
-			img
-				margin: -25% auto
-				display: block
-				height: $hero-height * 2
-				max-width: unset
-	.game__timestamp,
-	.game__location
-		padding: 0 $small-spacing
-		@include media($medium-screen-up)
-			width: 40%
-			float: left
-			text-align: right
-	.game__timestamp
-		margin-top: 1.5rem
-	.game__location
-		padding-bottom: 1rem
-
-	.team--layout-hero
-		> header
-			display: none

@@ -829,14 +829,18 @@ abbr {
   }
 }
 
+.view-next_game .team--layout-hero > header {
+  display: none;
+}
+
 .view-next_game .views-row {
   background-color: #fff;
   color: #0c2340;
   text-transform: uppercase;
   border-bottom: 3px solid #ffd100;
+  width: 100%;
   display: table;
   table-layout: fixed;
-  width: 100%;
 }
 
 .view-next_game .views-row > * {
@@ -873,9 +877,8 @@ abbr {
 
 .view-next_game .views-row .views-field-field-timestamp {
   text-align: right;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  padding-right: 12px;
+  padding-right: 0.75rem;
 }
 
 .view-next_game .views-row .views-field-field-team-verein-2,
@@ -919,91 +922,6 @@ abbr {
   max-width: unset;
   width: auto;
   margin-top: -25px;
-}
-
-.view-next_game .views-row .views-field-field-timestamp {
-  padding-right: 12px;
-  padding-right: 0.75rem;
-}
-
-.view-next_game .game__home-team,
-.view-next_game .game__guest-team {
-  width: 50%;
-  float: left;
-  padding: 0 12px;
-  padding: 0 0.75rem;
-}
-
-@media screen and (min-width: 720px) {
-  .view-next_game .game__home-team,
-  .view-next_game .game__guest-team {
-    width: 30%;
-  }
-}
-
-.view-next_game .game__home-team .verein__hero,
-.view-next_game .game__guest-team .verein__hero {
-  height: 100px;
-  -ms-flex-align: center;
-      align-items: center;
-  text-transform: uppercase;
-  padding: 0 48px;
-  padding: 0 3rem;
-  margin: 0;
-  line-height: 2;
-  -ms-transform: skewX(-36deg);
-      transform: skewX(-36deg);
-  padding: 0;
-  overflow: hidden;
-}
-
-.view-next_game .game__home-team .verein__hero > *,
-.view-next_game .game__guest-team .verein__hero > * {
-  display: inline-block;
-  -ms-transform: skewX(36deg);
-      transform: skewX(36deg);
-}
-
-.view-next_game .game__home-team .verein__hero a,
-.view-next_game .game__guest-team .verein__hero a {
-  width: 100%;
-}
-
-.view-next_game .game__home-team .verein__image img,
-.view-next_game .game__guest-team .verein__image img {
-  margin: -25% auto;
-  display: block;
-  height: 200px;
-  max-width: unset;
-}
-
-.view-next_game .game__timestamp,
-.view-next_game .game__location {
-  padding: 0 12px;
-  padding: 0 0.75rem;
-}
-
-@media screen and (min-width: 720px) {
-  .view-next_game .game__timestamp,
-  .view-next_game .game__location {
-    width: 40%;
-    float: left;
-    text-align: right;
-  }
-}
-
-.view-next_game .game__timestamp {
-  margin-top: 24px;
-  margin-top: 1.5rem;
-}
-
-.view-next_game .game__location {
-  padding-bottom: 16px;
-  padding-bottom: 1rem;
-}
-
-.view-next_game .team--layout-hero > header {
-  display: none;
 }
 
 body.detail-article #block-fpe-page-title {
