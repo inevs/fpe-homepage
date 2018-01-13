@@ -4,71 +4,54 @@ $hero-height: 100px
 	.views-row
 		background-color: $pirates-white
 		color: $pirates-blue
+		text-transform: uppercase
 		border-bottom: 3px solid $pirates-yellow
-		display: flex
-		> div
-			display: inline-block
+		display: table
+		table-layout: fixed
+		width: 100%
+		> *
+		  display: table-cell
+		  vertical-align: middle
+
+		// next game
+		.views-field-id-1
+			text-align: center
+			width: 17rem
+			font-size: 2rem
+			@include media($large-screen-up)
+				font-size: 3rem
+				width: 24rem
 			.next-game--label
 				line-height: $hero-height
-				font-size: $base-font-size
-				padding: 0 $small-spacing
-				@include media($medium-screen-up)
-					font-size: 3rem				
-			.next-game--vs
-				line-height: $hero-height
-				padding: 0 $base-spacing
+				text-align: center
+		// vs.				
+		.views-field-id
+			padding: 0 $base-spacing
+			width: 4rem
 		.views-field-field-timestamp
 			text-align: right
 			align-self: center
+		.views-field-field-team-verein-2,
+		.views-field-field-team-verein-3
+			min-width: 150px
 		.verein__hero
-			margin-right: $base-spacing
 			height: $hero-height
-			align-items: center
 			@include salmi
 			padding: 0
 			overflow: hidden
 			a
 				@include fill-parent
 		.verein__image
+			display: flex
+			justify-content: center
 			img
-				margin: -25% auto
 				display: block
-				height: $hero-height * 2
+				height: $hero-height * 1.6
 				max-width: unset
-
-.game--layout-hero
-	@include row
-
-	> header
-		@include media($medium-screen-up)
-			width: 30%
-			float: left
-		.game__title
-			font-weight: normal
-			text-align: left
-			margin-left: 10px
-			@include media($medium-screen-up)
-				text-align: center
-				font-size: $hero-height / 3
-				margin: 0
-				line-height: $hero-height
-			&:before
-				content: 'Next Game'
-				font-size: $base-font-size
-				@include media($medium-screen-up)
-					font-size: 3rem				
-			a
-				display: none
-		.submitted
-			display: none
-	> .content
-		width: 100%
-		@include media($medium-screen-up)
-			width: 70%
-		float: left
-		font-size: 0.8125rem
-		@include media($medium-screen-up)
-			font-size: inherit
+				width: auto
+				margin-top: -$hero-height / 4
+		.views-field-field-timestamp
+			padding-right: $small-spacing
 
 	.game__home-team,
 	.game__guest-team

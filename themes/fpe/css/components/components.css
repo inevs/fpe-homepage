@@ -259,7 +259,7 @@ abbr {
     line-height: 2;
   }
   .navigation.menu--main .menu-item > .menu:hover {
-    display: inline-block;
+    display: block;
   }
   .navigation.menu--main .menu-item > .menu .menu-item {
     padding: 0 1.5rem;
@@ -268,7 +268,7 @@ abbr {
     display: block;
   }
   .navigation.menu--main .menu-item:hover > .menu {
-    display: inline-block;
+    display: block;
   }
 }
 
@@ -832,32 +832,43 @@ abbr {
 .view-next_game .views-row {
   background-color: #fff;
   color: #0c2340;
+  text-transform: uppercase;
   border-bottom: 3px solid #ffd100;
-  display: -ms-flexbox;
-  display: flex;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
 }
 
-.view-next_game .views-row > div {
-  display: inline-block;
+.view-next_game .views-row > * {
+  display: table-cell;
+  vertical-align: middle;
 }
 
-.view-next_game .views-row > div .next-game--label {
-  line-height: 100px;
-  font-size: 16px;
-  padding: 0 12px;
-  padding: 0 0.75rem;
+.view-next_game .views-row .views-field-id-1 {
+  text-align: center;
+  width: 272px;
+  width: 17rem;
+  font-size: 32px;
+  font-size: 2rem;
 }
 
-@media screen and (min-width: 720px) {
-  .view-next_game .views-row > div .next-game--label {
+@media screen and (min-width: 960px) {
+  .view-next_game .views-row .views-field-id-1 {
     font-size: 3rem;
+    width: 24rem;
   }
 }
 
-.view-next_game .views-row > div .next-game--vs {
+.view-next_game .views-row .views-field-id-1 .next-game--label {
   line-height: 100px;
+  text-align: center;
+}
+
+.view-next_game .views-row .views-field-id {
   padding: 0 24px;
   padding: 0 1.5rem;
+  width: 64px;
+  width: 4rem;
 }
 
 .view-next_game .views-row .views-field-field-timestamp {
@@ -867,12 +878,13 @@ abbr {
       align-self: center;
 }
 
+.view-next_game .views-row .views-field-field-team-verein-2,
+.view-next_game .views-row .views-field-field-team-verein-3 {
+  min-width: 150px;
+}
+
 .view-next_game .views-row .verein__hero {
-  margin-right: 24px;
-  margin-right: 1.5rem;
   height: 100px;
-  -ms-flex-align: center;
-      align-items: center;
   text-transform: uppercase;
   padding: 0 48px;
   padding: 0 3rem;
@@ -894,85 +906,28 @@ abbr {
   width: 100%;
 }
 
+.view-next_game .views-row .verein__image {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+
 .view-next_game .views-row .verein__image img {
-  margin: -25% auto;
   display: block;
-  height: 200px;
+  height: 160px;
   max-width: unset;
+  width: auto;
+  margin-top: -25px;
 }
 
-.game--layout-hero {
-  display: block;
+.view-next_game .views-row .views-field-field-timestamp {
+  padding-right: 12px;
+  padding-right: 0.75rem;
 }
 
-.game--layout-hero::after {
-  clear: both;
-  content: "";
-  display: block;
-}
-
-@media screen and (min-width: 720px) {
-  .game--layout-hero > header {
-    width: 30%;
-    float: left;
-  }
-}
-
-.game--layout-hero > header .game__title {
-  font-weight: normal;
-  text-align: left;
-  margin-left: 10px;
-}
-
-@media screen and (min-width: 720px) {
-  .game--layout-hero > header .game__title {
-    text-align: center;
-    font-size: 33.33333px;
-    margin: 0;
-    line-height: 100px;
-  }
-}
-
-.game--layout-hero > header .game__title:before {
-  content: 'Next Game';
-  font-size: 16px;
-}
-
-@media screen and (min-width: 720px) {
-  .game--layout-hero > header .game__title:before {
-    font-size: 3rem;
-  }
-}
-
-.game--layout-hero > header .game__title a {
-  display: none;
-}
-
-.game--layout-hero > header .submitted {
-  display: none;
-}
-
-.game--layout-hero > .content {
-  width: 100%;
-  float: left;
-  font-size: 13px;
-  font-size: 0.8125rem;
-}
-
-@media screen and (min-width: 720px) {
-  .game--layout-hero > .content {
-    width: 70%;
-  }
-}
-
-@media screen and (min-width: 720px) {
-  .game--layout-hero > .content {
-    font-size: inherit;
-  }
-}
-
-.game--layout-hero .game__home-team,
-.game--layout-hero .game__guest-team {
+.view-next_game .game__home-team,
+.view-next_game .game__guest-team {
   width: 50%;
   float: left;
   padding: 0 12px;
@@ -980,14 +935,14 @@ abbr {
 }
 
 @media screen and (min-width: 720px) {
-  .game--layout-hero .game__home-team,
-  .game--layout-hero .game__guest-team {
+  .view-next_game .game__home-team,
+  .view-next_game .game__guest-team {
     width: 30%;
   }
 }
 
-.game--layout-hero .game__home-team .verein__hero,
-.game--layout-hero .game__guest-team .verein__hero {
+.view-next_game .game__home-team .verein__hero,
+.view-next_game .game__guest-team .verein__hero {
   height: 100px;
   -ms-flex-align: center;
       align-items: center;
@@ -1002,52 +957,52 @@ abbr {
   overflow: hidden;
 }
 
-.game--layout-hero .game__home-team .verein__hero > *,
-.game--layout-hero .game__guest-team .verein__hero > * {
+.view-next_game .game__home-team .verein__hero > *,
+.view-next_game .game__guest-team .verein__hero > * {
   display: inline-block;
   -ms-transform: skewX(36deg);
       transform: skewX(36deg);
 }
 
-.game--layout-hero .game__home-team .verein__hero a,
-.game--layout-hero .game__guest-team .verein__hero a {
+.view-next_game .game__home-team .verein__hero a,
+.view-next_game .game__guest-team .verein__hero a {
   width: 100%;
 }
 
-.game--layout-hero .game__home-team .verein__image img,
-.game--layout-hero .game__guest-team .verein__image img {
+.view-next_game .game__home-team .verein__image img,
+.view-next_game .game__guest-team .verein__image img {
   margin: -25% auto;
   display: block;
   height: 200px;
   max-width: unset;
 }
 
-.game--layout-hero .game__timestamp,
-.game--layout-hero .game__location {
+.view-next_game .game__timestamp,
+.view-next_game .game__location {
   padding: 0 12px;
   padding: 0 0.75rem;
 }
 
 @media screen and (min-width: 720px) {
-  .game--layout-hero .game__timestamp,
-  .game--layout-hero .game__location {
+  .view-next_game .game__timestamp,
+  .view-next_game .game__location {
     width: 40%;
     float: left;
     text-align: right;
   }
 }
 
-.game--layout-hero .game__timestamp {
+.view-next_game .game__timestamp {
   margin-top: 24px;
   margin-top: 1.5rem;
 }
 
-.game--layout-hero .game__location {
+.view-next_game .game__location {
   padding-bottom: 16px;
   padding-bottom: 1rem;
 }
 
-.game--layout-hero .team--layout-hero > header {
+.view-next_game .team--layout-hero > header {
   display: none;
 }
 
