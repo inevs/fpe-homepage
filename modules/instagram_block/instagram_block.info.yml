@@ -1,0 +1,15 @@
+name: Instagram Block
+type: module
+description: 'Creates a block that displays images from instagram.'
+package: Social
+# core: 8.x
+dependencies:
+  - block
+configure: instagram_block.admin
+
+
+# Information added by Drupal.org packaging script on 2016-09-08
+version: '8.x-2.0-beta1'
+core: '8.x'
+project: 'instagram_block'
+datestamp: 1473325140

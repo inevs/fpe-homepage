@@ -1,0 +1,7 @@
+instagram_block.admin:
+  path: '/admin/config/content/instagram_block'
+  defaults:
+    _form: 'Drupal\instagram_block\Form\InstagramBlockConfigForm'
+    _title: 'Configure Instagram Account'
+  requirements:
+    _permission: 'administer site configuration+administer instagram block'

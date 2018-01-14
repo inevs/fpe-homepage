@@ -1,0 +1,5 @@
+instagram_block.admin:
+  title: 'Instagram Block'
+  description: 'Configuration page for Instagram Block.'
+  parent: system.admin_config_content
+  route_name: instagram_block.admin

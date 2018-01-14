@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * The module file for instagram_block module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function instagram_block_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.instagram_block':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The Instagram Block module a is a very simple module that integrates with Instagram and creates a block containing your most recent Instagram posts. The block\'s configuration page lets you choose how many posts and what size they should appear in the block. The images are individually exposed to the drupal theme layer, so developers have access to an all of the variables provided by the Instagram api should they choose to extent the block. For more information, see the <a href=":online">online documentation</a> for the Instagram Block module.', [':online' => 'https://www.drupal.org/node/2727025']) . '</p>';
+      $output .= '<h3>' . t('Uses') . '</h3>';
+      $output .= '<dl>';
+      $output .= '<dd>' . t('To begin using Instagram Block there are 2 things that need configuring, the connection to instagram and the settings for the block. For step by step instructions see the <a href=":online">online documentation</a> for the Instagram Block module.', [':online' => 'https://www.drupal.org/node/2727025']) . '</dd>';
+      $output .= '<dt>' . t('Connecting to Instagram') . '</dt>';
+      $output .= '<dd>' . t('Instagram Block requires connecting to a specific Instagram account. You need to be able to log into that account when asked to. The <a href="!help">Authenticate with Instagram</a> page helps with the setup.', array('!help' => 'https://www.drupal.org/node/2746185')) . '</dd>';
+      $output .= '<dt>' . t('Configuring block settings') . '</dt>';
+      $output .= '<dd>' . t('The Instagram Block can be placed in any region at the <a href=":manage_blocks">Manage Blocks</a> page and provides for configuration of an Instagram block in a similar way to those of other blocks on your site.  This page makes it easy for you to configure the size and number of images that you want to show from your Instagram account.', [':manage_blocks' => Url::fromRoute('block.admin_display')->toString()]) . '</dd>';
+      $output .= '</dl>';
+      return ['#markup' => $output];
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function instagram_block_theme() {
+  return array(
+    'instagram_block_image' => array(
+      'variables' => [
+        'data' => NULL,
+        'height' => NULL,
+        'width' => NULL,
+        'src' => NULL,
+        'href' => NULL,
+      ],
+      'template' => 'instagram-block-image',
+    ),
+  );
+}

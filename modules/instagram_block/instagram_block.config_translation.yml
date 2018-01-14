@@ -1,0 +1,5 @@
+instagram_block.settings:
+  title: 'Instagram Block'
+  base_route_name: instagram_block.admin
+  names:
+    - instagram_block.settings

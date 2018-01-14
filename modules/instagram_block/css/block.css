@@ -1,0 +1,14 @@
+/**
+ * @file
+ * Default theme css for Instagram block image.
+ */
+
+.block-instagram-block .content {
+  display: inline-block;
+}
+
+.block-instagram-block img {
+  float: left;
+  display: inline-block;
+  margin: 0 5px 5px 0px;
+}

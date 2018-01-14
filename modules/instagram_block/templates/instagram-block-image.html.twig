@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Default theme implementation of an Instagram image link.
+ *
+ * Available variables:
+ * - data: The entire data array returned from the Instagram API request.
+ * - href: The url to the Instagram post page.
+ * - src: The source url to the instagram image.
+ * - width: The display width of the image.
+ * - height: The display height of the image.
+ *
+ * @ingroup themeable
+ */
+#}
+{% spaceless %}
+    <a class="group" target="_blank" data-instagram-rel="1" href="{{ href }}">
+        <img alt="{{ data.caption.text }}" height="{{ height }}px" width="{{ width }}px" src="{{ src }}">
+    </a>
+{% endspaceless %}

@@ -1,0 +1,30 @@
+instagram_block.settings:
+  type: config_object
+  label: 'Instagram Block Settings'
+  mapping:
+    access_token:
+      type: label
+      label: 'Access Token'
+
+block.settings.instagram_block_block:
+  type: block_settings
+  label: 'Instagram Block Block Settings'
+  mapping:
+    user_id:
+      type: label
+      label: 'User ID'
+    count:
+      type: integer
+      label: 'Number of images to display'
+    width:
+      type: integer
+      label: 'Image width in pixels'
+    height:
+      type: integer
+      label: 'Image height in pixels'
+    img_resolution:
+      type: string
+      label: 'Image resolution'
+    cache_time_minutes:
+      type: integer
+      label: 'Cache time in minutes'

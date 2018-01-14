@@ -1,0 +1,25 @@
+uuid: ec83d3c6-8578-452f-82e3-835c27368b60
+langcode: en
+status: true
+dependencies:
+  module:
+    - instagram_block
+  theme:
+    - bartik
+id: testuseridmove
+theme: bartik
+region: header
+weight: null
+provider: null
+plugin: instagram_block_block
+settings:
+  id: instagram_block_block
+  label: 'Instagram block'
+  provider: instagram_block
+  label_display: visible
+  count: '4'
+  width: '150'
+  height: '150'
+  img_resolution: thumbnail
+  cache_time_minutes: '1440'
+visibility: {  }
