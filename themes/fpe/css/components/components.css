@@ -556,11 +556,6 @@ abbr {
   }
 }
 
-.news-items {
-  margin: 0 12px;
-  margin: 0 0.75rem;
-}
-
 @media screen and (min-width: 720px) {
   .news-items .view-unformatted {
     display: -ms-flexbox;
@@ -980,7 +975,11 @@ abbr {
   }
 }
 
-body.detail-article #block-fpe-page-title {
+body.detail-article .block-fpe-content {
+  padding: 0;
+}
+
+body.detail-article .block-fpe-page-title {
   display: none;
 }
 
@@ -1151,6 +1150,10 @@ body.detail-article article.article--layout-full .article__tags {
   body.detail-article article.article--layout-full .article__tags {
     width: 800px;
   }
+}
+
+body.page-news .block-fpe-content {
+  padding: 0;
 }
 
 body.page-news .block-fpe-page-title {
