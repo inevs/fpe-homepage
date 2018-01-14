@@ -837,83 +837,21 @@ abbr {
   background-color: #fff;
   color: #0c2340;
   text-transform: uppercase;
+  line-height: 2;
   border-bottom: 3px solid #ffd100;
-  width: 100%;
-  display: table;
-  table-layout: fixed;
-}
-
-.view-next_game .views-row > * {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.view-next_game .views-row .views-field-id-1 {
-  text-align: center;
-  width: 272px;
-  width: 17rem;
-  font-size: 32px;
-  font-size: 2rem;
-}
-
-@media screen and (min-width: 960px) {
-  .view-next_game .views-row .views-field-id-1 {
-    font-size: 3rem;
-    width: 24rem;
-  }
-}
-
-.view-next_game .views-row .views-field-id-1 .next-game--label {
-  line-height: 100px;
-  text-align: center;
-}
-
-.view-next_game .views-row .views-field-id {
-  padding: 0 24px;
-  padding: 0 1.5rem;
-  width: 64px;
-  width: 4rem;
-}
-
-.view-next_game .views-row .views-field-field-timestamp {
-  text-align: right;
-  padding-right: 12px;
-  padding-right: 0.75rem;
-}
-
-.view-next_game .views-row .views-field-field-team-verein-2,
-.view-next_game .views-row .views-field-field-team-verein-3 {
-  min-width: 150px;
 }
 
 .view-next_game .views-row .verein__hero {
+  display: -ms-flexbox;
+  display: flex;
   height: 100px;
-  text-transform: uppercase;
-  padding: 0 48px;
-  padding: 0 3rem;
-  margin: 0;
-  line-height: 2;
-  -ms-transform: skewX(-36deg);
-      transform: skewX(-36deg);
   padding: 0;
   overflow: hidden;
-}
-
-.view-next_game .views-row .verein__hero > * {
-  display: inline-block;
-  -ms-transform: skewX(36deg);
-      transform: skewX(36deg);
-}
-
-.view-next_game .views-row .verein__hero a {
-  width: 100%;
 }
 
 .view-next_game .views-row .verein__image {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: center;
-      justify-content: center;
 }
 
 .view-next_game .views-row .verein__image img {
@@ -922,6 +860,124 @@ abbr {
   max-width: unset;
   width: auto;
   margin-top: -25px;
+}
+
+@media screen and (min-width: 720px) {
+  .view-next_game .views-row {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+  }
+  .view-next_game .views-row > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .view-next_game .views-row .views-field-id-1 {
+    text-align: center;
+    width: 17rem;
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 720px) and (min-width: 960px) {
+  .view-next_game .views-row .views-field-id-1 {
+    font-size: 3rem;
+    width: 24rem;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .view-next_game .views-row .views-field-id-1 .next-game--label {
+    line-height: 100px;
+    text-align: center;
+  }
+  .view-next_game .views-row .views-field-id {
+    padding: 0 1.5rem;
+    width: 4rem;
+  }
+  .view-next_game .views-row .views-field-field-timestamp {
+    text-align: right;
+    padding-right: 0.75rem;
+  }
+  .view-next_game .views-row .views-field-field-team-verein-2,
+  .view-next_game .views-row .views-field-field-team-verein-3 {
+    min-width: 150px;
+  }
+  .view-next_game .views-row .verein__hero {
+    text-transform: uppercase;
+    padding: 0 3rem;
+    margin: 0;
+    line-height: 2;
+    -ms-transform: skewX(-36deg);
+        transform: skewX(-36deg);
+    -ms-flex-pack: center;
+        justify-content: center;
+  }
+  .view-next_game .views-row .verein__hero > * {
+    display: inline-block;
+    -ms-transform: skewX(36deg);
+        transform: skewX(36deg);
+  }
+}
+
+@media screen and (max-width: 719px) {
+  .view-next_game .views-row {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+  }
+  .view-next_game .views-row .views-field-id-1 {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    font-size: 1.5rem;
+  }
+  .view-next_game .views-row .views-field-id-1 .next-game--label {
+    padding-left: 0.75rem;
+  }
+  .view-next_game .views-row .views-field-field-team-verein-2,
+  .view-next_game .views-row .views-field-field-team-verein-3 {
+    display: inline-block;
+    width: 50%;
+    height: 100px;
+    overflow: hidden;
+  }
+  .view-next_game .views-row .views-field-id {
+    display: none;
+  }
+  .view-next_game .views-row .views-field-field-timestamp {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+  }
+  .view-next_game .views-row .views-field-field-timestamp .next-game--time-and-location {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+  }
+  .view-next_game .views-row .views-field-field-timestamp .next-game--time-and-location > div:first-child {
+    padding-left: 0.75rem;
+  }
+  .view-next_game .views-row .views-field-field-timestamp .next-game--time-and-location > div:last-child {
+    padding-right: 0.75rem;
+  }
+  .view-next_game .views-row .views-field-field-team-verein-2 {
+    clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+    -moz-clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+    -ms-clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+  }
+  .view-next_game .views-row .views-field-field-team-verein-3 {
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+    -moz-clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+    -ms-clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .view-next_game .views-row .views-field-field-team-verein-3 .verein__hero {
+    -ms-flex-pack: end;
+        justify-content: flex-end;
+  }
 }
 
 body.detail-article #block-fpe-page-title {
@@ -1609,8 +1665,6 @@ body.page-news .view-news .news-item img {
 .block-fpe-content h2 {
   font-size: 18px;
   font-size: 1.125rem;
-  padding-top: 24px;
-  padding-top: 1.5rem;
 }
 
 .block-fpe-content p {
@@ -1622,6 +1676,4 @@ body.page-news .view-news .news-item img {
 .block-fpe-content h3 {
   font-size: 18px;
   font-size: 1.125rem;
-  padding-top: 24px;
-  padding-top: 1.5rem;
 }

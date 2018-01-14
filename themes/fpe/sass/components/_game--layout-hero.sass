@@ -9,45 +9,17 @@ $hero-height: 100px
 		background-color: $pirates-white
 		color: $pirates-blue
 		text-transform: uppercase
+		line-height: 2
 		border-bottom: 3px solid $pirates-yellow
-		width: 100%
-		display: table
-		table-layout: fixed
-		> *
-		  display: table-cell
-		  vertical-align: middle
 
-		// next game
-		.views-field-id-1
-			text-align: center
-			width: 17rem
-			font-size: 2rem
-			@include media($large-screen-up)
-				font-size: 3rem
-				width: 24rem
-			.next-game--label
-				line-height: $hero-height
-				text-align: center
-		// vs.				
-		.views-field-id
-			padding: 0 $base-spacing
-			width: 4rem
-		.views-field-field-timestamp
-			text-align: right
-			padding-right: $small-spacing
-		.views-field-field-team-verein-2,
-		.views-field-field-team-verein-3
-			min-width: 150px
 		.verein__hero
+			display: flex
 			height: $hero-height
-			@include salmi
 			padding: 0
 			overflow: hidden
-			a
-				@include fill-parent
+
 		.verein__image
 			display: flex
-			justify-content: center
 			img
 				display: block
 				height: $hero-height * 1.6
@@ -55,3 +27,70 @@ $hero-height: 100px
 				width: auto
 				margin-top: -$hero-height / 4
 
+		@include media($medium-screen-up)
+			width: 100%
+			display: table
+			table-layout: fixed
+			> *
+			  display: table-cell
+			  vertical-align: middle
+
+			// next game
+			.views-field-id-1
+				text-align: center
+				width: 17rem
+				font-size: 2rem
+				@include media($large-screen-up)
+					font-size: 3rem
+					width: 24rem
+				.next-game--label
+					line-height: $hero-height
+					text-align: center
+			// vs.				
+			.views-field-id
+				padding: 0 $base-spacing
+				width: 4rem
+			.views-field-field-timestamp
+				text-align: right
+				padding-right: $small-spacing
+			.views-field-field-team-verein-2,
+			.views-field-field-team-verein-3
+				min-width: 150px
+			.verein__hero
+				@include salmi
+				justify-content: center
+
+		@include media($small-screen-only)
+			display: flex
+			width: 100%
+			flex-flow: row wrap
+
+			.views-field-id-1
+				flex: 0 0 100%
+				font-size: 1.5rem
+				.next-game--label
+					padding-left: $small-spacing
+			.views-field-field-team-verein-2,
+			.views-field-field-team-verein-3
+				display: inline-block
+				width: 50%
+				height: $hero-height
+				overflow: hidden
+			.views-field-id
+				display: none
+			.views-field-field-timestamp
+				flex: 0 0 100%
+				.next-game--time-and-location
+					display: flex
+					justify-content: space-between
+					> div
+						&:first-child
+							padding-left: $small-spacing
+						&:last-child
+							padding-right: $small-spacing
+			.views-field-field-team-verein-2
+				@include clip-path(polygon(0 0,100% 0,70% 100%,0 100%))
+			.views-field-field-team-verein-3
+				@include clip-path(polygon(30% 0,100% 0,100% 100%,0 100%))
+				.verein__hero
+					justify-content: flex-end
