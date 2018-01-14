@@ -736,6 +736,21 @@ abbr {
   position: relative;
 }
 
+@media screen and (max-width: 719px) {
+  .article.article--layout-hero .article__image {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    overflow: hidden;
+  }
+  .article.article--layout-hero .article__image img {
+    height: 300px;
+    max-width: unset;
+    width: auto;
+  }
+}
+
 .article.article--layout-hero header {
   position: absolute;
   right: 0;
@@ -1163,7 +1178,8 @@ body.page-news .block-fpe-page-title {
 body.page-news .image-hero {
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 42.85714%;
+  background-position: center top;
+  height: 300px;
 }
 
 body.page-news .view-news {

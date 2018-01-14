@@ -11,6 +11,17 @@ $left-padding-h3: tan(40deg) * ($font-size-h3 + 2 * $vertical-padding-h3)
 
 .article.article--layout-hero
   position: relative
+
+  @include media($small-screen-only)
+    .article__image
+      display: flex
+      justify-content: center
+      overflow: hidden
+      img
+        height: 300px
+        max-width: unset
+        width: auto
+
   header
     position: absolute
     right: 0
