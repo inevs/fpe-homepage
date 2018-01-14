@@ -1,0 +1,25 @@
+body.detail-team
+  .block-fpe-content
+    padding: 0
+  .block-fpe-page-title
+    display: none
+
+  article.team--layout-full
+    display: flex
+    flex-direction: column
+    .team__image
+      order: 0
+    h1
+      order: 1
+      @include centered-container
+      margin-top: $base-spacing
+      margin-bottom: $small-spacing
+      font-size: $base-font-size * 1.875
+      @include media($medium-screen-up)
+        font-size: $base-font-size * 3.125      
+    .team__body
+      order: 5
+      font-size: $base-font-size * 0.8125
+      @include media($medium-screen-up)
+        font-size: $base-font-size            
+      @include centered-container
