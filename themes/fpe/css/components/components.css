@@ -182,7 +182,7 @@ abbr {
     background-size: 1rem;
     content: 'Menü';
     text-align: right;
-    padding: 0.75rem 2.5rem;
+    padding: 0 2.5rem;
   }
   .navigation.menu--main a {
     display: block;
