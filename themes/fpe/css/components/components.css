@@ -1791,3 +1791,52 @@ body.page-news .view-news .news-item img {
   font-size: 18px;
   font-size: 1.125rem;
 }
+
+.block-instagram-block {
+  margin: 24px 12px;
+  margin: 1.5rem 0.75rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+}
+
+.block-instagram-block h2 {
+  -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+  -ms-flex-order: 2;
+      order: 2;
+  color: transparent;
+  background: url(../../images/optimized/instagram_logo.svg) center top no-repeat;
+  background-size: 100px;
+}
+
+.block-instagram-block a {
+  -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+  -ms-flex-positive: 2;
+      flex-grow: 2;
+  -ms-flex-order: 1;
+      order: 1;
+}
+
+.block-instagram-block a:nth-child(2n-1) {
+  padding-right: 12px;
+  padding-right: 0.75rem;
+}
+
+@media screen and (min-width: 720px) {
+  .block-instagram-block a {
+    -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+    padding-right: 0.75rem;
+  }
+  .block-instagram-block a:last-child {
+    padding-right: 0;
+  }
+}
+
+.block-instagram-block a img {
+  float: none;
+  margin: 0;
+}

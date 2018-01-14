@@ -1,0 +1,28 @@
+.block-instagram-block
+	margin: $base-spacing $small-spacing
+	display: flex
+	flex-flow: row wrap
+
+
+	h2
+		flex: 0 0 100%
+		order: 2
+		color: transparent
+		background: url(../../images/optimized/instagram_logo.svg) center top no-repeat
+		background-size: 100px
+
+	a
+		flex: 0 0 50%
+		flex-grow: 2
+		order: 1
+		&:nth-child(2n-1)
+			padding-right: $small-spacing
+		@include media($medium-screen-up)
+			flex: 0 0 25%
+			padding-right: $small-spacing
+			&:last-child
+				padding-right: 0
+		img
+			float: none
+			margin: 0
+
