@@ -609,13 +609,17 @@ abbr {
   display: flex;
   -ms-flex-direction: column-reverse;
       flex-direction: column-reverse;
-  margin-right: 12px;
-  margin-right: 0.75rem;
   margin-bottom: 32px;
   margin-bottom: 2rem;
   height: 100%;
   -ms-flex-pack: justify;
       justify-content: space-between;
+}
+
+@media screen and (min-width: 720px) {
+  .news-items article {
+    margin-right: 0.75rem;
+  }
 }
 
 .news-items article header {
@@ -1739,11 +1743,12 @@ body.page-news .view-news .news-item img {
 
 #block-fpe-page-title h1 {
   color: #ffd100;
-  font-size: 16px;
-  font-size: 1.0rem;
+  font-size: 19.2px;
+  font-size: 1.2rem;
   font-weight: 500;
   padding: 12px;
   padding: 0.75rem;
+  margin: 0;
 }
 
 @media screen and (min-width: 720px) {

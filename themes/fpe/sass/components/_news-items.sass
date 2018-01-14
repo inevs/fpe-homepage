@@ -30,7 +30,8 @@
   article
     display: flex
     flex-direction: column-reverse
-    margin-right: $small-spacing
+    @include media($medium-screen-up)
+      margin-right: $small-spacing
     margin-bottom: 2rem
     height: 100%
     justify-content: space-between
