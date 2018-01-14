@@ -1267,7 +1267,13 @@ body.page-news .image-hero {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
-  height: 300px;
+  padding-top: 300px;
+}
+
+@media screen and (min-width: 720px) {
+  body.page-news .image-hero {
+    padding-top: 42.85714%;
+  }
 }
 
 body.page-news .view-news {

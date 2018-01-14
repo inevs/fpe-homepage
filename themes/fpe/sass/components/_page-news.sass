@@ -14,7 +14,9 @@ body.page-news
     background-repeat: no-repeat
     background-size: cover
     background-position: center top
-    height: 300px
+    padding-top: 300px
+    @include media($medium-screen-up)
+      padding-top: percentage(9 / 21)
 
   .view-news
     @include row
