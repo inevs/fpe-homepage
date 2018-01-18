@@ -1,23 +1,24 @@
-#block-fpe-page-title
-  h1
-    color: $pirates-yellow
-    font-size: 1.2rem
-    font-weight: 500
-    padding: $small-spacing
-    margin: 0
-    @include media($medium-screen-up)
-      font-size: 1.75rem
-      font-weight: 600
-      padding: $base-spacing
-
-.block-fpe-content
-  padding: 0 $small-spacing
-  @include media($medium-screen-up)
-    padding: 0 $base-spacing
-  h2
-    font-size: 1.125rem
-  p
-    margin-bottom: 0
-    padding-bottom: $small-spacing
-  h3
-    font-size: 1.125rem
+body.detail-page
+  .block-fpe-content
+    padding: 0
+  .block-fpe-page-title
+    display: none
+  .page--layout-full
+    display: flex
+    flex-direction: column
+    .article__image
+      order: 0
+    h1
+      order: 1
+      @include centered-container
+      margin-top: $base-spacing
+      margin-bottom: $small-spacing
+      font-size: $base-font-size * 1.875
+      @include media($medium-screen-up)
+        font-size: $base-font-size * 3.125      
+    .page__body
+      order: 2
+      font-size: $base-font-size * 0.8125
+      @include media($medium-screen-up)
+        font-size: $base-font-size            
+      @include centered-container
