@@ -673,12 +673,9 @@ abbr {
   display: none;
 }
 
-footer {
-  margin-top: 12px;
-  margin-top: 0.75rem;
-}
-
 footer .all-news-link {
+  padding-top: 12px;
+  padding-top: 0.75rem;
   padding-bottom: 48px;
   padding-bottom: 3rem;
   overflow: hidden;
@@ -1832,8 +1829,8 @@ body.detail-page .page--layout-full .page__body {
 }
 
 .block-instagram-block {
-  margin: 24px 12px;
-  margin: 1.5rem 0.75rem;
+  margin: 24px 12px 0;
+  margin: 1.5rem 0.75rem 0;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: row wrap;
