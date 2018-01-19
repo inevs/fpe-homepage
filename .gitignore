@@ -7,3 +7,4 @@ sites/*/files/css
 sites/*/files/js
 sites/*/files/styles
 .DS_Store
+.idea

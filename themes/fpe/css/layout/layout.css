@@ -126,3 +126,7 @@ abbr {
   content: "";
   display: block;
 }
+
+.layout-container {
+    background: #efefef;
+}

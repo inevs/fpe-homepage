@@ -4,14 +4,13 @@
     background: $pirates-white
     text-transform: uppercase
     color: $pirates-blue
+    text-align: center
     a
       color: $pirates-blue
 
     // mobile
     @include media($small-screen-only)
       line-height: 2
-      font-size: 
-      text-align: center
       &:before
         display: block
         background: url(../../images/optimized/menu.svg) right $small-spacing center no-repeat
@@ -50,10 +49,6 @@
       padding: 0 $base-spacing 0 240px
       @include media($medium-screen-only)
         padding-left: 140px
-      a
-        &.is-active,
-        &:hover
-          color: $pirates-yellow
       .menu-item--active-trail
         > a
           color: $pirates-yellow
@@ -68,15 +63,34 @@
           > .menu
             display: none
             &:hover
-              display: block          
-            background-color: $pirates-white
+              display: block
+            background-color: transparent
+            font-size: 90%
             position: absolute
             z-index: 1
             line-height: 2
+            &:before
+              z-index: 10
+              content: ''
+              display: inherit
+              background-image: url(../../images/optimized/arrow-up.svg)
+              background-repeat: no-repeat
+              background-position: 25% bottom
+              background-size: 10px
+              height: 5px
             .menu-item
-              padding: 0 $base-spacing
+              padding: 0 2 * $base-spacing
+              background-color: $pirates-white
+              &.is-active,
+              &:hover
+                background-color: $pirates-yellow
+                color: $pirates-blue
               a
                 display: block
+                &:hover
+                  color: inherit
+              &:first-child
+                border-top: 2px solid $pirates-yellow
           &:hover
             > .menu
               display: block
