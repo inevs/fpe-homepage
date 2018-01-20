@@ -165,7 +165,7 @@ abbr {
   background: #fff;
   text-transform: uppercase;
   color: #0c2340;
-    text-align: center;
+  text-align: center;
 }
 
 .navigation.menu--main a {
@@ -250,8 +250,8 @@ abbr {
 @media screen and (min-width: 720px) {
   .navigation.menu--main .menu-item > .menu {
     display: none;
-      background-color: transparent;
-      font-size: 90%;
+    background-color: transparent;
+    font-size: 90%;
     position: absolute;
     z-index: 1;
     line-height: 2;
@@ -259,37 +259,33 @@ abbr {
   .navigation.menu--main .menu-item > .menu:hover {
     display: block;
   }
-
-    .navigation.menu--main .menu-item > .menu:before {
-        z-index: 10;
-        content: '';
-        display: inherit;
-        background-image: url(../../images/optimized/arrow-up.svg);
-        background-repeat: no-repeat;
-        background-position: 25% bottom;
-        background-size: 10px;
-        height: 5px;
-    }
-  .navigation.menu--main .menu-item > .menu .menu-item {
-      padding: 0 3rem;
-      background-color: #fff;
+  .navigation.menu--main .menu-item > .menu:before {
+    z-index: 10;
+    content: '';
+    display: inherit;
+    background-image: url(../../images/optimized/arrow-up.svg);
+    background-repeat: no-repeat;
+    background-position: 25% bottom;
+    background-size: 10px;
+    height: 5px;
   }
-
-    .navigation.menu--main .menu-item > .menu .menu-item.is-active, .navigation.menu--main .menu-item > .menu .menu-item:hover {
-        background-color: #ffd100;
-        color: #0c2340;
+  .navigation.menu--main .menu-item > .menu .menu-item {
+    padding: 0 3rem;
+    background-color: #fff;
+  }
+  .navigation.menu--main .menu-item > .menu .menu-item.is-active, .navigation.menu--main .menu-item > .menu .menu-item:hover {
+    background-color: #ffd100;
+    color: #0c2340;
   }
   .navigation.menu--main .menu-item > .menu .menu-item a {
     display: block;
   }
-
-    .navigation.menu--main .menu-item > .menu .menu-item a:hover {
-        color: inherit;
-    }
-
-    .navigation.menu--main .menu-item > .menu .menu-item:first-child {
-        border-top: 2px solid #ffd100;
-    }
+  .navigation.menu--main .menu-item > .menu .menu-item a:hover {
+    color: inherit;
+  }
+  .navigation.menu--main .menu-item > .menu .menu-item:first-child {
+    border-top: 2px solid #ffd100;
+  }
   .navigation.menu--main .menu-item:hover > .menu {
     display: block;
   }
@@ -1767,88 +1763,49 @@ body.page-news .view-news .news-item img {
   background-color: #fff;
 }
 
-body.detail-page .block-fpe-content {
-  padding: 0;
-}
-
-body.detail-page .block-fpe-page-title {
-  display: none;
-}
-
-body.detail-page .page--layout-full {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-}
-
-body.detail-page .page--layout-full .article__image {
-  -ms-flex-order: 0;
-      order: 0;
-}
-
-body.detail-page .page--layout-full h1 {
-  -ms-flex-order: 1;
-      order: 1;
-  margin-left: 32px;
-  margin-left: 2rem;
-  margin-right: 32px;
-  margin-right: 2rem;
-  margin-top: 24px;
-  margin-top: 1.5rem;
-  margin-bottom: 12px;
-  margin-bottom: 0.75rem;
-  font-size: 30px;
+#block-fpe-page-title h1 {
+  color: #ffd100;
+  font-size: 19.2px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 12px;
+  padding: 0.75rem;
+  margin: 0;
 }
 
 @media screen and (min-width: 720px) {
-  body.detail-page .page--layout-full h1 {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+  #block-fpe-page-title h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    padding: 1.5rem;
   }
 }
 
-@media screen and (min-width: 960px) {
-  body.detail-page .page--layout-full h1 {
-    width: 800px;
-  }
-}
-
-@media screen and (min-width: 720px) {
-  body.detail-page .page--layout-full h1 {
-    font-size: 50px;
-  }
-}
-
-body.detail-page .page--layout-full .page__body {
-  -ms-flex-order: 2;
-      order: 2;
-  font-size: 13px;
-  margin-left: 32px;
-  margin-left: 2rem;
-  margin-right: 32px;
-  margin-right: 2rem;
+.block-fpe-content {
+  padding: 0 12px;
+  padding: 0 0.75rem;
 }
 
 @media screen and (min-width: 720px) {
-  body.detail-page .page--layout-full .page__body {
-    font-size: 16px;
+  .block-fpe-content {
+    padding: 0 1.5rem;
   }
 }
 
-@media screen and (min-width: 720px) {
-  body.detail-page .page--layout-full .page__body {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.block-fpe-content h2 {
+  font-size: 18px;
+  font-size: 1.125rem;
 }
 
-@media screen and (min-width: 960px) {
-  body.detail-page .page--layout-full .page__body {
-    width: 800px;
-  }
+.block-fpe-content p {
+  margin-bottom: 0;
+  padding-bottom: 12px;
+  padding-bottom: 0.75rem;
+}
+
+.block-fpe-content h3 {
+  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .block-instagram-block {
