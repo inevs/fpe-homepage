@@ -1296,6 +1296,14 @@ body.detail-team article.team--layout-full .team__coaches {
 
 body.detail-team article.team--layout-full .team__coaches > div:first-of-type {
   color: #ffd100;
+  padding-bottom: 16px;
+  padding-bottom: 1rem;
+}
+
+@media screen and (min-width: 720px) {
+  body.detail-team article.team--layout-full .team__coaches > div:first-of-type {
+    font-size: 30px;
+  }
 }
 
 body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) {
@@ -1305,9 +1313,45 @@ body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) {
       flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  font-size: 13px;
 }
 
 body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) header {
+  display: none;
+}
+
+body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) img {
+  height: 250px;
+}
+
+body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) .coach__coach-name {
+  font-size: 16px;
+}
+
+body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) .coach__coach-pirate-seit > div:first-of-type {
+  display: none;
+}
+
+body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) .coach__coach-pirate-seit > div:nth-child(2):before {
+  content: "Pirate seit: ";
+}
+
+body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) .coach__coach-position > div:first-of-type {
+  display: none;
+}
+
+body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) .coach__coach-position > div:nth-child(2) {
+  padding-bottom: 32px;
+  padding-bottom: 2rem;
+}
+
+body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) .coach__coach-position > div:nth-child(2):before {
+  content: "Pos: ";
+}
+
+body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) .coach__coach-sortierung {
   display: none;
 }
 

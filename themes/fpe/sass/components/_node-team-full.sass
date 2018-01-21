@@ -28,9 +28,34 @@ body.detail-team
       @include centered-container
       > div:first-of-type
         color: $pirates-yellow
+        padding-bottom: 1rem
+        @include media($medium-screen-up)
+          font-size: $base-font-size * 1.875
       > div:nth-child(2)
         display: flex
         flex-direction: row
         flex-wrap: wrap
+        justify-content: space-between
+        font-size: $base-font-size * 0.8125
         header
           display: none
+        img
+          height: 250px
+        .coach__coach-name
+          font-size: $base-font-size
+        .coach__coach-pirate-seit
+          > div:first-of-type
+            display: none
+          > div:nth-child(2)
+            &:before
+              content: "Pirate seit: "
+        .coach__coach-position
+          > div:first-of-type
+            display: none
+          > div:nth-child(2)
+            padding-bottom: 2rem
+            &:before
+              content: "Pos: "
+        .coach__coach-sortierung
+          display: none
+
