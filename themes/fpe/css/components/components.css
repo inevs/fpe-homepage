@@ -1307,6 +1307,10 @@ body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) {
       flex-wrap: wrap;
 }
 
+body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) header {
+  display: none;
+}
+
 body.page-news .block-fpe-content {
   padding: 0;
 }
