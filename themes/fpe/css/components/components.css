@@ -1294,6 +1294,19 @@ body.detail-team article.team--layout-full .team__coaches {
   }
 }
 
+body.detail-team article.team--layout-full .team__coaches > div:first-of-type {
+  color: #ffd100;
+}
+
+body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 body.page-news .block-fpe-content {
   padding: 0;
 }

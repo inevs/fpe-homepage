@@ -26,4 +26,9 @@ body.detail-team
     .team__coaches
       order: 3
       @include centered-container
-    
+      > div:first-of-type
+        color: $pirates-yellow
+      > div:nth-child(2)
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
