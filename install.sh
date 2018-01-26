@@ -22,6 +22,7 @@ echo "###### Importing database dump ######"
 echo "###### Changing ownership in drupal to www-data ######"
 DRUPAL_ID=$(docker ps --filter='name=fpehomepage_drupal' -q)
 docker exec $DRUPAL_ID bash -c 'chown -R www-data:www-data /var/www/html/sites'
+docker exec $DRUPAL_ID bash -c 'curl -fSL "http://files.drush.org/drush.phar" -o /usr/local/bin/drush && chmod +x /usr/local/bin/drush'
 echo "###### Changing ownership in grunt to node ######"
 GRUNT_ID=$(docker ps --filter='name=fpehomepage_grunt' -q)
 docker exec $GRUNT_ID bash -c 'chown -R node:node /data'

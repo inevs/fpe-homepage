@@ -4,7 +4,7 @@ services:
   drupal:
     depends_on:
       - db
-    image: drupal:8.4-apache
+    image: drupal:8.4.4-apache
     ports:
       - 8080:80
     volumes:
