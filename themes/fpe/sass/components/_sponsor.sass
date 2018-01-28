@@ -1,11 +1,54 @@
-.sponsor .view
-  background-color: $pirates-white
-  padding: $base-spacing
-  display: flex
-  flex-direction: row
-  flex-wrap: wrap
-  justify-content: space-evenly
-  align-items: center
+.page-sponsoren 
+  .sponsor
+    header
+      height: 300px
+      text-align: center
+      .sponsor-headline
+        font-family: $script-font-family
+        font-weight: 400
+        color: $pirates-yellow
+        padding-top: 6rem
+        padding-bottom: 1rem
+        font-size: 2rem
+        @include media($medium-screen-up)
+          font-size: 4rem
+      .sponsor-subheadline
+        font-size: $base-font-size * 0.75
+        @include media($medium-screen-up)
+          font-size: $base-font-size
+
+
+.section-sponsoren .block-fpe-page-title
+  display: none
+
+.sponsor 
+  .view, .views-row
+    background-color: $pirates-white
+    padding: $base-spacing
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+
+    .views-row
+      padding: 0 $base-spacing
+
+  .horizontal
+    padding-bottom: 4rem
+
+  .title
+    padding-top: $small-spacing
+    padding-bottom: 3rem
+    text-align: center
+    @include horizontal-line
+    h3
+      color: $pirates-blue
+      background-color: $pirates-yellow
+      font-size: $base-font-size
+      @include media($medium-screen-up)
+        font-size: $font-size-h3
+      @include salmi
 
   img
     height: auto
@@ -13,13 +56,3 @@
     @include media($medium-screen-up)
       width: 20rem
     margin: 5px
-
-.sponsor-row
-  display: flex
-  flex-direction: row
-  flex-wrap: wrap
-  justify-content: center
-  padding: 1rem 0
-
-  img
-    background-color: $pirates-white
