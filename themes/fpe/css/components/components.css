@@ -1807,6 +1807,12 @@ body.page-news .view-news .news-item img {
   text-align: center;
 }
 
+@media screen and (min-width: 720px) {
+  .page-sponsoren .sponsor header {
+    height: 420px;
+  }
+}
+
 .page-sponsoren .sponsor header .sponsor-headline {
   font-family: "Kaushan Script", sans-serif;
   font-weight: 400;
@@ -1821,7 +1827,7 @@ body.page-news .view-news .news-item img {
 
 @media screen and (min-width: 720px) {
   .page-sponsoren .sponsor header .sponsor-headline {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 }
 
@@ -1929,7 +1935,7 @@ body.page-news .view-news .news-item img {
 .sponsor img {
   height: auto;
   width: 160px;
-  width: 10rem;
+  width: 27rem;
   margin: 5px;
 }
 
