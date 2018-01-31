@@ -18,13 +18,13 @@
  * Theme installieren und als Standard festlegen
 
 ## Installiere Module
- * crop: https://ftp.drupal.org/files/projects/crop-8.x-1.5.tar.gz
+ * crop: https://ftp.drupal.org/files/projects/crop-8.x-1.3.tar.gz
  * image_widget_crop: https://ftp.drupal.org/files/projects/image_widget_crop-8.x-2.1.tar.gz
  * ctools: https://ftp.drupal.org/files/projects/ctools-8.x-3.0.tar.gz
  * instagram_block: https://ftp.drupal.org/files/projects/instagram_block-8.x-2.0-beta1.tar.gz
  * token: https://ftp.drupal.org/files/projects/token-8.x-1.1.tar.gz
  * pathauto: https://ftp.drupal.org/files/projects/pathauto-8.x-1.0.tar.gz
- * bg_image_formatter: https://ftp.drupal.org/files/projects/bg_image_formatter-8.x-1.1.tar.gz
+ * bg_image_formatter: https://ftp.drupal.org/files/projects/bg_image_formatter-8.x-1.0.tar.gz
 
 ## Verknüpfungen löschen (in PROD)
  * unter Verknüpfungen > Verknüpfungen bearbeiten > löschen
