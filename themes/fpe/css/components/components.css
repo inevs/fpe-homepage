@@ -1803,24 +1803,15 @@ body.page-news .view-news .news-item img {
 }
 
 .page-sponsoren .sponsor header {
-  height: 300px;
   text-align: center;
-}
-
-@media screen and (min-width: 720px) {
-  .page-sponsoren .sponsor header {
-    height: 420px;
-  }
 }
 
 .page-sponsoren .sponsor header .sponsor-headline {
   font-family: "Kaushan Script", sans-serif;
   font-weight: 400;
   color: #ffd100;
-  padding-top: 96px;
-  padding-top: 6rem;
-  padding-bottom: 16px;
-  padding-bottom: 1rem;
+  padding: 96px 16px 16px;
+  padding: 6rem 1rem 1rem;
   font-size: 32px;
   font-size: 2rem;
 }
@@ -1833,6 +1824,8 @@ body.page-news .view-news .news-item img {
 
 .page-sponsoren .sponsor header .sponsor-subheadline {
   font-size: 12px;
+  padding: 48px 16px;
+  padding: 3rem 1rem;
 }
 
 @media screen and (min-width: 720px) {
