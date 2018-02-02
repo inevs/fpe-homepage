@@ -53,12 +53,12 @@
   -moz-hyphens: auto
   hyphens: auto
 
-@mixin horizontal-line
+@mixin horizontal-line($color)
   overflow: hidden
   text-align: center
   &:before,
   &:after
-    background-color: $pirates-yellow
+    background-color: $color
     content: ""
     display: inline-block
     height: 1px

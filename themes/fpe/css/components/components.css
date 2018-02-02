@@ -1935,14 +1935,29 @@ body.page-news .view-news .news-item img {
   width: 20rem;
 }
 
+.sponsor .Platin h3 {
+  background: linear-gradient(#adaeaf, #e4e5e6);
+  color: #102145;
+}
+
 .sponsor .Gold img {
   width: 240px;
   width: 15rem;
 }
 
+.sponsor .Gold h3 {
+  background: linear-gradient(#a6944f, #faf39f, #bcab59);
+  color: #12233d;
+}
+
 .sponsor .Silber img {
   width: 160px;
   width: 10rem;
+}
+
+.sponsor .Silber h3 {
+  background: linear-gradient(#505952, #ccd0cb);
+  color: #142142;
 }
 
 body.frontpage .block-fpe-page-title h1 {
