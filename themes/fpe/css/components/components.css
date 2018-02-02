@@ -1927,15 +1927,22 @@ body.page-news .view-news .news-item img {
 
 .sponsor img {
   height: auto;
-  width: 160px;
-  width: 10rem;
   margin: 5px;
 }
 
-@media screen and (min-width: 720px) {
-  .sponsor img {
-    width: 20rem;
-  }
+.sponsor .Platin img {
+  width: 320px;
+  width: 20rem;
+}
+
+.sponsor .Gold img {
+  width: 240px;
+  width: 15rem;
+}
+
+.sponsor .Silber img {
+  width: 160px;
+  width: 10rem;
 }
 
 body.frontpage .block-fpe-page-title h1 {
