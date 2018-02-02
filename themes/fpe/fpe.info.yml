@@ -21,8 +21,8 @@ regions:
   sidebar_second: 'Sidebar second'
   footer: Footer
 
-version: '8.x-1.3.1'
 # Information added by Drupal.org packaging script on 2017-10-15
+version: '8.x-1.3'
 core: '8.x'
 project: 'fpe'
 datestamp: 1508096954
