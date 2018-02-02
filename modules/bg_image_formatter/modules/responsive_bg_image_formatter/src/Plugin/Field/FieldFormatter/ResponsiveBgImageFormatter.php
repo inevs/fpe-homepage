@@ -5,6 +5,7 @@ namespace Drupal\responsive_bg_image_formatter\Plugin\Field\FieldFormatter;
 use Drupal\bg_image_formatter\Plugin\Field\FieldFormatter\BgImageFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\responsive_image\Entity\ResponsiveImageStyle;
 
@@ -144,7 +145,7 @@ class ResponsiveBgImageFormatter extends BgImageFormatter
                         '#attributes' => [
                             'media' => $css['media'],
                         ],
-                        '#value' => $css['style'],
+                        '#value' => Markup::create($css['style']),
                     ], $html_head_key,
                     ];
                 }

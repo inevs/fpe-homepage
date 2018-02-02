@@ -2,8 +2,10 @@
 
 namespace Drupal\bg_image_formatter\Plugin\Field\FieldFormatter;
 
+use Drupal\Component\Utility\Xss;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\image\Plugin\Field\FieldFormatter\ImageFormatter;
 use Zend\Stdlib\ArrayUtils;
@@ -328,7 +330,7 @@ class BgImageFormatter extends ImageFormatter
                 '#attributes' => [
                     'media' => $css['media'],
                 ],
-                '#value' => $css['style'],
+                '#value' => Markup::create($css['style']),
             ], $html_head_key,
             ];
         }
@@ -369,17 +371,17 @@ class BgImageFormatter extends ImageFormatter
         $css_settings += $defaults['css_settings'];
 
         // Pull the default css setting if not provided.
-        $selector = $css_settings['bg_image_selector'];
-        $bg_color = $css_settings['bg_image_color'];
-        $bg_x = $css_settings['bg_image_x'];
-        $bg_y = $css_settings['bg_image_y'];
+        $selector = Xss::filter($css_settings['bg_image_selector']);
+        $bg_color = Xss::filter($css_settings['bg_image_color']);
+        $bg_x = Xss::filter($css_settings['bg_image_x']);
+        $bg_y = Xss::filter($css_settings['bg_image_y']);
         $attachment = $css_settings['bg_image_attachment'];
         $repeat = $css_settings['bg_image_repeat'];
         $important = $css_settings['bg_image_important'];
-        $background_size = $css_settings['bg_image_background_size'];
+        $background_size = Xss::filter($css_settings['bg_image_background_size']);
         $background_size_ie8 = $css_settings['bg_image_background_size_ie8'];
-        $media_query = $css_settings['bg_image_media_query'];
-        $z_index = $css_settings['bg_image_z_index'];
+        $media_query = Xss::filter($css_settings['bg_image_media_query']);
+        $z_index = Xss::filter($css_settings['bg_image_z_index']);
 
         // If important is true, we turn it into a string for css output.
         if ($important) {

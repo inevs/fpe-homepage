@@ -4,7 +4,7 @@
  * rename core in _core
  * rename vendor in _vendor
  * upload core and vendor
- * upload composer.json, composer.lock, .htacess
+ * upload composer.json, composer.lock
  * change sites/default/settings.php
    * change file permission to writeable
    * set $settings['update_free_access'] = FALSE; to 'TRUE'
@@ -15,7 +15,6 @@
 
 ## Theme installieren
  * Dateien kopieren
- * Theme installieren und als Standard festlegen
 
 ## Installiere Module
  * crop: https://ftp.drupal.org/files/projects/crop-8.x-1.3.tar.gz
