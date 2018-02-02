@@ -39,7 +39,6 @@
     padding-top: $small-spacing
     padding-bottom: 3rem
     text-align: center
-    @include horizontal-line($pirates-yellow)
     h3
       color: $pirates-blue
       background-color: $pirates-yellow
@@ -51,24 +50,33 @@
   img
     height: auto
     margin: 5px
+    width: 10rem
+    @include media($medium-screen-up)
+      width: 15rem
 
-  .Platin 
-    img
-      width: 20rem
+  .title.Platin
+    @include horizontal-line($pirates-platin)
     h3
       background: $pirates-platin
       color: #102145
-
-  .Gold 
+  .Platin    
     img
       width: 15rem
+
+  .title.Gold
+    @include horizontal-line($pirates-gold)
     h3
       background: $pirates-gold
       color: #12233d
-
-  .Silber 
+  .Gold  
     img
-      width: 10rem
+      width: 12rem
+
+  .title.Silber 
+    @include horizontal-line($pirates-silver)
     h3
       background: $pirates-silver
-      color: #142142
+      color: #142249
+  .Silber  
+    img
+      width: 10rem

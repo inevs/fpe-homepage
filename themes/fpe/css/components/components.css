@@ -555,7 +555,7 @@ abbr {
     text-align: center;
   }
   .pager__items:before, .pager__items:after {
-    background-color: #ffd100;
+    background: #ffd100;
     content: "";
     display: inline-block;
     height: 1px;
@@ -703,7 +703,7 @@ footer .all-news-link {
 }
 
 footer .all-news-link:before, footer .all-news-link:after {
-  background-color: #ffd100;
+  background: #ffd100;
   content: "";
   display: inline-block;
   height: 1px;
@@ -1870,34 +1870,6 @@ body.page-news .view-news .news-item img {
   padding-bottom: 48px;
   padding-bottom: 3rem;
   text-align: center;
-  overflow: hidden;
-  text-align: center;
-}
-
-.sponsor .title:before, .sponsor .title:after {
-  background-color: #ffd100;
-  content: "";
-  display: inline-block;
-  height: 1px;
-  position: relative;
-  vertical-align: middle;
-  width: 50%;
-}
-
-.sponsor .title:before {
-  right: 12px;
-  right: 0.75rem;
-  margin-left: -50%;
-}
-
-.sponsor .title:after {
-  left: 12px;
-  left: 0.75rem;
-  margin-right: -50%;
-}
-
-.sponsor .title > * {
-  display: inline-block;
 }
 
 .sponsor .title h3 {
@@ -1928,36 +1900,137 @@ body.page-news .view-news .news-item img {
 .sponsor img {
   height: auto;
   margin: 5px;
+  width: 160px;
+  width: 10rem;
 }
 
-.sponsor .Platin img {
-  width: 320px;
-  width: 20rem;
+@media screen and (min-width: 720px) {
+  .sponsor img {
+    width: 15rem;
+  }
 }
 
-.sponsor .Platin h3 {
+.sponsor .title.Platin {
+  overflow: hidden;
+  text-align: center;
+}
+
+.sponsor .title.Platin:before, .sponsor .title.Platin:after {
+  background: linear-gradient(#adaeaf, #e4e5e6);
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.sponsor .title.Platin:before {
+  right: 12px;
+  right: 0.75rem;
+  margin-left: -50%;
+}
+
+.sponsor .title.Platin:after {
+  left: 12px;
+  left: 0.75rem;
+  margin-right: -50%;
+}
+
+.sponsor .title.Platin > * {
+  display: inline-block;
+}
+
+.sponsor .title.Platin h3 {
   background: linear-gradient(#adaeaf, #e4e5e6);
   color: #102145;
 }
 
-.sponsor .Gold img {
+.sponsor .Platin img {
   width: 240px;
   width: 15rem;
 }
 
-.sponsor .Gold h3 {
+.sponsor .title.Gold {
+  overflow: hidden;
+  text-align: center;
+}
+
+.sponsor .title.Gold:before, .sponsor .title.Gold:after {
+  background: linear-gradient(#a6944f, #faf39f, #bcab59);
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.sponsor .title.Gold:before {
+  right: 12px;
+  right: 0.75rem;
+  margin-left: -50%;
+}
+
+.sponsor .title.Gold:after {
+  left: 12px;
+  left: 0.75rem;
+  margin-right: -50%;
+}
+
+.sponsor .title.Gold > * {
+  display: inline-block;
+}
+
+.sponsor .title.Gold h3 {
   background: linear-gradient(#a6944f, #faf39f, #bcab59);
   color: #12233d;
+}
+
+.sponsor .Gold img {
+  width: 192px;
+  width: 12rem;
+}
+
+.sponsor .title.Silber {
+  overflow: hidden;
+  text-align: center;
+}
+
+.sponsor .title.Silber:before, .sponsor .title.Silber:after {
+  background: linear-gradient(#505952, #ccd0cb);
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.sponsor .title.Silber:before {
+  right: 12px;
+  right: 0.75rem;
+  margin-left: -50%;
+}
+
+.sponsor .title.Silber:after {
+  left: 12px;
+  left: 0.75rem;
+  margin-right: -50%;
+}
+
+.sponsor .title.Silber > * {
+  display: inline-block;
+}
+
+.sponsor .title.Silber h3 {
+  background: linear-gradient(#505952, #ccd0cb);
+  color: #142249;
 }
 
 .sponsor .Silber img {
   width: 160px;
   width: 10rem;
-}
-
-.sponsor .Silber h3 {
-  background: linear-gradient(#505952, #ccd0cb);
-  color: #142142;
 }
 
 body.frontpage .block-fpe-page-title h1 {
