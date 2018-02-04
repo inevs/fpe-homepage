@@ -503,6 +503,23 @@ abbr {
   -ms-clip-path: polygon(1rem 0, 100% 0, 100% 100%, 0 100%);
 }
 
+.views-element-container table caption {
+  background-color: #ffd100;
+  color: #0c2340;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 2px;
+  margin-top: 24px;
+  margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 720px) {
+  .views-element-container table caption {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+  }
+}
+
 .site-name {
   font-size: 32px;
   font-size: 2rem;
@@ -2039,7 +2056,8 @@ body.page-news .view-news .news-item img {
   width: 10rem;
 }
 
-body.frontpage .block-fpe-page-title h1 {
+body.frontpage .block-fpe-page-title h1,
+body.page-spielplan .block-fpe-page-title h1 {
   color: #ffd100;
   font-size: 19.2px;
   font-size: 1.2rem;
@@ -2050,36 +2068,42 @@ body.frontpage .block-fpe-page-title h1 {
 }
 
 @media screen and (min-width: 720px) {
-  body.frontpage .block-fpe-page-title h1 {
+  body.frontpage .block-fpe-page-title h1,
+  body.page-spielplan .block-fpe-page-title h1 {
     font-size: 1.75rem;
     font-weight: 600;
     padding: 1.5rem;
   }
 }
 
-body.frontpage .block-fpe-content {
+body.frontpage .block-fpe-content,
+body.page-spielplan .block-fpe-content {
   padding: 0 12px;
   padding: 0 0.75rem;
 }
 
 @media screen and (min-width: 720px) {
-  body.frontpage .block-fpe-content {
+  body.frontpage .block-fpe-content,
+  body.page-spielplan .block-fpe-content {
     padding: 0 1.5rem;
   }
 }
 
-body.frontpage .block-fpe-content h2 {
+body.frontpage .block-fpe-content h2,
+body.page-spielplan .block-fpe-content h2 {
   font-size: 18px;
   font-size: 1.125rem;
 }
 
-body.frontpage .block-fpe-content p {
+body.frontpage .block-fpe-content p,
+body.page-spielplan .block-fpe-content p {
   margin-bottom: 0;
   padding-bottom: 12px;
   padding-bottom: 0.75rem;
 }
 
-body.frontpage .block-fpe-content h3 {
+body.frontpage .block-fpe-content h3,
+body.page-spielplan .block-fpe-content h3 {
   font-size: 18px;
   font-size: 1.125rem;
 }
