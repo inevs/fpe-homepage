@@ -2203,6 +2203,14 @@ body.page-user-login form {
   padding: 1.5rem;
 }
 
+body.page-user-login form input {
+  width: 50%;
+}
+
+body.page-user-login form .button {
+  width: auto;
+}
+
 .block-instagram-block {
   margin: 24px 12px 0;
   margin: 1.5rem 0.75rem 0;
