@@ -2193,6 +2193,16 @@ body.detail-page .page--layout-full .page__body {
   }
 }
 
+body.page-user-login h1 {
+  padding: 24px;
+  padding: 1.5rem;
+}
+
+body.page-user-login form {
+  padding: 24px;
+  padding: 1.5rem;
+}
+
 .block-instagram-block {
   margin: 24px 12px 0;
   margin: 1.5rem 0.75rem 0;
