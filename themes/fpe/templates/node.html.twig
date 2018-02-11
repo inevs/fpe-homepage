@@ -29,7 +29,7 @@
       {% if display_submitted %}
         <div class="submitted">
           <span class="date">
-            {{ date.value|date("d.m.Y") }}
+            {{ node.getCreatedTime()|date("d.m.Y") }}
           </span>
           <div class="author">
             {{ author_name }}
