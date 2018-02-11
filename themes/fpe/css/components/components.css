@@ -567,6 +567,7 @@ abbr {
   background-color: #ffd100;
   border-width: 3.2px 20.8px;
   border-width: 0.2rem 1.3rem;
+  font-family: EmojiSymbols;
 }
 
 .pager__items a {
