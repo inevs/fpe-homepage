@@ -1940,7 +1940,7 @@ body.page-news .view-news .news-item img {
 }
 
 .sponsor .title.Platin:before, .sponsor .title.Platin:after {
-  background: linear-gradient(to right, #adaeaf, #e4e5e6);
+  background: linear-gradient(to right, #a3a5a5, #e8e9e9);
   content: "";
   display: inline-block;
   height: 1px;
@@ -1966,7 +1966,7 @@ body.page-news .view-news .news-item img {
 }
 
 .sponsor .title.Platin h3 {
-  background: linear-gradient(to right, #adaeaf, #e4e5e6);
+  background: linear-gradient(to right, #a3a5a5, #e8e9e9);
   color: #102145;
 }
 
@@ -1981,7 +1981,7 @@ body.page-news .view-news .news-item img {
 }
 
 .sponsor .title.Gold:before, .sponsor .title.Gold:after {
-  background: linear-gradient(to right, #a6944f, #faf39f, #bcab59);
+  background: linear-gradient(to right, #b69d50, #fcf4a0, #b29b40);
   content: "";
   display: inline-block;
   height: 1px;
@@ -2007,7 +2007,7 @@ body.page-news .view-news .news-item img {
 }
 
 .sponsor .title.Gold h3 {
-  background: linear-gradient(to right, #a6944f, #faf39f, #bcab59);
+  background: linear-gradient(to right, #b69d50, #fcf4a0, #b29b40);
   color: #12233d;
 }
 
@@ -2022,7 +2022,7 @@ body.page-news .view-news .news-item img {
 }
 
 .sponsor .title.Silber:before, .sponsor .title.Silber:after {
-  background: linear-gradient(to right, #505952, #ccd0cb);
+  background: linear-gradient(to right, #504f50, #cdcdcd);
   content: "";
   display: inline-block;
   height: 1px;
@@ -2048,11 +2048,52 @@ body.page-news .view-news .news-item img {
 }
 
 .sponsor .title.Silber h3 {
-  background: linear-gradient(to right, #505952, #ccd0cb);
+  background: linear-gradient(to right, #504f50, #cdcdcd);
   color: #142249;
 }
 
 .sponsor .Silber img {
+  width: 160px;
+  width: 10rem;
+}
+
+.sponsor .title.Bronze {
+  overflow: hidden;
+  text-align: center;
+}
+
+.sponsor .title.Bronze:before, .sponsor .title.Bronze:after {
+  background: linear-gradient(to right, #e8b780, #ae8250, #d9ae76);
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.sponsor .title.Bronze:before {
+  right: 12px;
+  right: 0.75rem;
+  margin-left: -50%;
+}
+
+.sponsor .title.Bronze:after {
+  left: 12px;
+  left: 0.75rem;
+  margin-right: -50%;
+}
+
+.sponsor .title.Bronze > * {
+  display: inline-block;
+}
+
+.sponsor .title.Bronze h3 {
+  background: linear-gradient(to right, #e8b780, #ae8250, #d9ae76);
+  color: #13213e;
+}
+
+.sponsor .Bronze img {
   width: 160px;
   width: 10rem;
 }
