@@ -479,7 +479,7 @@ abbr {
 
 @media screen and (min-width: 320px) {
   .views-element-container table thead th:first-child {
-    width: 23%;
+    width: 17%;
   }
 }
 
