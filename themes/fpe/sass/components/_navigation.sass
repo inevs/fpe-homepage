@@ -31,7 +31,7 @@
 
       .menu-item--expanded
         > a
-          background-image: url(../../images/optimized/arrow-down.svg) 
+          background-image: url(../../images/optimized/arrow-down.svg)
           background-position: right $small-spacing top 1rem
           background-repeat: no-repeat
           background-size: 1rem
@@ -96,71 +96,71 @@
               display: block
 
 .menu--fussbereich-user, .menu--footer
-    background-color: $pirates-blue
+  background-color: $pirates-blue
   padding: 10px 0px
 
-    .menu
-      display: flex
-      justify-content: flex-start
-      margin: $base-spacing $small-spacing 0 $small-spacing
+  .menu
+    display: flex
+    justify-content: flex-start
+    margin: $base-spacing $small-spacing 0 $small-spacing
+    @include media($medium-screen-up)
+      margin: $base-spacing
+
+    .menu-item
+      color: white
+      padding: 0 0.5rem
+      font-size: $base-font-size * 0.625
       @include media($medium-screen-up)
-        margin: $base-spacing
+        font-size: $base-font-size * 0.75
+      &:first-child
+        padding-left: 0
+      &:last-child
+        padding-right: 0
 
-      .menu-item
-        color: white
-        padding: 0 0.5rem
-        font-size: $base-font-size * 0.625
-        @include media($medium-screen-up)
-          font-size: $base-font-size * 0.75
-        &:first-child
-          padding-left: 0
-        &:last-child
-          padding-right: 0
+    a
+      text-transform: uppercase
+      color: white
+      &.is-active
+        color: $pirates-yellow
 
+    li
+      margin: 0
+      display: flex
+      flex-direction: column
+      justify-content: center
+
+    li:first-child
+      border-right: 1px solid
+
+    li:nth-child(2)
+      flex-grow: 2
+
+    li:nth-last-child(3),
+    li:nth-last-child(2),
+    li:last-child
+      padding: 0 0.2rem
       a
-        text-transform: uppercase
-        color: white
-        &.is-active
-          color: $pirates-yellow
-
-      li
-        margin: 0
-        display: flex
-        flex-direction: column
-        justify-content: center
-      
-      li:first-child
-        border-right: 1px solid
-
-      li:nth-child(2)
-        flex-grow: 2
-
-      li:nth-last-child(3),
-      li:nth-last-child(2),
-      li:last-child
-        padding: 0 0.2rem
-        a
-          display: inline-block
-          content: ' '
-          color: rgba(0, 0, 0, 0)
+        display: inline-block
+        content: ' '
+        color: rgba(0, 0, 0, 0)
+        background-size: 32px 32px
+        height: 32px
+        width: 32px
+        @include media($medium-screen-up)
           background-size: 32px 32px
           height: 32px
           width: 32px
-          @include media($medium-screen-up)
-            background-size: 32px 32px
-            height: 32px
-            width: 32px
 
-      li:nth-last-child(3)
-        a
-          background-image: url(../../images/optimized/instagram.svg)
+    li:nth-last-child(3)
+      a
+        background-image: url(../../images/optimized/instagram.svg)
 
-      li:nth-last-child(2)
-        a
-          background-image: url(../../images/optimized/facebook.svg)
+    li:nth-last-child(2)
+      a
+        background-image: url(../../images/optimized/facebook.svg)
 
-      li:last-child
-        a
-          background-image: url(../../images/optimized/rss.svg)
+    li:last-child
+      a
+        background-image: url(../../images/optimized/rss.svg)
 
-  
+
