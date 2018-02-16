@@ -97,15 +97,14 @@
 
 .menu--fussbereich-user, .menu--footer
     background-color: $pirates-blue
-    @include media($small-screen-up)
-      padding: 10px 0px
-    @include media($medium-screen-up)
-      padding: 1rem 2rem
+  padding: 10px 0px
 
     .menu
       display: flex
       justify-content: flex-start
-      margin-top: 1rem
+      margin: $base-spacing $small-spacing 0 $small-spacing
+      @include media($medium-screen-up)
+        margin: $base-spacing
 
       .menu-item
         color: white
@@ -113,6 +112,10 @@
         font-size: $base-font-size * 0.625
         @include media($medium-screen-up)
           font-size: $base-font-size * 0.75
+        &:first-child
+          padding-left: 0
+        &:last-child
+          padding-right: 0
 
       a
         text-transform: uppercase
@@ -132,15 +135,25 @@
       li:nth-child(2)
         flex-grow: 2
 
+      li:nth-last-child(3),
       li:nth-last-child(2),
       li:last-child
+        padding: 0 0.2rem
         a
           display: inline-block
           content: ' '
-          background-size: 40px 40px
-          height: 40px
-          width: 40px
           color: rgba(0, 0, 0, 0)
+          background-size: 32px 32px
+          height: 32px
+          width: 32px
+          @include media($medium-screen-up)
+            background-size: 32px 32px
+            height: 32px
+            width: 32px
+
+      li:nth-last-child(3)
+        a
+          background-image: url(../../images/optimized/instagram.svg)
 
       li:nth-last-child(2)
         a

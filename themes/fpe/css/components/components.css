@@ -300,18 +300,7 @@ abbr {
 
 .menu--fussbereich-user, .menu--footer {
   background-color: #0c2340;
-}
-
-@media screen and (min-width: 320px) {
-  .menu--fussbereich-user, .menu--footer {
-    padding: 10px 0px;
-  }
-}
-
-@media screen and (min-width: 720px) {
-  .menu--fussbereich-user, .menu--footer {
-    padding: 1rem 2rem;
-  }
+  padding: 10px 0px;
 }
 
 .menu--fussbereich-user .menu, .menu--footer .menu {
@@ -319,8 +308,14 @@ abbr {
   display: flex;
   -ms-flex-pack: start;
       justify-content: flex-start;
-  margin-top: 16px;
-  margin-top: 1rem;
+  margin: 24px 12px 0 12px;
+  margin: 1.5rem 0.75rem 0 0.75rem;
+}
+
+@media screen and (min-width: 720px) {
+  .menu--fussbereich-user .menu, .menu--footer .menu {
+    margin: 1.5rem;
+  }
 }
 
 .menu--fussbereich-user .menu .menu-item, .menu--footer .menu .menu-item {
@@ -334,6 +329,14 @@ abbr {
   .menu--fussbereich-user .menu .menu-item, .menu--footer .menu .menu-item {
     font-size: 12px;
   }
+}
+
+.menu--fussbereich-user .menu .menu-item:first-child, .menu--footer .menu .menu-item:first-child {
+  padding-left: 0;
+}
+
+.menu--fussbereich-user .menu .menu-item:last-child, .menu--footer .menu .menu-item:last-child {
+  padding-right: 0;
 }
 
 .menu--fussbereich-user .menu a, .menu--footer .menu a {
@@ -364,15 +367,42 @@ abbr {
       flex-grow: 2;
 }
 
+.menu--fussbereich-user .menu li:nth-last-child(3),
+.menu--fussbereich-user .menu li:nth-last-child(2),
+.menu--fussbereich-user .menu li:last-child, .menu--footer .menu li:nth-last-child(3),
+.menu--footer .menu li:nth-last-child(2),
+.menu--footer .menu li:last-child {
+  padding: 0 3.2px;
+  padding: 0 0.2rem;
+}
+
+.menu--fussbereich-user .menu li:nth-last-child(3) a,
 .menu--fussbereich-user .menu li:nth-last-child(2) a,
-.menu--fussbereich-user .menu li:last-child a, .menu--footer .menu li:nth-last-child(2) a,
+.menu--fussbereich-user .menu li:last-child a, .menu--footer .menu li:nth-last-child(3) a,
+.menu--footer .menu li:nth-last-child(2) a,
 .menu--footer .menu li:last-child a {
   display: inline-block;
   content: ' ';
-  background-size: 40px 40px;
-  height: 40px;
-  width: 40px;
   color: transparent;
+  background-size: 32px 32px;
+  height: 32px;
+  width: 32px;
+}
+
+@media screen and (min-width: 720px) {
+  .menu--fussbereich-user .menu li:nth-last-child(3) a,
+  .menu--fussbereich-user .menu li:nth-last-child(2) a,
+  .menu--fussbereich-user .menu li:last-child a, .menu--footer .menu li:nth-last-child(3) a,
+  .menu--footer .menu li:nth-last-child(2) a,
+  .menu--footer .menu li:last-child a {
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+  }
+}
+
+.menu--fussbereich-user .menu li:nth-last-child(3) a, .menu--footer .menu li:nth-last-child(3) a {
+  background-image: url(../../images/optimized/instagram.svg);
 }
 
 .menu--fussbereich-user .menu li:nth-last-child(2) a, .menu--footer .menu li:nth-last-child(2) a {
