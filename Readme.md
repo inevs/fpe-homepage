@@ -6,7 +6,7 @@ It is intended to be for local use only. How to setup the live environment and h
 ## Installation
   * Install [docker](https://www.docker.com) with [docker-compose](https://docs.docker.com/compose/)
   * Make sure the ports `3306` and `8080` are available
-  * allow write access to all in the sites folder `sudo chmod a+x -R sites` 
+  * create drupal docker image ```docker build -t fpe/drupal docker-drupal``` 
   * run `install.sh` from the project root directory. This will start an Apache Webserver as well as a MySQL database and also import the dump from `./database/dump.sql.gz`
   * A blank drupal should now be available at http://localhost:8080
 
