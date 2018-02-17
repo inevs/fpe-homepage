@@ -3,6 +3,7 @@
 echo "###### Destroying all old containers ######"
 docker-compose down
 
+echo "###### Building Drupal Docker Image. This may take some time. ######"
 docker build --quiet -t fpe/drupal docker-drupal
 
 echo "###### Creating containers for database and web server ######"

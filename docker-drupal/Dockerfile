@@ -9,9 +9,11 @@ RUN set -ex \
 		libjpeg62-turbo-dev \
 		libpng-dev \
 		libpq-dev \
+	' \
+	&& runtimeDeps=' \
 		mysql-client \
 	' \
-	&& apt-get update && apt-get install -y --no-install-recommends $buildDeps && rm -rf /var/lib/apt/lists/* \
+	&& apt-get update && apt-get install -y --no-install-recommends $buildDeps $runtimeDeps && rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure gd \
 		--with-jpeg-dir=/usr \
 		--with-png-dir=/usr \
