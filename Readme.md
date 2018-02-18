@@ -8,7 +8,7 @@ It is intended to be for local use only. How to setup the live environment and h
   * Make sure the ports `3306` and `8080` are available
   * copy the file `docker-drupal/sitecopyrc.template` to `docker-drupal/sitecopyrc` and change username and password in that file
   * create drupal docker image ```docker build -t fpe/drupal docker-drupal``` 
-  * run `install.sh` from the project root directory. This will start an Apache Webserver as well as a MySQL database and also import the dump from `./database/dump.sql.gz`
+  * run `install.sh` from the project root directory. This will build a docker image with drupal, drush and sitecopy, start all containers including a MySQL database and also import the dump from `./database/dump.sql.gz`
   * A blank drupal should now be available at http://localhost:8080
 
 ## Running & Stopping
