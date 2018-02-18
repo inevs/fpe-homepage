@@ -1,0 +1,18 @@
+site theme_production
+  server discordia.bytecamp.net
+  username CHANGEME
+  password CHANGEME
+  local /var/www/html/themes/fpe
+  remote /themes/fpe
+  protocol ftp
+  state checksum
+  exclude /includes
+  exclude /images/source
+  exclude /node_modules
+  exclude /sass
+  exclude *.json
+  exclude Gruntfile.js
+  exclude *.js.map
+  exclude /js/source
+  exclude .DS_store
+  exclude .gitignore

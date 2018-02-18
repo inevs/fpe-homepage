@@ -12,6 +12,7 @@ RUN set -ex \
 	' \
 	&& runtimeDeps=' \
 		mysql-client \
+		sitecopy \
 	' \
 	&& apt-get update && apt-get install -y --no-install-recommends $buildDeps $runtimeDeps && rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure gd \
@@ -49,3 +50,9 @@ RUN curl -fSL "https://ftp.drupal.org/files/projects/drupal-${DRUPAL_VERSION}.ta
 	&& chown -R www-data:www-data sites modules themes \
 	&& curl -fSL "https://github.com/drush-ops/drush/releases/download/8.1.16/drush.phar" -o /usr/local/bin/drush \
     && chmod +x /usr/local/bin/drush
+
+# prepare sitecopy
+ADD sitecopyrc /root/.sitecopyrc
+RUN mkdir /root/.sitecopy \
+    && chmod 700 /root/.sitecopy \
+    && chmod 600 /root/.sitecopyrc

@@ -8,3 +8,4 @@ sites/*/files/js
 sites/*/files/styles
 .DS_Store
 .idea
+/docker-drupal/sitecopyrc
