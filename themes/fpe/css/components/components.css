@@ -2129,6 +2129,47 @@ body.page-news .view-news .news-item img {
   width: 10rem;
 }
 
+.sponsor .title.Partner {
+  overflow: hidden;
+  text-align: center;
+}
+
+.sponsor .title.Partner:before, .sponsor .title.Partner:after {
+  background: #ffd100;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.sponsor .title.Partner:before {
+  right: 12px;
+  right: 0.75rem;
+  margin-left: -50%;
+}
+
+.sponsor .title.Partner:after {
+  left: 12px;
+  left: 0.75rem;
+  margin-right: -50%;
+}
+
+.sponsor .title.Partner > * {
+  display: inline-block;
+}
+
+.sponsor .title.Partner h3 {
+  background: #ffd100;
+  color: #0c2340;
+}
+
+.sponsor .Partner img {
+  width: 160px;
+  width: 10rem;
+}
+
 body.frontpage .block-fpe-page-title h1,
 body.page-spielplan .block-fpe-page-title h1 {
   color: #ffd100;
