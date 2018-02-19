@@ -1,9 +1,9 @@
-site theme_production
+site fpe_theme
   server discordia.bytecamp.net
   username CHANGEME
   password CHANGEME
-  local /var/www/html/themes/fpe
   remote /themes/fpe
+  local /var/www/html/themes/fpe
   protocol ftp
   state checksum
   exclude /includes
@@ -16,3 +16,12 @@ site theme_production
   exclude /js/source
   exclude .DS_store
   exclude .gitignore
+
+site fpe_config
+  server discordia.bytecamp.net
+  username CHANGEME
+  password CHANGEME
+  remote /sites/default/files/config_<remote_sync_dir>
+  local /var/www/html/sites/default/files/config_<local_sync_dir>
+  protocol ftp
+  state checksum
