@@ -841,6 +841,10 @@ footer .all-news-link a:focus, footer .all-news-link a:hover {
   }
 }
 
+.article.article--layout-hero header a {
+  color: #fff;
+}
+
 .article.article--layout-hero h2 {
   font-size: 24px;
   font-size: 1.5rem;

@@ -17,15 +17,19 @@
 <article{{ attributes.addClass(classes) }}>
   <header>
     <h2>
-      {% if node.field_hero_headline.value|length %}
-        {{ content.field_hero_headline }}
-      {% else %}
-        {{ label }}
-      {% endif %}
+        <a href=" {{ url }}" >
+            {% if node.field_hero_headline.value|length %}
+                {{ content.field_hero_headline }}
+            {% else %}
+                {{ label }}
+            {% endif %}
+        </a>
     </h2>
     {% if node.field_subheadline.value|length %}
       <h3>
-        {{ content.field_subheadline }}
+        <a href=" {{ url }}" >
+            {{ content.field_subheadline }}
+        </a>
       </h3>
     {% endif %}
   </header>
