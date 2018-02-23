@@ -132,7 +132,7 @@
     li:first-child
       border-right: 1px solid
 
-    li:nth-child(2)
+    li:nth-child(3)
       flex-grow: 2
 
     li:nth-last-child(3),
@@ -150,6 +150,22 @@
           background-size: 32px 32px
           height: 32px
           width: 32px
+
+    li:nth-child(3)
+      padding: 0 0.2rem
+      a
+        background-image: url(../../images/optimized/emtv.svg)
+        background-repeat: no-repeat
+        display: inline-block
+        content: ' '
+        color: rgba(0, 0, 0, 0)
+        background-size: 64px 32px
+        height: 32px
+        width: 64px
+        @include media($medium-screen-up)
+          background-size: 128px 48px
+          height: 48px
+          width: 128px
 
     li:nth-last-child(3)
       a
