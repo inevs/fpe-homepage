@@ -2197,7 +2197,7 @@ body.page-news .view-news .news-item img {
 }
 
 body.frontpage .block-fpe-page-title h1,
-body.page-spielplan .block-fpe-page-title h1 {
+body.section-spielplan .block-fpe-page-title h1 {
   color: #ffd100;
   font-size: 19.2px;
   font-size: 1.2rem;
@@ -2209,7 +2209,7 @@ body.page-spielplan .block-fpe-page-title h1 {
 
 @media screen and (min-width: 720px) {
   body.frontpage .block-fpe-page-title h1,
-  body.page-spielplan .block-fpe-page-title h1 {
+  body.section-spielplan .block-fpe-page-title h1 {
     font-size: 1.75rem;
     font-weight: 600;
     padding: 1.5rem;
@@ -2217,33 +2217,33 @@ body.page-spielplan .block-fpe-page-title h1 {
 }
 
 body.frontpage .block-fpe-content,
-body.page-spielplan .block-fpe-content {
+body.section-spielplan .block-fpe-content {
   padding: 0 12px;
   padding: 0 0.75rem;
 }
 
 @media screen and (min-width: 720px) {
   body.frontpage .block-fpe-content,
-  body.page-spielplan .block-fpe-content {
+  body.section-spielplan .block-fpe-content {
     padding: 0 1.5rem;
   }
 }
 
 body.frontpage .block-fpe-content h2,
-body.page-spielplan .block-fpe-content h2 {
+body.section-spielplan .block-fpe-content h2 {
   font-size: 18px;
   font-size: 1.125rem;
 }
 
 body.frontpage .block-fpe-content p,
-body.page-spielplan .block-fpe-content p {
+body.section-spielplan .block-fpe-content p {
   margin-bottom: 0;
   padding-bottom: 12px;
   padding-bottom: 0.75rem;
 }
 
 body.frontpage .block-fpe-content h3,
-body.page-spielplan .block-fpe-content h3 {
+body.section-spielplan .block-fpe-content h3 {
   font-size: 18px;
   font-size: 1.125rem;
 }
