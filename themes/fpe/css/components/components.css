@@ -409,16 +409,14 @@ abbr {
 .menu--fussbereich-user .menu li:nth-child(3) a, .menu--footer .menu li:nth-child(3) a {
   background-image: url(../../images/optimized/emtv.svg);
   background-repeat: no-repeat;
-  display: inline-block;
+  display: none;
   content: ' ';
   color: transparent;
-  background-size: 64px 32px;
-  height: 32px;
-  width: 64px;
 }
 
 @media screen and (min-width: 720px) {
   .menu--fussbereich-user .menu li:nth-child(3) a, .menu--footer .menu li:nth-child(3) a {
+    display: inline-block;
     background-size: 128px 48px;
     height: 48px;
     width: 128px;
