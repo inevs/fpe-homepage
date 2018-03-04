@@ -1,7 +1,0 @@
-live_score.content:
-  path: '/live_score'
-  defaults:
-    _controller: '\Drupal\live_score\Controller\LiveScoreController::content'
-    _title: 'This is the Live Score'
-  requirements:
-    _permission: 'access content'
