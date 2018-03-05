@@ -8,6 +8,18 @@ function livescore_theme($existing, $type, $theme, $path) {
     'livescore_block' => [
       'variables' => [
         'foo' => '',
+        'home_team' => '',
+        'away_team' => '',
+        'user' => '',
+        'location' => '',
+        'game_day' => '',
+        'game_time' => '',
+        'period' => '',
+        'final' => false,
+        'started' => true,
+        'updated_at' => '',
+        'score' => '',
+        'notes' => [],
       ],
     ],
   ];
