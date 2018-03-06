@@ -1,17 +1,37 @@
-<div>
-<div>
-  <h3>Data</h3>
-</div>
-<h3>Variables</h3>
-<div>home_team: {{ gamedata.home_team }}</div>
-<div>away_team: {{ gamedata.away_team }}</div>
-<div>user: {{ gamedata.user }}</div>
-<div>location: {{ gamedata.location }}</div>
-<div>game_day: {{ gamedata.game_day }}</div>
-<div>game_time: {{ gamedata.game_time }}</div
-<div>period: {{ gamedata.period }}</div>
-<div>final: {{ gamedata.final }}</div>
-<div>started: {{ gamedata.started }}</div>
-<div>updated_at: {{ gamedata.updated_at.time }}</div>
-<div>score: {{ gamedata.score.home.total }}</div>
+<div class='livescore'>
+  <div class='metadata'>
+    <div class='user'>{{ gamedata.user }} </div>
+    <div class='updated_at'> {{ gamedata.updated_at.words }} </div>
+  </div>
+  <div class='score'>
+    <div class='period'>{{ gamedata.period }} </div>
+    <div class='gameday'> {{ gamedata.game_day }} </div>
+    <div class='totalscore home'> {{ gamedata.score.home.total }}</div>
+    <div class='totalscore away'> {{ gamedata.score.away.total }}</div>
+    <div class='row'>
+      <div class='home-team'> {{ gamedata.home_team }} </div>
+      <div class='periods home'>
+        {% for period in gamedata.score.home.periods %}
+          <div class='period'> {{ period }} </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class='row'>
+      <div class ='away-team'> {{ gamedata.away_team }} </div>
+      <div class='periods away'>
+        {% for period in gamedata.score.away.periods %}
+          <div class='period'> {{ period }} </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class='notes'>
+    <div>Notes</div>
+    {% for note in gamedata.notes %}
+      <div class='note'>
+        <div class='note time'>{{ note.created_at }}</div>
+        <div class='note text'>{{ note.text }}</div>
+      </div>
+    {% endfor %}
+  </div>
 </div>
