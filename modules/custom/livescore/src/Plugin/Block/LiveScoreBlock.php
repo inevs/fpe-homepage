@@ -4,6 +4,7 @@ namespace Drupal\livescore\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
+use GuzzleHttp\Exception\RequestException;
 
 /**
  *
@@ -81,9 +82,21 @@ class LiveScoreBlock extends BlockBase {
       $game_id = $this->t('100');
     }
     $url = 'https://footballscores.herokuapp.com/games/'.$game_id.'.json';
-    $jsondata = file_get_contents($url);
-    $data = json_decode($jsondata, true);
 
+    $client = \Drupal::httpClient();
+
+    $jsondata = '';
+    try {
+      $response = $client->get($url);
+      $code = $response->getStatusCode();
+      if ($code == 200 ) {
+        $jsondata = $response->getBody();
+      }
+    }
+    catch (TransferException $e) {
+    }
+
+    $data = json_decode($jsondata, true);
 
     $build = [];
     $block = [
