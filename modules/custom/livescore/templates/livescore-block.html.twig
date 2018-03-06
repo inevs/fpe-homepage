@@ -1,19 +1,17 @@
 <div>
 <div>
   <h3>Data</h3>
-  {{ foo }}
 </div>
 <h3>Variables</h3>
-<div>home_team: {{ home_team }}</div>
-<div>away_team: {{ away_team }}</div>
-<div>user: {{ user }}</div>
-<div>location: {{ location }}</div>
-<div>game_day: {{ game_day }}</div>
-<div>game_time: {{ game_time }}</div>
-<div>period: {{ period }}</div>
-<div>final: {{ final }}</div>
-<div>started: {{ started }}</div>
-<div>updated_at: {{ updated_at }}</div>
-<div>score: {{ score }}</div>
-<div>notes: {{ notes }}</div>
+<div>home_team: {{ gamedata.home_team }}</div>
+<div>away_team: {{ gamedata.away_team }}</div>
+<div>user: {{ gamedata.user }}</div>
+<div>location: {{ gamedata.location }}</div>
+<div>game_day: {{ gamedata.game_day }}</div>
+<div>game_time: {{ gamedata.game_time }}</div
+<div>period: {{ gamedata.period }}</div>
+<div>final: {{ gamedata.final }}</div>
+<div>started: {{ gamedata.started }}</div>
+<div>updated_at: {{ gamedata.updated_at.time }}</div>
+<div>score: {{ gamedata.score.home.total }}</div>
 </div>

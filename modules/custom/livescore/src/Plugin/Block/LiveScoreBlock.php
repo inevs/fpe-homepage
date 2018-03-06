@@ -88,19 +88,7 @@ class LiveScoreBlock extends BlockBase {
     $build = [];
     $block = [
       '#theme' => 'livescore_block',
-      '#foo' => $jsondata,
-      '#home_team' => $data['home_team'],
-      '#away_team' => $data['away_team'],
-      '#user' => $data['user'],
-      '#location' => $data['location'],
-      '#game_day' => $data['game_day'],
-      '#game_time' => $data['game_time'],
-      '#period' => $data['period'],
-      '#final' => $data['final'],
-      '#started' => $data['started'],
-      '#updated_at' => implode(', ', $data['updated_at']),
-      '#score' => 'score', // $data['score'],
-      'notes' => $data['notes'],
+      '#gamedata' => $data,
     ];
 
     $build['livescore'] = $block;
