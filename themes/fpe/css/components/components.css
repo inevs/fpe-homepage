@@ -763,6 +763,7 @@ abbr {
   font-size: 17.6px;
   font-size: 1.1rem;
   font-weight: normal;
+  overflow-wrap: break-word;
 }
 
 .news-items .article__tags,
