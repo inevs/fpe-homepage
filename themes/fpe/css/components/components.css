@@ -2398,3 +2398,27 @@ body.page-user-login form .button {
   float: none;
   margin: 0;
 }
+
+.block-livescore {
+  padding: 12px;
+  padding: 0.75rem;
+}
+
+.block-livescore h2 {
+  color: #ffd100;
+  font-size: 19.2px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.block-livescore .metadata {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-style: italic;
+}
