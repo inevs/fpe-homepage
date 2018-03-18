@@ -74,7 +74,7 @@ class LiveScoreBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    $jsondata = &drupal_static(__FUNCTION__);
+    $data = &drupal_static(__FUNCTION__);
     $cid = 'livescore:' . \Drupal::languageManager()->getCurrentLanguage()->getId();
 
     $config = $this->getConfiguration();
@@ -87,14 +87,12 @@ class LiveScoreBlock extends BlockBase {
     $url = 'https://footballscores.herokuapp.com/games/'.$game_id.'.json';
 
     if ($cache = \Drupal::cache()->get($cid)) {
-      $jsondata = $cache->data;
+      $data = $cache->data;
     }
     else {
-      $jsondata = $this->getJsonData($url);
-      \Drupal::cache()->set($cid, $jsondata);
+      $data = $this->getDataFrom($url);
+      \Drupal::cache()->set($cid, $data);
     }
-
-    $data = json_decode($jsondata, true);
 
     $build = [];
     $block = [
@@ -106,7 +104,7 @@ class LiveScoreBlock extends BlockBase {
     return $build;
   }
 
-  function getJsonData($url) {
+  function getDataFrom($url) {
     $jsondata = '';
     $client = \Drupal::httpClient();
     try {
@@ -119,7 +117,8 @@ class LiveScoreBlock extends BlockBase {
     catch (TransferException $e) {
     }
 
-    return $jsondata;
+    $data = json_decode($jsondata, true);
+    return $data;
   }
 
 }
