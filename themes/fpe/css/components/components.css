@@ -2422,3 +2422,55 @@ body.page-user-login form .button {
   font-size: 0.75rem;
   font-style: italic;
 }
+
+.block-livescore .metadata .updated_at {
+  display: none;
+}
+
+.block-livescore .scores .period {
+  display: none;
+}
+
+.block-livescore .scores .gameday {
+  display: none;
+}
+
+.block-livescore .scores .score {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: space-evenly;
+      justify-content: space-evenly;
+  padding: 16px 0px;
+  padding: 1rem 0px;
+}
+
+.block-livescore .scores .score div {
+  width: 25%;
+}
+
+.block-livescore .scores .score .totalscore {
+  text-align: center;
+  font-size: 32px;
+  font-size: 2rem;
+}
+
+.block-livescore .scores .row {
+  display: none;
+}
+
+.block-livescore .note {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+}
+
+.block-livescore .note .time {
+  padding-right: 10px;
+}
+
+.block-livescore .note:nth-child(1n+10) {
+  display: none;
+}

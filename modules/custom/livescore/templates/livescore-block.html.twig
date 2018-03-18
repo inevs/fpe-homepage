@@ -3,11 +3,15 @@
     <div class='user'>{{ gamedata.user }} </div>
     <div class='updated_at'> {{ gamedata.updated_at.words }} </div>
   </div>
-  <div class='score'>
+  <div class='scores'>
     <div class='period'>{{ gamedata.period }} </div>
     <div class='gameday'> {{ gamedata.game_day }} </div>
-    <div class='totalscore home'> {{ gamedata.score.home.total }}</div>
-    <div class='totalscore away'> {{ gamedata.score.away.total }}</div>
+    <div class='score'>
+      <div class='home-team'> {{ gamedata.home_team }} </div>
+      <div class='totalscore home'> {{ gamedata.score.home.total }}</div>
+      <div class='totalscore away'> {{ gamedata.score.away.total }}</div>
+      <div class ='away-team'> {{ gamedata.away_team }} </div>
+    </div>
     <div class='row'>
       <div class='home-team'> {{ gamedata.home_team }} </div>
       <div class='periods home'>
@@ -26,11 +30,10 @@
     </div>
   </div>
   <div class='notes'>
-    <div>Notes</div>
     {% for note in gamedata.notes %}
       <div class='note'>
-        <div class='note time'>{{ note.created_at }}</div>
-        <div class='note text'>{{ note.text }}</div>
+        <div class='time'>{{ note.created_at }}</div>
+        <div class='text'>{{ note.text }}</div>
       </div>
     {% endfor %}
   </div>

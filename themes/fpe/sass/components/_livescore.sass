@@ -12,6 +12,32 @@
     justify-content: space-between
     font-size: 0.75rem
     font-style: italic
+    .updated_at
+      display: none
 
-  .score
-    
+  .scores
+    .period
+      display: none
+    .gameday
+      display: none
+    .score
+      display: flex
+      flex-direction: row
+      justify-content: space-evenly
+      padding: 1rem 0px
+      div
+        width: 25%
+      .totalscore
+        text-align: center
+        font-size: 2rem
+    .row
+      display: none
+
+  .note
+    display: flex
+    flex-direction: row    
+    .time
+      padding-right: 10px
+  .note:nth-child(1n+10)
+      display: none
+  
