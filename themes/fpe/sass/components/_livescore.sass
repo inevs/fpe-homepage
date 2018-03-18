@@ -46,6 +46,10 @@
     flex-direction: row    
     .time
       padding-right: 10px
-  .note:nth-child(1n+10)
-      display: none
+  @include media($small-screen-only)
+    .note:nth-child(1n+10)
+        display: none
+  @include media($medium-screen-up)
+    .note:nth-child(1n+20)
+        display: none
   

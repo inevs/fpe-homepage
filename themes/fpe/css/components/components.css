@@ -2484,6 +2484,14 @@ body.page-user-login form .button {
   padding-right: 10px;
 }
 
-.block-livescore .note:nth-child(1n+10) {
-  display: none;
+@media screen and (max-width: 719px) {
+  .block-livescore .note:nth-child(1n+10) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .block-livescore .note:nth-child(1n+20) {
+    display: none;
+  }
 }
