@@ -2412,6 +2412,13 @@ body.page-user-login form .button {
   font-weight: 500;
 }
 
+@media screen and (min-width: 720px) {
+  .block-livescore h2 {
+    font-weight: 600;
+    font-size: 1.75rem;
+  }
+}
+
 .block-livescore .livescore a {
   display: none;
 }
