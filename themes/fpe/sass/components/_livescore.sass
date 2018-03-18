@@ -1,0 +1,55 @@
+.block-livescore
+  padding: $small-spacing
+  
+  h2
+    color: $pirates-yellow
+    font-size: 1.2rem
+    font-weight: 500
+
+  .livescore a
+    display: none
+
+  .metadata
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    font-size: 0.75rem
+    font-style: italic
+    .updated_at
+      display: none
+
+  .score_notes
+    @include media($medium-screen-up)
+      display: flex
+
+  .scores
+    .period
+      display: none
+    .gameday
+      display: none
+    .score
+      display: flex
+      flex-direction: row
+      justify-content: space-evenly
+      padding: 1rem 0px
+      align-items: center
+      div
+        width: 25%
+      .totalscore
+        text-align: center
+        font-size: 2rem
+    .row
+      display: none
+
+  .note
+    display: flex
+    flex-direction: row    
+    .time
+      padding-right: 10px
+  @include media($small-screen-only)
+    .note:nth-child(1n+10)
+        display: none
+  @include media($medium-screen-up)
+    .note:nth-child(1n+20)
+        display: none
+  

@@ -2399,3 +2399,100 @@ body.page-user-login form .button {
   float: none;
   margin: 0;
 }
+
+.block-livescore {
+  padding: 12px;
+  padding: 0.75rem;
+}
+
+.block-livescore h2 {
+  color: #ffd100;
+  font-size: 19.2px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.block-livescore .livescore a {
+  display: none;
+}
+
+.block-livescore .metadata {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.block-livescore .metadata .updated_at {
+  display: none;
+}
+
+@media screen and (min-width: 720px) {
+  .block-livescore .score_notes {
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.block-livescore .scores .period {
+  display: none;
+}
+
+.block-livescore .scores .gameday {
+  display: none;
+}
+
+.block-livescore .scores .score {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: space-evenly;
+      justify-content: space-evenly;
+  padding: 16px 0px;
+  padding: 1rem 0px;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.block-livescore .scores .score div {
+  width: 25%;
+}
+
+.block-livescore .scores .score .totalscore {
+  text-align: center;
+  font-size: 32px;
+  font-size: 2rem;
+}
+
+.block-livescore .scores .row {
+  display: none;
+}
+
+.block-livescore .note {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+}
+
+.block-livescore .note .time {
+  padding-right: 10px;
+}
+
+@media screen and (max-width: 719px) {
+  .block-livescore .note:nth-child(1n+10) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .block-livescore .note:nth-child(1n+20) {
+    display: none;
+  }
+}
