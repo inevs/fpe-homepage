@@ -6,6 +6,9 @@
     font-size: 1.2rem
     font-weight: 500
 
+  .livescore a
+    display: none
+
   .metadata
     display: flex
     flex-direction: row
@@ -14,6 +17,10 @@
     font-style: italic
     .updated_at
       display: none
+
+  .score_notes
+    @include media($medium-screen-up)
+      display: flex
 
   .scores
     .period
@@ -25,6 +32,7 @@
       flex-direction: row
       justify-content: space-evenly
       padding: 1rem 0px
+      align-items: center
       div
         width: 25%
       .totalscore

@@ -2411,6 +2411,10 @@ body.page-user-login form .button {
   font-weight: 500;
 }
 
+.block-livescore .livescore a {
+  display: none;
+}
+
 .block-livescore .metadata {
   display: -ms-flexbox;
   display: flex;
@@ -2425,6 +2429,13 @@ body.page-user-login form .button {
 
 .block-livescore .metadata .updated_at {
   display: none;
+}
+
+@media screen and (min-width: 720px) {
+  .block-livescore .score_notes {
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .block-livescore .scores .period {
@@ -2444,6 +2455,8 @@ body.page-user-login form .button {
       justify-content: space-evenly;
   padding: 16px 0px;
   padding: 1rem 0px;
+  -ms-flex-align: center;
+      align-items: center;
 }
 
 .block-livescore .scores .score div {
