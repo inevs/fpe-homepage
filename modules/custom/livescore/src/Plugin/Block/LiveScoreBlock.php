@@ -86,13 +86,13 @@ class LiveScoreBlock extends BlockBase {
     }
     $url = 'https://footballscores.herokuapp.com/games/'.$game_id.'.json';
 
-    if ($cache = \Drupal::cache()->get($cid)) {
-      $data = $cache->data;
-    }
-    else {
+    // if ($cache = \Drupal::cache()->get($cid)) {
+    //   $data = $cache->data;
+    // }
+    // else {
       $data = $this->getDataFrom($url);
-      \Drupal::cache()->set($cid, $data);
-    }
+    //   \Drupal::cache()->set($cid, $data);
+    // }
 
     $build = [];
     $block = [
