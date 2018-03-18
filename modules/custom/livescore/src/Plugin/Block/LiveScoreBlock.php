@@ -14,7 +14,7 @@ use GuzzleHttp\Exception\RequestException;
  *
  * @Block(
  *   id = "livescore",
- *   admin_label = @Translation("LiveScore")
+ *   admin_label = @Translation("LiveScore (BETA)")
  * )
  */
 class LiveScoreBlock extends BlockBase {
