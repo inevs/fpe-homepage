@@ -1,0 +1,50 @@
+body.detail-langzeit_artikel
+  .block-fpe-content
+    padding: 0
+  .block-fpe-page-title
+    display: none
+  .langzeit-artikel
+    display: flex
+    flex-direction: column
+    .submitted
+      display: none
+    h1
+      order: 1
+      @include centered-container
+      margin-top: $base-spacing
+      margin-bottom: $small-spacing
+      font-size: $base-font-size * 1.875
+      @include media($medium-screen-up)
+        font-size: $base-font-size * 3.125      
+    .langzeit_artikel__article-image
+      order: 0
+      div:first-child
+        display: none
+    .langzeit_artikel__body
+      order: 2
+      font-size: $base-font-size * 0.8125
+      @include media($medium-screen-up)
+        font-size: $base-font-size            
+      @include centered-container
+
+
+body.page-football-101
+  .block-fpe-content
+    padding: 0
+  .block-fpe-page-title
+    display: none
+  .view-football_101
+    .langzeit-artikel
+      .submitted
+        display: none
+    .langzeit_artikel__article-image
+      display: none
+    header
+      @include centered-container
+      padding-top: 2rem
+    .content      
+      @include centered-container
+    .links
+      @include centered-container
+      
+  
