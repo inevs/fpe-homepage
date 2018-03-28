@@ -1,0 +1,7 @@
+name: Giphys
+type: module
+description: 'Giphys is a Giphy search block'
+core: 8.x
+package: Other
+dependencies:
+  - block

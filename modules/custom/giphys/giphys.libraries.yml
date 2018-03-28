@@ -1,0 +1,9 @@
+giphys:
+  version: 1.x
+  css:
+    theme:
+      css/giphys.css: {}
+  js:
+    js/giphys.js: {}
+  dependencies:
+    - core/jquery

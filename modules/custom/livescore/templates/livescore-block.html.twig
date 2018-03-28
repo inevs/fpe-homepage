@@ -1,43 +1,7 @@
-<div class='livescore'>
-  <div class='metadata'>
-    <div class='user'>{{ gamedata.user }} </div>
-    <div class='updated_at'> {{ gamedata.updated_at.words }} </div>
-  </div>
-  <div class='score_notes'>
-    <div class='scores'>
-      <div class='period'>{{ gamedata.period }} </div>
-      <div class='gameday'> {{ gamedata.game_day }} </div>
-      <div class='score'>
-        <div class='home-team'> {{ gamedata.home_team }} </div>
-        <div class='totalscore home'> {{ gamedata.score.home.total }}</div>
-        <div class='totalscore away'> {{ gamedata.score.away.total }}</div>
-        <div class ='away-team'> {{ gamedata.away_team }} </div>
-      </div>
-      <div class='row'>
-        <div class='home-team'> {{ gamedata.home_team }} </div>
-        <div class='periods home'>
-          {% for period in gamedata.score.home.periods %}
-            <div class='period'> {{ period }} </div>
-          {% endfor %}
-        </div>
-      </div>
-      <div class='row'>
-        <div class ='away-team'> {{ gamedata.away_team }} </div>
-        <div class='periods away'>
-          {% for period in gamedata.score.away.periods %}
-            <div class='period'> {{ period }} </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-    <div class='notes'>
-      {% for note in gamedata.notes %}
-        <div class='note'>
-          <div class='time'>{{ note.created_at }}</div>
-          <div class='text'>{{ note.text }}</div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-  <a href='#'>Reload</a>
+<div>
+  <form id="livescore-search" accept-charset="UTF-8">
+    <label for="search-text" class="visually-hidden">Search</label>
+    <input class="search-form__submit button js-form-submit form-submit" type="submit" value="Search" />
+  </form>
+  <div class='livescore'></div>
 </div>

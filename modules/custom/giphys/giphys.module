@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Module file for giphys_module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ *
+ * @see https://www.drupal.org/documentation/help-text-standards
+ *
+ * @see hook_help()
+ */
+function giphys_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.giphys':
+      // Help text for the admin section, using the module name in the path.
+      return t("This is help text created in giphys implementation of hook_help().");
+  }
+}
+
+function giphys_theme($existing, $type, $theme, $path) {
+  return [
+    'giphys' => [
+      'variables' => [
+        'url' => 'http://example.com',
+        'secret' => NULL
+      ],
+    ],
+  ];
+}

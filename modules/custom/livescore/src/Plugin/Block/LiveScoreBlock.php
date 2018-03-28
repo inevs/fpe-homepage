@@ -48,12 +48,16 @@ class LiveScoreBlock extends BlockBase {
    * @see \Drupal\block\BlockFormController::form()
    */
   public function blockForm($form, FormStateInterface $form_state) {
-    $form['livescore_game_id_text'] = [
-      '#type' => 'textarea',
+    $config = $this->getConfiguration();
+
+    $form['game_id_text'] = [
+      '#type' => 'textfield',
       '#title' => $this->t('Game-ID'),
+      '#default_value' => '',
+      '#required' => TRUE,
       '#description' => $this->t('The Game-ID from footballscores.'),
-      '#default_value' => $this->configuration['livescore_game_id'],
     ];
+
     return $form;
   }
 
@@ -66,59 +70,27 @@ class LiveScoreBlock extends BlockBase {
    * The blockValidate() method can be used to validate the form submission.
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
-    $this->configuration['livescore_game_id']
-      = $form_state->getValue('livescore_game_id_text');
+    $this->setConfigurationValue('gameId', $form_state->getValue('game_id_text'));
   }
 
   /**
    * {@inheritdoc}
    */
   public function build() {
-    $data = &drupal_static(__FUNCTION__);
-    $cid = 'livescore:' . \Drupal::languageManager()->getCurrentLanguage()->getId();
-
     $config = $this->getConfiguration();
-    if (!empty($config['livescore_game_id'])) {
-      $game_id = $config['livescore_game_id'];
-    }
-    else {
-      $game_id = $this->t('100');
-    }
-    $url = 'https://footballscores.herokuapp.com/games/'.$game_id.'.json';
 
-    // if ($cache = \Drupal::cache()->get($cid)) {
-    //   $data = $cache->data;
-    // }
-    // else {
-      $data = $this->getDataFrom($url);
-    //   \Drupal::cache()->set($cid, $data);
-    // }
-
-    $build = [];
-    $block = [
+    return array(
       '#theme' => 'livescore_block',
-      '#gamedata' => $data,
-    ];
-
-    $build['livescore'] = $block;
-    return $build;
+      '#attached' => array(
+        'drupalSettings' => array(
+            'livescore' => array(
+                'gameId' => $config['gameId']
+            )
+        ),
+        'library' => array(
+          'livescore/livescore',
+        ),
+      ),
+    );
   }
-
-  function getDataFrom($url) {
-    $jsondata = '';
-    $client = \Drupal::httpClient();
-    try {
-      $response = $client->get($url);
-      $code = $response->getStatusCode();
-      if ($code == 200 ) {
-        $jsondata = $response->getBody();
-      }
-    }
-    catch (TransferException $e) {
-    }
-
-    $data = json_decode($jsondata, true);
-    return $data;
-  }
-
 }
