@@ -39,6 +39,3 @@ This will synchronize the state of the themes directory with the remote version.
 
 * Disable comments for all articles: https://www.inmotionhosting.com/support/edu/drupal-8/comments/disable-article-comment
 * Comments Modul deinstallieren
-
-## Deployment
-see [Deployment](https://github.com/marschwar/fpe-homepage/blob/master/Deployment.md)
