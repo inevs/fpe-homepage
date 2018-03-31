@@ -74,9 +74,6 @@ class LiveScoreBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    $data = &drupal_static(__FUNCTION__);
-    $cid = 'livescore:' . \Drupal::languageManager()->getCurrentLanguage()->getId();
-
     $config = $this->getConfiguration();
     if (!empty($config['livescore_game_id'])) {
       $game_id = $config['livescore_game_id'];
@@ -84,17 +81,11 @@ class LiveScoreBlock extends BlockBase {
     else {
       $game_id = $this->t('100');
     }
-    $url = 'https://footballscores.herokuapp.com/games/'.$game_id.'.json';
-
-    // if ($cache = \Drupal::cache()->get($cid)) {
-    //   $data = $cache->data;
-    // }
-    // else {
-      $data = $this->getDataFrom($url);
-    //   \Drupal::cache()->set($cid, $data);
-    // }
-
+ 
     $build = [];
+    $data = [
+      'id' => $game_id,
+    ];
     $block = [
       '#theme' => 'livescore_block',
       '#gamedata' => $data,
