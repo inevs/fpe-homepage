@@ -1,12 +1,13 @@
 console.log(drupalSettings.livescore);
 
-function jsonCallback(json){
-  console.log(json);
-}
-
-(function ($) {  
+(function ($) {
+  livescoreEndpoint = "https://footballscores.herokuapp.com/games/" + drupalSettings.livescore.gameId + ".json"
   $.ajax({
-    url: "https://footballscores.herokuapp.com/games/576.json?callback=?",
-    dataType: "jsonp"
-  });  
+    url: livescoreEndpoint,
+    dataType: "json",
+    success: function (data) {
+      console.log(data);
+      $(".scores").append(data["score"]["away"]["total"] + " : " + data["score"]["home"]["total"]);
+    },
+  });
 })(jQuery);
