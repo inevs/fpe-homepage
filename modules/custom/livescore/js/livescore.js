@@ -8,7 +8,7 @@
       dataType: "json",
       success: function (data) {
         console.log(data);
-        updateScores(data["score"]);
+        updateScores(data);
         updateNotes(data["notes"]);
       },
     });  
@@ -31,7 +31,22 @@
   function updateScores(data) {
     $scores = $(".scores");
     $scores.empty();
-    $scores.append(data["away"]["total"] + " : " + data["home"]["total"]);
+    $scores.append($('<div>', {class: 'period'}).append(data["period"]));
+    $scores.append($('<div>', {class: 'total'}).append(data["score"]["away"]["total"] + " - " + data["score"]["home"]["total"]));
+    $table = $('<table>', {class: 'score_table'});
+    $homeRow = $('<tr>');
+    $homeRow.append($('<td>').append(data["home_team"]));
+    data["score"]["home"]["periods"].forEach(period => {
+      $homeRow.append($('<td>').append(period));
+    })
+    $awayRow = $('<tr>');
+    $awayRow.append($('<td>').append(data["away_team"]));
+    data["score"]["home"]["periods"].forEach(period => {
+      $awayRow.append($('<td>').append(period));
+    })
+    $table.append($homeRow);
+    $table.append($awayRow);
+    $scores.append($table);
   }
 
   function updateNotes(data) {
