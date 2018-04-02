@@ -2419,24 +2419,8 @@ body.page-user-login form .button {
   }
 }
 
-.block-livescore .livescore a {
-  display: none;
-}
-
-.block-livescore .metadata {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  font-size: 12px;
-  font-size: 0.75rem;
-  font-style: italic;
-}
-
-.block-livescore .metadata .updated_at {
-  display: none;
+.block-livescore .score_notes {
+  width: 100%;
 }
 
 @media screen and (min-width: 720px) {
@@ -2446,8 +2430,10 @@ body.page-user-login form .button {
   }
 }
 
-.block-livescore .scores .period {
-  display: none;
+@media screen and (min-width: 720px) {
+  .block-livescore .scores {
+    width: 50%;
+  }
 }
 
 .block-livescore .scores .gameday {
@@ -2486,6 +2472,12 @@ body.page-user-login form .button {
   display: flex;
   -ms-flex-direction: row;
       flex-direction: row;
+}
+
+@media screen and (min-width: 720px) {
+  .block-livescore .note {
+    width: 50%;
+  }
 }
 
 .block-livescore .note .time {
