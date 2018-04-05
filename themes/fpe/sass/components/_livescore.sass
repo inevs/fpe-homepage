@@ -1,6 +1,11 @@
 .block-livescore
   padding: $small-spacing
+  @include media($medium-screen-up)
+    padding: $base-spacing
   
+  #autoreload
+    display: none
+
   h2
     color: $pirates-yellow
     font-size: 1.2rem
@@ -15,30 +20,35 @@
       display: flex
 
   .scores
-    @include media($medium-screen-up)    
+    @include media($medium-screen-up)
+      padding-right: $small-spacing       
       width: 50%
     .gameday
       display: none
-    .score
-      display: flex
-      flex-direction: row
-      justify-content: space-evenly
-      padding: 1rem 0px
-      align-items: center
-      div
-        width: 25%
-      .totalscore
-        text-align: center
-        font-size: 2rem
-    .row
-      display: none
+    .period
+      text-align: center
+      font-size: 2rem
+    .total
+      text-align: center
+      font-size: 3rem
+      font-weight: 600
+    .score_table td
+      border: 0
+      padding: 0
+    td.team
+      width: 50%
+    td.quarter
+      text-align: center
+
+  .notes
+    @include media($medium-screen-up)    
+      padding-left: $small-spacing
+      width: 50%
 
   .note
-    @include media($medium-screen-up)    
-      width: 50%
     display: flex
     flex-direction: row    
-    .time
+    .text
       padding-right: 10px
   @include media($small-screen-only)
     .note:nth-child(1n+10)
