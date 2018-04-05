@@ -15,7 +15,7 @@
   };
 
   updateLiveScore();
-  var autoTimer = setInterval(updateLiveScore, 5000);
+  var autoTimer = setInterval(updateLiveScore, 1000 * drupalSettings.livescore.updateRate);
   $autoreloadButton = $("#autoreload");
   $autoreloadButton.click( function() {
     $autoreloadButton.toggleClass("highlighted");

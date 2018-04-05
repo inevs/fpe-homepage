@@ -32,7 +32,8 @@ class LiveScoreBlock extends BlockBase {
    */
   public function defaultConfiguration() {
     return [
-      'livescore_game_id' => $this->t('100'),
+      'gameId' => $this->t('100'),
+      'updateRate' => $this->t('5'),
     ];
   }
 
@@ -50,12 +51,20 @@ class LiveScoreBlock extends BlockBase {
   public function blockForm($form, FormStateInterface $form_state) {
     $config = $this->getConfiguration();
 
-    $form['game_id_text'] = [
+    $form['game_id'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Game-ID'),
       '#default_value' => '',
       '#required' => TRUE,
       '#description' => $this->t('The Game-ID from footballscores.'),
+    ];
+
+    $form['updaterate'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Updaterate'),
+      '#default_value' => '5',
+      '#required' => TRUE,
+      '#description' => $this->t('Wie oft wird aktualisiert in Sekunden.'),
     ];
 
     return $form;
@@ -70,7 +79,8 @@ class LiveScoreBlock extends BlockBase {
    * The blockValidate() method can be used to validate the form submission.
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
-    $this->setConfigurationValue('gameId', $form_state->getValue('game_id_text'));
+    $this->setConfigurationValue('gameId', $form_state->getValue('game_id'));
+    $this->setConfigurationValue('updateRate', $form_state->getValue('updaterate'));
   }
 
   /**
@@ -84,7 +94,8 @@ class LiveScoreBlock extends BlockBase {
       '#attached' => array(
         'drupalSettings' => array(
             'livescore' => array(
-                'gameId' => $config['gameId']
+                'gameId' => $config['gameId'],
+                'updateRate' => $config['updateRate'],
             )
         ),
         'library' => array(
