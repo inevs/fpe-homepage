@@ -1,12 +1,7 @@
 <div class='livescore'>
-  <p>
-    <iframe style='min-width: 280px; float: left;' 
-      src='https://footballscores.herokuapp.com/games/{{ gamedata.id }}/widget' 
-      frameborder='0' scrolling='no' width='50%' height='300px'> 
-    </iframe> 
-    <iframe style='min-width: 280px; float: left;' 
-      src='https://footballscores.herokuapp.com/games/{{ gamedata.id }}/widget/notes' 
-      frameborder='0' scrolling='no' width='50%' height='300px'> 
-    </iframe>
-  </p>
+  <div class='score_notes'>
+    <div class='scores'></div>
+    <div class='notes'></div>
+  </div>
+  <button id="autoreload" class="highlighted"> Auto Reload </button>
 </div>

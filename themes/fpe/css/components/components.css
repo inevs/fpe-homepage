@@ -2405,6 +2405,16 @@ body.page-user-login form .button {
   padding: 0.75rem;
 }
 
+@media screen and (min-width: 720px) {
+  .block-livescore {
+    padding: 1.5rem;
+  }
+}
+
+.block-livescore #autoreload {
+  display: none;
+}
+
 .block-livescore h2 {
   color: #ffd100;
   font-size: 19.2px;
@@ -2419,24 +2429,8 @@ body.page-user-login form .button {
   }
 }
 
-.block-livescore .livescore a {
-  display: none;
-}
-
-.block-livescore .metadata {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  font-size: 12px;
-  font-size: 0.75rem;
-  font-style: italic;
-}
-
-.block-livescore .metadata .updated_at {
-  display: none;
+.block-livescore .score_notes {
+  width: 100%;
 }
 
 @media screen and (min-width: 720px) {
@@ -2446,39 +2440,48 @@ body.page-user-login form .button {
   }
 }
 
-.block-livescore .scores .period {
-  display: none;
+@media screen and (min-width: 720px) {
+  .block-livescore .scores {
+    padding-right: 0.75rem;
+    width: 50%;
+  }
 }
 
 .block-livescore .scores .gameday {
   display: none;
 }
 
-.block-livescore .scores .score {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-pack: space-evenly;
-      justify-content: space-evenly;
-  padding: 16px 0px;
-  padding: 1rem 0px;
-  -ms-flex-align: center;
-      align-items: center;
-}
-
-.block-livescore .scores .score div {
-  width: 25%;
-}
-
-.block-livescore .scores .score .totalscore {
+.block-livescore .scores .period {
   text-align: center;
   font-size: 32px;
   font-size: 2rem;
 }
 
-.block-livescore .scores .row {
-  display: none;
+.block-livescore .scores .total {
+  text-align: center;
+  font-size: 48px;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.block-livescore .scores .score_table td {
+  border: 0;
+  padding: 0;
+}
+
+.block-livescore .scores td.team {
+  width: 50%;
+}
+
+.block-livescore .scores td.quarter {
+  text-align: center;
+}
+
+@media screen and (min-width: 720px) {
+  .block-livescore .notes {
+    padding-left: 0.75rem;
+    width: 50%;
+  }
 }
 
 .block-livescore .note {
@@ -2488,7 +2491,7 @@ body.page-user-login form .button {
       flex-direction: row;
 }
 
-.block-livescore .note .time {
+.block-livescore .note .text {
   padding-right: 10px;
 }
 

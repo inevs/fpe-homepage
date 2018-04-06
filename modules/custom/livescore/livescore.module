@@ -8,6 +8,7 @@ function livescore_theme($existing, $type, $theme, $path) {
     'livescore_block' => [
       'variables' => [
         'gamedata' => '',
+        'gameid' => '',
       ],
     ],
   ];

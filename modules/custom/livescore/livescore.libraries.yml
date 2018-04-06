@@ -1,0 +1,6 @@
+livescore:
+  version: 1.x
+  js:
+    js/livescore.js: {}
+  dependencies:
+    - core/jquery

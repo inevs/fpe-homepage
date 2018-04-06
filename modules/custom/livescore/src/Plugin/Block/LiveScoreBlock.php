@@ -32,7 +32,8 @@ class LiveScoreBlock extends BlockBase {
    */
   public function defaultConfiguration() {
     return [
-      'livescore_game_id' => $this->t('100'),
+      'gameId' => $this->t('100'),
+      'updateRate' => $this->t('5'),
     ];
   }
 
@@ -48,12 +49,22 @@ class LiveScoreBlock extends BlockBase {
    * @see \Drupal\block\BlockFormController::form()
    */
   public function blockForm($form, FormStateInterface $form_state) {
-    $form['livescore_game_id_text'] = [
-      '#type' => 'textarea',
+    $form['game_id'] = [
+      '#type' => 'textfield',
       '#title' => $this->t('Game-ID'),
+      '#default_value' => '',
+      '#required' => TRUE,
       '#description' => $this->t('The Game-ID from footballscores.'),
-      '#default_value' => $this->configuration['livescore_game_id'],
     ];
+
+    $form['updaterate'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Updaterate'),
+      '#default_value' => '5',
+      '#required' => TRUE,
+      '#description' => $this->t('Wie oft wird aktualisiert in Sekunden.'),
+    ];
+
     return $form;
   }
 
@@ -66,8 +77,8 @@ class LiveScoreBlock extends BlockBase {
    * The blockValidate() method can be used to validate the form submission.
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
-    $this->configuration['livescore_game_id']
-      = $form_state->getValue('livescore_game_id_text');
+    $this->setConfigurationValue('gameId', $form_state->getValue('game_id'));
+    $this->setConfigurationValue('updateRate', $form_state->getValue('updaterate'));
   }
 
   /**
@@ -75,41 +86,20 @@ class LiveScoreBlock extends BlockBase {
    */
   public function build() {
     $config = $this->getConfiguration();
-    if (!empty($config['livescore_game_id'])) {
-      $game_id = $config['livescore_game_id'];
-    }
-    else {
-      $game_id = $this->t('100');
-    }
- 
-    $build = [];
-    $data = [
-      'id' => $game_id,
-    ];
-    $block = [
+
+    return array(
       '#theme' => 'livescore_block',
-      '#gamedata' => $data,
-    ];
-
-    $build['livescore'] = $block;
-    return $build;
+      '#attached' => array(
+        'drupalSettings' => array(
+            'livescore' => array(
+                'gameId' => $config['gameId'],
+                'updateRate' => $config['updateRate'],
+            )
+        ),
+        'library' => array(
+          'livescore/livescore',
+        ),
+      ),
+    );
   }
-
-  function getDataFrom($url) {
-    $jsondata = '';
-    $client = \Drupal::httpClient();
-    try {
-      $response = $client->get($url);
-      $code = $response->getStatusCode();
-      if ($code == 200 ) {
-        $jsondata = $response->getBody();
-      }
-    }
-    catch (TransferException $e) {
-    }
-
-    $data = json_decode($jsondata, true);
-    return $data;
-  }
-
 }
