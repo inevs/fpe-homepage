@@ -29,10 +29,15 @@
   });
 
   function updateScores(data) {
+    $spielstand = $('<div>', {class: 'spielstand'});
+    $spielstand.append($('<div>', {class: 'total-team'}).append(drupalSettings.livescore.home_team));
+    $spielstand.append($('<div>', {class: 'total'}).append(data["score"]["home"]["total"] + " - " + data["score"]["away"]["total"]));
+    $spielstand.append($('<div>', {class: 'total-team'}).append(drupalSettings.livescore.away_team));
+
     $scores = $(".scores");
     $scores.empty();
     $scores.append($('<div>', {class: 'period'}).append(data["period"]));
-    $scores.append($('<div>', {class: 'total'}).append(data["score"]["home"]["total"] + " - " + data["score"]["away"]["total"]));
+    $scores.append($spielstand);
     $table = $('<table>', {class: 'score_table'});
     $homeRow = $('<tr>');
     $homeRow.append($('<td>', {class: 'team'}).append(data["home_team"]));

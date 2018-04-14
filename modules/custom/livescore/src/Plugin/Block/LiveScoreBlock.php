@@ -56,7 +56,20 @@ class LiveScoreBlock extends BlockBase {
       '#required' => TRUE,
       '#description' => $this->t('The Game-ID from footballscores.'),
     ];
-
+    $form['home_team'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Home Team'),
+      '#default_value' => '',
+      '#required' => TRUE,
+      '#description' => $this->t('Das Heimteam'),
+    ];
+    $form['away_team'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Away Team'),
+      '#default_value' => '',
+      '#required' => TRUE,
+      '#description' => $this->t('Das Gastteam'),
+    ];
     $form['updaterate'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Updaterate'),
@@ -79,6 +92,8 @@ class LiveScoreBlock extends BlockBase {
   public function blockSubmit($form, FormStateInterface $form_state) {
     $this->setConfigurationValue('gameId', $form_state->getValue('game_id'));
     $this->setConfigurationValue('updateRate', $form_state->getValue('updaterate'));
+    $this->setConfigurationValue('home_team', $form_state->getValue('home_team'));
+    $this->setConfigurationValue('away_team', $form_state->getValue('away_team'));
   }
 
   /**
@@ -94,6 +109,8 @@ class LiveScoreBlock extends BlockBase {
             'livescore' => array(
                 'gameId' => $config['gameId'],
                 'updateRate' => $config['updateRate'],
+                'home_team' => $config['home_team'],
+                'away_team' => $config['away_team'],
             )
         ),
         'library' => array(

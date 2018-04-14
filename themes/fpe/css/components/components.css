@@ -2412,7 +2412,7 @@ body.page-user-login form .button {
 }
 
 .block-livescore #autoreload {
-  display: none;
+  /* display: none; */
 }
 
 .block-livescore h2 {
@@ -2455,6 +2455,15 @@ body.page-user-login form .button {
   text-align: center;
   font-size: 32px;
   font-size: 2rem;
+}
+
+.block-livescore .scores .spielstand {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-align: center;
+      align-items: center;
 }
 
 .block-livescore .scores .total {
