@@ -14,7 +14,7 @@ use GuzzleHttp\Exception\RequestException;
  *
  * @Block(
  *   id = "livescore",
- *   admin_label = @Translation("LiveScore (BETA)")
+ *   admin_label = @Translation("LiveScore")
  * )
  */
 class LiveScoreBlock extends BlockBase {
@@ -32,8 +32,8 @@ class LiveScoreBlock extends BlockBase {
    */
   public function defaultConfiguration() {
     return [
-      'gameId' => $this->t('100'),
-      'updateRate' => $this->t('60'),
+      'gameid' => $this->t('100'),
+      'update' => $this->t('60'),
     ];
   }
 
@@ -49,31 +49,33 @@ class LiveScoreBlock extends BlockBase {
    * @see \Drupal\block\BlockFormController::form()
    */
   public function blockForm($form, FormStateInterface $form_state) {
+    $config = $this->getConfiguration();
+
     $form['game_id'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Game-ID'),
-      '#default_value' => isset($config['game_id']) ? $config['game_id'] : '',
+      '#default_value' => isset($config['gameid']) ? $config['gameid'] : '1',
       '#required' => TRUE,
       '#description' => $this->t('The Game-ID from footballscores.'),
     ];
     $form['home_team'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Home Team'),
-      '#default_value' => isset($config['home_team']) ? $config['home_team'] : '',
+      '#default_value' => isset($config['home_team']) ? $config['home_team'] : '2',
       '#required' => TRUE,
       '#description' => $this->t('Das Heimteam'),
     ];
     $form['away_team'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Away Team'),
-      '#default_value' => isset($config['away_team']) ? $config['away_team'] : '',
+      '#default_value' => isset($config['away_team']) ? $config['away_team'] : '3',
       '#required' => TRUE,
       '#description' => $this->t('Das Gastteam'),
     ];
-    $form['updaterate'] = [
+    $form['refresh'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Updaterate'),
-      '#default_value' => isset($config['updaterate']) ? $config['updaterate'] : '',
+      '#title' => $this->t('Update-Rate'),
+      '#default_value' => isset($config['update']) ? $config['update'] : '4',
       '#required' => TRUE,
       '#description' => $this->t('Wie oft wird aktualisiert in Sekunden.'),
     ];
@@ -90,8 +92,8 @@ class LiveScoreBlock extends BlockBase {
    * The blockValidate() method can be used to validate the form submission.
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
-    $this->setConfigurationValue('gameId', $form_state->getValue('game_id'));
-    $this->setConfigurationValue('updateRate', $form_state->getValue('updaterate'));
+    $this->setConfigurationValue('gameid', $form_state->getValue('game_id'));
+    $this->setConfigurationValue('update', $form_state->getValue('refresh'));
     $this->setConfigurationValue('home_team', $form_state->getValue('home_team'));
     $this->setConfigurationValue('away_team', $form_state->getValue('away_team'));
   }
@@ -107,8 +109,8 @@ class LiveScoreBlock extends BlockBase {
       '#attached' => array(
         'drupalSettings' => array(
             'livescore' => array(
-                'gameId' => $config['gameId'],
-                'updateRate' => $config['updateRate'],
+                'gameId' => $config['gameid'],
+                'updateRate' => $config['update'],
                 'home_team' => $config['home_team'],
                 'away_team' => $config['away_team'],
             )
