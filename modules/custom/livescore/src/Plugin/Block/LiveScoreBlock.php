@@ -33,7 +33,7 @@ class LiveScoreBlock extends BlockBase {
   public function defaultConfiguration() {
     return [
       'gameId' => $this->t('100'),
-      'updateRate' => $this->t('5'),
+      'updateRate' => $this->t('60'),
     ];
   }
 
@@ -52,28 +52,28 @@ class LiveScoreBlock extends BlockBase {
     $form['game_id'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Game-ID'),
-      '#default_value' => '',
+      '#default_value' => isset($config['game_id']) ? $config['game_id'] : '',
       '#required' => TRUE,
       '#description' => $this->t('The Game-ID from footballscores.'),
     ];
     $form['home_team'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Home Team'),
-      '#default_value' => '',
+      '#default_value' => isset($config['home_team']) ? $config['home_team'] : '',
       '#required' => TRUE,
       '#description' => $this->t('Das Heimteam'),
     ];
     $form['away_team'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Away Team'),
-      '#default_value' => '',
+      '#default_value' => isset($config['away_team']) ? $config['away_team'] : '',
       '#required' => TRUE,
       '#description' => $this->t('Das Gastteam'),
     ];
     $form['updaterate'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Updaterate'),
-      '#default_value' => '5',
+      '#default_value' => isset($config['updaterate']) ? $config['updaterate'] : '',
       '#required' => TRUE,
       '#description' => $this->t('Wie oft wird aktualisiert in Sekunden.'),
     ];
