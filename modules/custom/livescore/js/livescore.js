@@ -31,7 +31,7 @@
   function updateScores(data) {
     $spielstand = $('<div>', {class: 'spielstand'});
     $spielstand.append($('<div>', {class: 'total-team'}).append(drupalSettings.livescore.home_team));
-    $spielstand.append($('<div>', {class: 'total'}).append(data["score"]["home"]["total"] + " - " + data["score"]["away"]["total"]));
+    $spielstand.append($('<div>', {class: 'total'}).append(data["score"]["home"]["total"] + " : " + data["score"]["away"]["total"]));
     $spielstand.append($('<div>', {class: 'total-team'}).append(drupalSettings.livescore.away_team));
 
     $scores = $(".scores");
@@ -40,12 +40,12 @@
     $scores.append($spielstand);
     $table = $('<table>', {class: 'score_table'});
     $homeRow = $('<tr>');
-    $homeRow.append($('<td>', {class: 'team'}).append(data["home_team"]));
+    $homeRow.append($('<td>', {class: 'team'}).append(drupalSettings.livescore.home_team));
     data["score"]["home"]["periods"].forEach(period => {
       $homeRow.append($('<td>', {class: 'quarter'}).append(period));
     })
     $awayRow = $('<tr>');
-    $awayRow.append($('<td>', {class: 'team'}).append(data["away_team"]));
+    $awayRow.append($('<td>', {class: 'team'}).append(drupalSettings.livescore.away_team));
     data["score"]["away"]["periods"].forEach(period => {
       $awayRow.append($('<td>', {class: 'quarter'}).append(period));
     })

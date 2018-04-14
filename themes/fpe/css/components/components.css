@@ -2411,10 +2411,6 @@ body.page-user-login form .button {
   }
 }
 
-.block-livescore #autoreload {
-  /* display: none; */
-}
-
 .block-livescore h2 {
   color: #ffd100;
   font-size: 19.2px;
@@ -2514,6 +2510,10 @@ body.page-user-login form .button {
   .block-livescore .note:nth-child(1n+20) {
     display: none;
   }
+}
+
+#autoreload {
+  /* display: none; */
 }
 
 body.detail-langzeit_artikel .block-fpe-content {
