@@ -2513,7 +2513,7 @@ body.page-user-login form .button {
 }
 
 #autoreload {
-  /* display: none; */
+  display: none;
 }
 
 body.detail-langzeit_artikel .block-fpe-content {
