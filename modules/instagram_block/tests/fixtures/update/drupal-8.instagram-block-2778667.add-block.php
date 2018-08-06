@@ -11,7 +11,7 @@ use Drupal\Core\Database\Database;
 $connection = Database::getConnection();
 
 // Load the Instagram block from config.
-$block_configs[] = Yaml::decode(file_get_contents(__DIR__ . '/block.block.testuseridmove.yml'));
+$block_configs[] = Yaml::decode(file_get_contents(__DIR__ . '/block.block.testaccesstokenmove.yml'));
 
 foreach ($block_configs as $block_config) {
   $connection->insert('config')

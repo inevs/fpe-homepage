@@ -6,16 +6,20 @@
  */
 
 /**
- * @addtogroup updates-8.2.x-alpha3-to-8.2.x-beta1
+ * @addtogroup updates-8.2.x-beta1-to-8.2.x-beta2
  * @{
  */
 
 /**
- * Moving user_id from global configuration to Block Configuration.
+ * Moving access_token from global configuration to Block Configuration.
  */
-function instagram_block_post_update_move_user_ids() {
+function instagram_block_post_update_move_access_token() {
   $config = \Drupal::configFactory()->getEditable('instagram_block.settings');
-  $user_id = $config->get('user_id');
+  $access_token = $config->get('access_token');
+
+  if ($access_token == NULL) {
+    return;
+  }
 
   $ids = \Drupal::entityQuery('block')
     ->condition('plugin', 'instagram_block_block')
@@ -25,16 +29,15 @@ function instagram_block_post_update_move_user_ids() {
     // Migrating configuration to the block.
     $block_config = \Drupal::configFactory()->getEditable('block.block.' . $id);
     $settings = $block_config->get('settings');
-    $settings['user_id'] = $user_id;
+    $settings['access_token'] = $access_token;
     $block_config->set('settings', $settings);
     $block_config->save();
   }
 
-  // Removing old configuration.
-  $config->clear('user_id');
-  $config->save();
+  // Removing configuration file.
+  $config->delete();
 }
 
 /**
- * @} End of "addtogroup updates-8.2.x-alpha2-to-8.2.x-beta1".
+ * @} End of "addtogroup updates-8.2.x-beta1-to-8.2.x-beta2".
  */

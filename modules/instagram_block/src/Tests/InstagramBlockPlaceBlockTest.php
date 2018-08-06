@@ -12,7 +12,9 @@ use Drupal\simpletest\WebTestBase;
 class InstagramBlockPlaceBlockTest extends WebTestBase {
 
   /**
-   * {@inheritdoc}
+   * Modules to install.
+   *
+   * @var array
    */
   public static $modules = ['instagram_block'];
 
@@ -76,7 +78,7 @@ class InstagramBlockPlaceBlockTest extends WebTestBase {
     // Test context mapping with valid data.
     $this->drupalGet('admin/structure/block/manage/instagramblock');
     $edit = [
-      'settings[user_id]' => '412345678',
+      'settings[access_token]' => '412345678.123ab45.cde678fg901h234ij567klm89nop0123',
       'settings[count]' => '4',
       'settings[width]' => '150',
       'settings[height]' => '150',
@@ -86,12 +88,7 @@ class InstagramBlockPlaceBlockTest extends WebTestBase {
     $this->drupalPostForm(NULL, $edit, 'Save block');
     $this->assertText('The block configuration has been saved.', 'Block save without errors.');
 
-    // Test user_id with invalid data.
-    $edit = [
-      'settings[user_id]' => $this->randomString(9),
-    ];
-    $this->drupalPostForm('admin/structure/block/manage/instagramblock', $edit, 'Save block');
-    $this->assertText('User id must be a number.', 'Block failed to save.');
+    // @todo Test access_token validation.
 
     // Test count with invalid data.
     $edit = [

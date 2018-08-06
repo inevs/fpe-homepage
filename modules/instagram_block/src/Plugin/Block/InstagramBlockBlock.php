@@ -4,6 +4,7 @@ namespace Drupal\instagram_block\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Link;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Form\FormStateInterface;
 use GuzzleHttp\Client;
@@ -48,7 +49,7 @@ class InstagramBlockBlock extends BlockBase implements ContainerFactoryPluginInt
    *   The plugin implementation definition.
    * @param \GuzzleHttp\Client $http_client
    *   The Guzzle HTTP client.
-   * @param ConfigFactory $config_factory
+   * @param \Drupal\Core\Config\ConfigFactory $config_factory
    *   The factory for configuration objects.
    */
   public function __construct(array $configuration, $plugin_id, array $plugin_definition, Client $http_client, ConfigFactory $config_factory) {
@@ -76,7 +77,7 @@ class InstagramBlockBlock extends BlockBase implements ContainerFactoryPluginInt
    */
   public function defaultConfiguration() {
     return [
-      'user_id' => '',
+      'access_token' => '',
       'count' => 4,
       'width' => 150,
       'height' => 150,
@@ -89,51 +90,54 @@ class InstagramBlockBlock extends BlockBase implements ContainerFactoryPluginInt
    * {@inheritdoc}
    */
   public function blockForm($form, FormStateInterface $form_state) {
-    $form['user_id'] = array(
-      '#type' => 'number',
-      '#title' => $this->t('User id'),
-      '#description' => $this->t('The unique Instagram user id of the account to be used for this block. Eg. 460786510'),
-      '#default_value' => $this->configuration['user_id'],
-    );
+    $form['authorise'] = [
+      '#markup' => $this->t('Instagram Block requires connecting to a specific Instagram account. You need to be able to log into that account when asked to. The @help page helps with the setup.', ['@help' => Link::fromTextAndUrl($this->t('Authenticate with Instagram'), Url::fromUri('https://www.drupal.org/node/2746185'))->toString()]),
+    ];
+    $form['access_token'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Access Token'),
+      '#description' => $this->t('Your Instagram access token. Eg. 460786509.ab103e5.a54b6834494643588d4217ee986384a8'),
+      '#default_value' => $this->configuration['access_token'],
+    ];
 
-    $form['count'] = array(
+    $form['count'] = [
       '#type' => 'number',
       '#title' => $this->t('Number of images to display'),
       '#default_value' => $this->configuration['count'],
-    );
+    ];
 
-    $form['width'] = array(
+    $form['width'] = [
       '#type' => 'number',
       '#title' => $this->t('Image width in pixels'),
       '#default_value' => $this->configuration['width'],
-    );
+    ];
 
-    $form['height'] = array(
+    $form['height'] = [
       '#type' => 'number',
       '#title' => $this->t('Image height in pixels'),
       '#default_value' => $this->configuration['height'],
-    );
+    ];
 
-    $image_options = array(
+    $image_options = [
       'thumbnail' => $this->t('Thumbnail (150x150)'),
       'low_resolution' => $this->t('Low (320x320)'),
       'standard_resolution' => $this->t('Standard (640x640)'),
-    );
+    ];
 
-    $form['img_resolution'] = array(
+    $form['img_resolution'] = [
       '#type' => 'select',
       '#title' => $this->t('Image resolution'),
       '#description' => $this->t('Choose the quality of the images you would like to display.'),
       '#default_value' => $this->configuration['img_resolution'],
       '#options' => $image_options,
-    );
+    ];
 
-    $form['cache_time_minutes'] = array(
+    $form['cache_time_minutes'] = [
       '#type' => 'number',
       '#title' => $this->t('Cache time in minutes'),
       '#description' => $this->t("Default is 1440 - 24 hours. This is important for performance reasons and so the Instagram API limits isn't reached on busy sites."),
       '#default_value' => $this->configuration['cache_time_minutes'],
-    );
+    ];
 
     return $form;
   }
@@ -151,7 +155,7 @@ class InstagramBlockBlock extends BlockBase implements ContainerFactoryPluginInt
       $this->configuration['height'] = $form_state->getValue('height');
       $this->configuration['img_resolution'] = $form_state->getValue('img_resolution');
       $this->configuration['cache_time_minutes'] = $form_state->getValue('cache_time_minutes');
-      $this->configuration['user_id'] = $form_state->getValue('user_id');
+      $this->configuration['access_token'] = $form_state->getValue('access_token');
     }
   }
 
@@ -160,20 +164,19 @@ class InstagramBlockBlock extends BlockBase implements ContainerFactoryPluginInt
    */
   public function build() {
     // Build a render array to return the Instagram Images.
-    $build = array();
-    $module_config = $this->configFactory->get('instagram_block.settings')->get();
+    $build = [];
 
     // If no configuration was saved, don't attempt to build block.
-    if (empty($this->configuration['user_id']) || empty($module_config['access_token'])) {
+    if (empty($this->configuration['access_token'])) {
       // @TODO Display a message instructing user to configure module.
       return $build;
     }
 
     // Build url for http request.
-    $uri = "https://api.instagram.com/v1/users/{$this->configuration['user_id']}/media/recent/";
+    $uri = "https://api.instagram.com/v1/users/self/media/recent/";
     $options = [
       'query' => [
-        'access_token' => $module_config['access_token'],
+        'access_token' => $this->configuration['access_token'],
         'count' => $this->configuration['count'],
       ],
     ];
@@ -186,14 +189,14 @@ class InstagramBlockBlock extends BlockBase implements ContainerFactoryPluginInt
     }
 
     foreach ($result['data'] as $post) {
-      $build['children'][$post['id']] = array(
+      $build['children'][$post['id']] = [
         '#theme' => 'instagram_block_image',
         '#data' => $post,
         '#href' => $post['link'],
         '#src' => $post['images'][$this->configuration['img_resolution']]['url'],
         '#width' => $this->configuration['width'],
         '#height' => $this->configuration['height'],
-      );
+      ];
     }
 
     // Add css.
@@ -206,10 +209,10 @@ class InstagramBlockBlock extends BlockBase implements ContainerFactoryPluginInt
       'block',
       'instagram_block',
       $this->configuration['id'],
-      $this->configuration['user_id'],
+      $this->configuration['access_token'],
     ];
     $build['#cache']['context'][] = 'languages:language_content';
-    $build['#cache']['max_age'] = $this->configuration['cache_time_minutes'] * 60;
+    $build['#cache']['max-age'] = $this->configuration['cache_time_minutes'] * 60;
 
     return $build;
   }
@@ -225,7 +228,7 @@ class InstagramBlockBlock extends BlockBase implements ContainerFactoryPluginInt
    */
   protected function fetchData($url) {
     try {
-      $response = $this->httpClient->get($url, array('headers' => array('Accept' => 'application/json')));
+      $response = $this->httpClient->get($url, ['headers' => ['Accept' => 'application/json']]);
       $data = Json::decode($response->getBody());
       if (empty($data)) {
         return FALSE;

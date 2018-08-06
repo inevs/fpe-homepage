@@ -3,11 +3,18 @@
 namespace Drupal\bg_image_formatter\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Utility\Xss;
+use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\Core\EventSubscriber\MainContentViewSubscriber;
+use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Markup;
+use Drupal\Core\Render\RendererInterface;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
 use Drupal\image\Plugin\Field\FieldFormatter\ImageFormatter;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Zend\Stdlib\ArrayUtils;
 
 /**
@@ -20,9 +27,97 @@ use Zend\Stdlib\ArrayUtils;
 class BgImageFormatter extends ImageFormatter
 {
 
+  /**
+   * The renderer service.
+   *
+   * @var \Drupal\Core\Render\RendererInterface
+   */
+    protected $renderer;
+
+    /**
+     * The current request.
+     *
+     * @var \Symfony\Component\HttpFoundation\Request
+     */
+    protected $request;
+
+    /**
+     * BgImageFormatter constructor.
+     *
+     * @param string $plugin_id
+     *   The plugin_id for the formatter.
+     * @param mixed $plugin_definition
+     *   The plugin implementation definition.
+     * @param \Drupal\Core\Field\FieldDefinitionInterface $field_definition
+     *   The definition of the field to which the formatter is associated.
+     * @param array $settings
+     *   The formatter settings.
+     * @param string $label
+     *   The formatter label display setting.
+     * @param string $view_mode
+     *   The view mode.
+     * @param array $third_party_settings
+     *   Any third party settings settings.
+     * @param \Drupal\Core\Session\AccountInterface $current_user
+     *   The current user.
+     * @param \Drupal\Core\Entity\EntityStorageInterface $image_style_storage
+     *   The image style storage.
+     * @param RendererInterface $renderer
+     *   The renderer service.
+     * @param Request $request
+     *   The current request.
+     */
+    public function __construct(
+        $plugin_id,
+        $plugin_definition,
+        FieldDefinitionInterface $field_definition,
+        array $settings,
+        $label,
+        $view_mode,
+        array $third_party_settings,
+        AccountInterface $current_user,
+        EntityStorageInterface $image_style_storage,
+        RendererInterface $renderer,
+        Request $request
+    ) {
+        parent::__construct(
+            $plugin_id,
+            $plugin_definition,
+            $field_definition,
+            $settings,
+            $label,
+            $view_mode,
+            $third_party_settings,
+            $current_user,
+            $image_style_storage
+        );
+        $this->renderer = $renderer;
+        $this->request = $request;
+    }
+
     /**
      * {@inheritdoc}
      */
+    public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition)
+    {
+        return new static(
+            $plugin_id,
+            $plugin_definition,
+            $configuration['field_definition'],
+            $configuration['settings'],
+            $configuration['label'],
+            $configuration['view_mode'],
+            $configuration['third_party_settings'],
+            $container->get('current_user'),
+            $container->get('entity.manager')->getStorage('image_style'),
+            $container->get('renderer'),
+            $container->get('request_stack')->getCurrentRequest()
+        );
+    }
+
+    /**
+       * {@inheritdoc}
+       */
     public static function defaultSettings()
     {
         return [
@@ -39,6 +134,7 @@ class BgImageFormatter extends ImageFormatter
                 'bg_image_media_query' => 'all',
                 'bg_image_important' => 1,
                 'bg_image_z_index' => 'auto',
+                'bg_image_path_format' => 'absolute',
             ],
         ];
     }
@@ -220,6 +316,20 @@ class BgImageFormatter extends ImageFormatter
             ),
             '#default_value' => $settings['css_settings']['bg_image_important'],
         ];
+        $element['css_settings']['bg_image_path_format'] = [
+          '#type' => 'select',
+          '#title' => $this->t('Image Path Format'),
+          '#options' => [
+            'absolute' => $this->t('Absolute'),
+            'relative' => $this->t('Relative'),
+          ],
+          '#description' => $this->t(
+              'Defaults to absolute URLs, however relative URLs maybe ' .
+              'solve issues with mixed content errors on websites being ' .
+              'served on HTTPS.'
+          ),
+          '#default_value' => $settings['css_settings']['bg_image_path_format'],
+        ];
 
         return $element;
     }
@@ -268,7 +378,21 @@ class BgImageFormatter extends ImageFormatter
 
         $settings = $this->getSettings();
         $css_settings = $settings['css_settings'];
+        // Replace views tokens
+        $selector = $css_settings['bg_image_selector'];
+        $token_start = strpos($selector, '{{');
+        if (false !== $token_start) {
+            $token_length = strpos($selector, '}}') - strpos($selector, '{{') + 2;
+            $token = substr($selector, strpos($selector, '{{'), $token_length);
+            $cleaned_token = trim(str_replace(['{{', '}}'], '', $token));
+            $entity = $items->getEntity();
+            if ($entity->$cleaned_token && $entity->$cleaned_token->value) {
+                $selector = str_replace($token, $entity->$cleaned_token->value, $selector);
+                $css_settings['bg_image_selector'] = $selector;
+            }
+        }
         $image_style = $settings['image_style'] ? $settings['image_style'] : null;
+        $path_format = $css_settings['bg_image_path_format'];
         $selectors = explode(PHP_EOL, trim($css_settings['bg_image_selector']));
         $colors = explode(PHP_EOL, trim($css_settings['bg_image_color']));
 
@@ -307,10 +431,12 @@ class BgImageFormatter extends ImageFormatter
 
             if ($image_style) {
                 $style = $this->imageStyleStorage->load($image_style);
-                $image_url = $style->buildUrl($file->getFileUri());
+                $file_url = $style->buildUrl($file->getFileUri());
             } else {
-                $image_url = file_create_url($file->getFileUri());
+                $file_url = file_create_url($file->getFileUri());
             }
+
+            $image_url = 'absolute' === $path_format ? $file_url : file_url_transform_relative($file_url);
 
             $css = $this->getBackgroundImageCss($image_url, $css_settings);
 
@@ -325,14 +451,21 @@ class BgImageFormatter extends ImageFormatter
                     ])
             );
 
-            $elements['#attached']['html_head'][] = [[
-                '#tag' => 'style',
-                '#attributes' => [
-                    'media' => $css['media'],
-                ],
-                '#value' => Markup::create($css['style']),
-            ], $html_head_key,
+            $style_element = [
+              '#type' => 'html_tag',
+              '#tag' => 'style',
+              '#attributes' => [
+                'media' => $css['media'],
+              ],
+              '#value' => Markup::create($css['style']),
             ];
+
+            if ($this->isAjax()) {
+                $elements['#attached']['drupalSettings']['bg_image_formatter_css'][] =
+                    $this->renderer->renderPlain($style_element);
+            } else {
+                $elements['#attached']['html_head'][] = [$style_element, $html_head_key];
+            }
         }
 
         return $elements;
@@ -445,6 +578,27 @@ class BgImageFormatter extends ImageFormatter
         }
 
         return [];
+    }
+
+    /**
+     * Determines if the current request is via AJAX.
+     *
+     * @return bool
+     *   TRUE if the current request is via AJAX, FALSE otherwise.
+     *
+     * @todo This is a copy-and-paste from \Drupal\Core\Ajax\AjaxHelperTrait,
+     * which is currently internal. When it becomes part of the core API, use it
+     * instead.
+     */
+    protected function isAjax()
+    {
+        foreach (['drupal_ajax', 'drupal_modal', 'drupal_dialog'] as $wrapper) {
+            if (false !== strpos($this->request->get(MainContentViewSubscriber::WRAPPER_FORMAT), $wrapper)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
