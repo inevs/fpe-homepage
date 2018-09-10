@@ -11,7 +11,7 @@ docker-compose up -d
 
 echo "###### Waiting until containers are ready ######"
 sleep 1
-ID=$(docker ps --filter='name=fpehomepage_db_1' -q)
+ID=$(docker ps --filter='name=fpe-homepage_db_1' -q)
 while : ; do
 	docker exec $ID mysql -uroot -pexample -h127.0.0.1 -e 'show databases;' &> /dev/null
 	[[ $? -gt 0 ]] || break
@@ -23,10 +23,10 @@ echo "###### Importing database dump ######"
 ./database/import-dump.sh
 
 echo "###### Changing ownership in drupal to www-data ######"
-DRUPAL_ID=$(docker ps --filter='name=fpehomepage_drupal' -q)
+DRUPAL_ID=$(docker ps --filter='name=fpe-homepage_drupal_1' -q)
 docker exec $DRUPAL_ID bash -c 'chown -R www-data:www-data /var/www/html/sites'
 echo "###### Changing ownership in grunt to node ######"
-GRUNT_ID=$(docker ps --filter='name=fpehomepage_grunt' -q)
+GRUNT_ID=$(docker ps --filter='name=fpe-homepage_grunt_1' -q)
 docker exec $GRUNT_ID bash -c 'chown -R node:node /data'
 
 echo "###### Fixing file permissions. Please provide your root password to do so. ######"

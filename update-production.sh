@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DRUPAL_ID=$(docker ps --filter='name=fpehomepage_drupal' -q)
+DRUPAL_ID=$(docker ps --filter='name=fpe-homepage_drupal_1' -q)
 docker exec $DRUPAL_ID bash -c 'rm -rf /var/www/html/sites/default/files/config_*/sync \
     && drush config-export \
     && sitecopy --fetch --allsites \
