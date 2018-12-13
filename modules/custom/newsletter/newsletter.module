@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function newsletter_theme($existing, $type, $theme, $path) {
+  return [
+    'newsletter_block' => [
+      'variables' => [
+        'gamedata' => '',
+        'gameid' => '',
+      ],
+    ],
+  ];
+}
