@@ -2688,3 +2688,49 @@ body.page-football-101 .view-football_101 .links {
     width: 800px;
   }
 }
+
+.block-newsletter {
+  padding: 12px;
+  padding: 0.75rem;
+  margin: 0;
+}
+
+@media screen and (min-width: 720px) {
+  .block-newsletter {
+    padding: 1.5rem;
+  }
+  .block-newsletter ul {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-pack: space-evenly;
+        justify-content: space-evenly;
+  }
+  .block-newsletter ul .email {
+    -ms-flex-positive: 2;
+        flex-grow: 2;
+    padding: 0 10px;
+  }
+}
+
+.block-newsletter h1 {
+  color: #ffd100;
+  font-size: 19.2px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 720px) {
+  .block-newsletter h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+}
+
+.block-newsletter input[type=submit] {
+  background: #ffd100;
+  color: #0c2340;
+  font-size: 12.8px;
+  font-size: 0.8rem;
+}

@@ -1,0 +1,25 @@
+.block-newsletter
+  padding: $small-spacing
+  margin: 0
+  @include media($medium-screen-up)
+    padding: $base-spacing
+    ul
+      display: flex
+      flex-direction: row
+      justify-content: space-evenly      
+      .email
+        flex-grow: 2
+        padding: 0 10px
+
+  h1
+    color: $pirates-yellow
+    font-size: 1.2rem
+    font-weight: 500
+    @include media($medium-screen-up)
+      font-size: 1.75rem
+      font-weight: 600
+
+  input[type=submit]
+    background: $pirates-yellow
+    color: $pirates-blue
+    font-size: 0.8rem
