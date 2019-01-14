@@ -185,10 +185,16 @@ class BgImageFormatter extends ImageFormatter
             '#default_value' => $settings['css_settings']['bg_image_selector'],
         ];
         // The token help relevant to this entity type.
-        $element['css_settings']['token_help'] = [
-            '#theme' => 'token_tree_link',
-            '#token_types' => ['user', $form['#entity_type']],
-        ];
+        if (isset($form['#entity_type'])) {
+            $element['css_settings']['token_help'] = [
+              '#theme' => 'token_tree_link',
+              '#token_types' => ['user', $form['#entity_type']],
+            ];
+        } else {
+            $element['css_settings']['token_help'] = [
+              '#theme' => 'token_tree_link',
+            ];
+        }
 
         // The selector for the background property.
         $element['css_settings']['bg_image_z_index'] = [

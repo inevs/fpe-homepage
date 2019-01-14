@@ -140,14 +140,21 @@ class ResponsiveBgImageFormatter extends BgImageFormatter
                             ])
                     );
 
-                    $elements['#attached']['html_head'][] = [[
+                    $style_element = [
+                        '#type' => 'html_tag',
                         '#tag' => 'style',
                         '#attributes' => [
                             'media' => $css['media'],
                         ],
                         '#value' => Markup::create($css['style']),
-                    ], $html_head_key,
                     ];
+
+                    if ($this->isAjax()) {
+                        $elements['#attached']['drupalSettings']['bg_image_formatter_css'][] =
+                            $this->renderer->renderPlain($style_element);
+                    } else {
+                        $elements['#attached']['html_head'][] = [$style_element, $html_head_key];
+                    }
                 }
             }
 
