@@ -1,24 +1,38 @@
 <div class='newsletter'>
 <h1>Newsletter</h1>
-<p>Melden Sie sich zu unserem Newsletter an:</p>
+<p>Melden Sie sich hier zu unserem Newsletter an:</p>
   <form action="https://t48649f7b.emailsys1a.net/26/1209/27d19e6c70/subscribe/form.html" method="post" target="_blank">
-      <div class="form">
-          <div class="form_border">
-              <ul>
-                  <li style="position:absolute; z-index: -100; left:-6000px;" aria-hidden="true">
-                      <input type="text" class="form_field" name="rm_email" value="" tabindex="-1" />
-                  </li>
-                  <li>
-                      <label class="field_label required" for="email">E-Mail: </label>
-                  </li>
-                  <li class="email">
-                      <input type="text" class="form_field" name="email" id="email" value="" />
-                  </li>
-                  <li class="form_button">
-                      <input type="submit" class="form_button_submit" value="Anmelden" />
-                  </li>
-              </ul>
-          </div>
-      </div>
+    <div class="form">
+        <div class="form_border">
+            <ul>
+                <li style="position:absolute; z-index: -100; left:-6000px;" aria-hidden="true">
+                    <input type="text" class="form_field" name="rm_email" value="" tabindex="-1" />
+                </li>
+                <div class="newsletter_name">
+                    <li id="firstname_form">
+                        <label id="firstname_label" class="field_label required" for="firstname">Vorname: </label>
+                        <input type="text" class="form_field" name="firstname" id="firstname" value="" />
+                    </li>
+                    <li id="lastname_form">
+                        <label id="lastname_label" class="field_label required" for="lastname">Nachname: </label>
+                        <input type="text" class="form_field" name="lastname" id="lastname" value="" />
+                    </li>
+                </div>
+                <li>
+                    <label class="field_label required" for="email">E-Mail: </label>
+                    <input type="text" class="form_field" name="email" id="email" value="" />
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" id="consent_text" name="consent_text" value="yes" />
+                        Ich bin damit einverstanden, dass meine personenbezogenen Daten für Werbezwecke verarbeitet werden und eine werbliche Ansprache per E-Mail erfolgt. Die erteilte Einwilligung kann ich jederzeit mit Wirkung für die Zukunft in jeder angemessenen Form widerrufen.
+                    </label>
+                </li>
+                <li class="form_button">
+                    <input type="submit" class="form_button_submit" value="Anmelden" />
+                </li>
+            </ul>
+        </div>
+    </div>
   </form>
 </div>

@@ -2702,15 +2702,21 @@ body.page-football-101 .view-football_101 .links {
   .block-newsletter ul {
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: row;
-        flex-direction: row;
+    -ms-flex-direction: column;
+        flex-direction: column;
     -ms-flex-pack: space-evenly;
         justify-content: space-evenly;
   }
-  .block-newsletter ul .email {
-    -ms-flex-positive: 2;
-        flex-grow: 2;
-    padding: 0 10px;
+  .block-newsletter ul div.newsletter_name {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+  }
+  .block-newsletter ul div.newsletter_name li {
+    width: 48%;
   }
 }
 
