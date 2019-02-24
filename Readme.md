@@ -34,8 +34,3 @@ Run
 ./update-production.sh
 ```
 This will synchronize the state of the themes directory with the remote version.
-
-## TODOs prior to GoLive
-
-* Disable comments for all articles: https://www.inmotionhosting.com/support/edu/drupal-8/comments/disable-article-comment
-* Comments Modul deinstallieren
