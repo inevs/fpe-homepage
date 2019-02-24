@@ -150,8 +150,8 @@ class ResponsiveBgImageFormatter extends BgImageFormatter {
             '#value' => Markup::create($css['style']),
           ];
 
-          if ($this->isAjax()) {
-            $elements['#attached']['drupalSettings']['bg_image_formatter_css'][] =
+          if ($this->isAjax() || $this->request->isXmlHttpRequest()) {
+            $elements['#attached']['drupalSettings']['bg_image_formatter_css'][$html_head_key] =
                             $this->renderer->renderPlain($style_element);
           }
           else {

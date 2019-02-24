@@ -5,8 +5,8 @@ declare(strict_types = 1);
 namespace Drupal\bg_image_formatter\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Utility\Xss;
+use Drupal\Core\Ajax\AjaxHelperTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
-use Drupal\Core\EventSubscriber\MainContentViewSubscriber;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -29,6 +29,7 @@ use Zend\Stdlib\ArrayUtils;
  * )
  */
 class BgImageFormatter extends ImageFormatter {
+  use AjaxHelperTrait;
 
   /**
    * The renderer service.
@@ -578,8 +579,8 @@ class BgImageFormatter extends ImageFormatter {
         '#value' => Markup::create($css['style']),
       ];
 
-      if ($this->isAjax()) {
-        $elements['#attached']['drupalSettings']['bg_image_formatter_css'][] =
+      if ($this->isAjax() || $this->request->isXmlHttpRequest()) {
+        $elements['#attached']['drupalSettings']['bg_image_formatter_css'][$html_head_key] =
                     $this->renderer->renderPlain($style_element);
       }
       else {
@@ -588,32 +589,6 @@ class BgImageFormatter extends ImageFormatter {
     }
 
     return $elements;
-  }
-
-  /**
-   * Determines if the current request is via AJAX.
-   *
-   * @return bool
-   *   TRUE if the current request is via AJAX, FALSE otherwise.
-   *
-   * @todo This is a copy-and-paste from \Drupal\Core\Ajax\AjaxHelperTrait,
-   * which is currently internal. When it becomes part of the core API, use it
-   * instead.
-   */
-  protected function isAjax() {
-    foreach (['drupal_ajax', 'drupal_modal', 'drupal_dialog'] as $wrapper) {
-      $format = $this->request->get(MainContentViewSubscriber::WRAPPER_FORMAT);
-
-      if ($format === NULL) {
-        continue;
-      }
-
-      if (strpos($format, $wrapper) !== FALSE) {
-        return TRUE;
-      }
-    }
-
-    return FALSE;
   }
 
   /**
