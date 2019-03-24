@@ -29,6 +29,7 @@ body.detail-team
       > div:first-of-type
         color: $pirates-yellow
         padding-bottom: 1rem
+        font-size: 1.5rem
         @include media($medium-screen-up)
           font-size: $base-font-size * 1.875
       > div:nth-child(2)
@@ -58,4 +59,14 @@ body.detail-team
               content: "Pos: "
         .coach__coach-sortierung
           display: none
-
+  .block-views-block-roster-block-1
+    @include centered-container
+    h2
+      color: $pirates-yellow
+      padding-bottom: 1rem
+      font-weight: 200
+      @include media($medium-screen-up)
+        font-size: $base-font-size * 1.875
+    li
+      display: flex
+      justify-content: space-between

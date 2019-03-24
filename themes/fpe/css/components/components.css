@@ -1381,6 +1381,8 @@ body.detail-team article.team--layout-full .team__coaches > div:first-of-type {
   color: #ffd100;
   padding-bottom: 16px;
   padding-bottom: 1rem;
+  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 @media screen and (min-width: 720px) {
@@ -1436,6 +1438,47 @@ body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) .co
 
 body.detail-team article.team--layout-full .team__coaches > div:nth-child(2) .coach__coach-sortierung {
   display: none;
+}
+
+body.detail-team .block-views-block-roster-block-1 {
+  margin-left: 32px;
+  margin-left: 2rem;
+  margin-right: 32px;
+  margin-right: 2rem;
+}
+
+@media screen and (min-width: 720px) {
+  body.detail-team .block-views-block-roster-block-1 {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  body.detail-team .block-views-block-roster-block-1 {
+    width: 800px;
+  }
+}
+
+body.detail-team .block-views-block-roster-block-1 h2 {
+  color: #ffd100;
+  padding-bottom: 16px;
+  padding-bottom: 1rem;
+  font-weight: 200;
+}
+
+@media screen and (min-width: 720px) {
+  body.detail-team .block-views-block-roster-block-1 h2 {
+    font-size: 30px;
+  }
+}
+
+body.detail-team .block-views-block-roster-block-1 li {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
 }
 
 body.page-news .block-fpe-content {
