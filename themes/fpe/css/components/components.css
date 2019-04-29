@@ -1481,6 +1481,16 @@ body.detail-team .block-views-block-roster-block-1 li {
       justify-content: space-between;
 }
 
+body.detail-team .block-views-block-roster-block-1 li > span:nth-child(2) {
+  padding: 0 1em;
+}
+
+body.detail-team .block-views-block-roster-block-1 li > span:nth-child(3) {
+  -ms-flex-positive: 2;
+      flex-grow: 2;
+  padding: 0 1em;
+}
+
 body.page-news .block-fpe-content {
   padding: 0;
 }
