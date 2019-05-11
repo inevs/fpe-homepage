@@ -69,7 +69,7 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-    return array(
+    return [
       'placeholder_url' => '',
       'placeholder_title' => '',
       'enabled_attributes' => [
@@ -80,7 +80,7 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
         'class' => TRUE,
         'accesskey' => FALSE,
       ],
-    ) + parent::defaultSettings();
+    ] + parent::defaultSettings();
   }
 
   /**
@@ -165,7 +165,7 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
     $summary = parent::settingsSummary();
     $enabled_attributes = array_filter($this->getSetting('enabled_attributes'));
     if ($enabled_attributes) {
-      $summary[] = $this->t('With attributes: @attributes', array('@attributes' => implode(', ', array_keys($enabled_attributes))));
+      $summary[] = $this->t('With attributes: @attributes', ['@attributes' => implode(', ', array_keys($enabled_attributes))]);
     }
     return $summary;
   }

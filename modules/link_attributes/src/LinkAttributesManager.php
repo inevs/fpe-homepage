@@ -2,7 +2,6 @@
 
 namespace Drupal\link_attributes;
 
-use Drupal\Component\Plugin\Exception\PluginException;
 use Drupal\Component\Plugin\PluginManagerInterface;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
@@ -37,7 +36,7 @@ class LinkAttributesManager extends DefaultPluginManager implements PluginManage
   public function __construct(ModuleHandlerInterface $module_handler, CacheBackendInterface $cache_backend) {
     $this->alterInfo('link_attributes_plugin');
     $this->moduleHandler = $module_handler;
-    $this->setCacheBackend($cache_backend, 'link_attributes', array('link_attributes'));
+    $this->setCacheBackend($cache_backend, 'link_attributes', ['link_attributes']);
   }
 
   /**

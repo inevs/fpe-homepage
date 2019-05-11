@@ -12,9 +12,13 @@ use Drupal\KernelTests\KernelTestBase;
 class InfoAlterTest extends KernelTestBase {
 
   /**
-   * @inheritdoc
+   * {@inheritdoc}
    */
-  public static $modules = ['system', 'link_attributes', 'link_attributes_test_alterinfo'];
+  public static $modules = [
+    'system',
+    'link_attributes',
+    'link_attributes_test_alterinfo',
+  ];
 
   /**
    * Tests that plugin definition is changed with alterInfo.
@@ -28,11 +32,13 @@ class InfoAlterTest extends KernelTestBase {
     $definition = $linkAttributesManager->getDefinitions();
     $this->assertTrue($definition['class']['type'] == 'textfield', 'Without altering the plugin definition the class attribute is a textfield.');
 
-    // Set our flag to alter the plugin definition in link_attributes_test_alterinfo module.
+    // Set our flag to alter the plugin definition in
+    // link_attributes_test_alterinfo module.
     \Drupal::state()->set('link_attributes_test_alterinfo.hook_link_attributes_plugin_alter', TRUE);
     $linkAttributesManager->clearCachedDefinitions();
     $definition = $linkAttributesManager->getDefinitions();
     $this->assertTrue($definition['class']['type'] == 'select', 'After altering the plugin definition the class attribute is a select.');
     $this->assertTrue(isset($definition['class']['options']['button']), 'After altering the plugin definition the class attribute has a "button" option.');
   }
+
 }

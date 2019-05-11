@@ -111,7 +111,7 @@ class ResponsiveFaviconsAdmin extends ConfigFormBase {
         $archive = $this->archiveExtract($local_cache, $directory);
       }
       catch (\Exception $e) {
-        drupal_set_message($e->getMessage(), 'error');
+        \Drupal::messenger()->addStatus($e->getMessage(), 'error');
         return;
       }
 
@@ -134,7 +134,7 @@ class ResponsiveFaviconsAdmin extends ConfigFormBase {
 
           // Rewrite the paths of the JSON files.
           if (preg_match('/\.json$/', $file)) {
-            $file_contents = file_get_contents(drupal_realpath($uri));
+            $file_contents = file_get_contents(\Drupal::service('file_system')->realpath($uri));
             $find = preg_quote('"\/android-chrome', '/');
             $replace = '"' . str_replace('/', '\/', _responsive_favicons_normalise_path('/android-chrome'));
             $file_contents = preg_replace('/' . $find . '/', $replace, $file_contents);
@@ -142,9 +142,17 @@ class ResponsiveFaviconsAdmin extends ConfigFormBase {
           }
           // Rewrite the paths of the XML files.
           else if (preg_match('/\.xml$/', $file)) {
-            $file_contents = file_get_contents(drupal_realpath($uri));
+            $file_contents = file_get_contents(\Drupal::service('file_system')->realpath($uri));
             $find = preg_quote('"/mstile', '/');
             $replace = '"' . _responsive_favicons_normalise_path('/mstile');
+            $file_contents = preg_replace('/' . $find . '/', $replace, $file_contents);
+            file_unmanaged_save_data($file_contents, $uri, FILE_EXISTS_REPLACE);
+          }
+          // Rewrite the paths of the WEBMANIFEST files.
+          else if (preg_match('/\.webmanifest$/', $file)) {
+            $file_contents = file_get_contents(\Drupal::service('file_system')->realpath($uri));
+            $find = preg_quote('"/android-chrome', '/');
+            $replace = '"' . _responsive_favicons_normalise_path('/android-chrome');
             $file_contents = preg_replace('/' . $find . '/', $replace, $file_contents);
             file_unmanaged_save_data($file_contents, $uri, FILE_EXISTS_REPLACE);
           }
@@ -152,7 +160,7 @@ class ResponsiveFaviconsAdmin extends ConfigFormBase {
       }
 
       if ($success_count > 0) {
-        drupal_set_message(\Drupal::translation()->formatPlural($success_count, 'Uploaded 1 favicon file successfully.', 'Uploaded @count favicon files successfully.'));
+        \Drupal::messenger()->addStatus(\Drupal::translation()->formatPlural($success_count, 'Uploaded 1 favicon file successfully.', 'Uploaded @count favicon files successfully.'));
       }
     }
 

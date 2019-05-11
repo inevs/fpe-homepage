@@ -2,7 +2,6 @@
 
 namespace Drupal\Tests\link_attributes\Functional;
 
-use Drupal\node\Entity\Node;
 use Drupal\Tests\BrowserTestBase;
 use Drupal\Component\Utility\Unicode;
 use Drupal\field_ui\Tests\FieldUiTestTrait;
@@ -38,7 +37,11 @@ class LinkAttributesFieldTest extends BrowserTestBase {
    */
   protected function setUp() {
     parent::setUp();
-    $this->adminUser = $this->drupalCreateUser(['administer content types', 'administer node fields', 'administer node display']);
+    $this->adminUser = $this->drupalCreateUser([
+      'administer content types',
+      'administer node fields',
+      'administer node display',
+    ]);
     $this->drupalLogin($this->adminUser);
     // Breadcrumb is required for FieldUiTestTrait::fieldUIAddNewField.
     $this->drupalPlaceBlock('system_breadcrumb_block');
@@ -55,12 +58,12 @@ class LinkAttributesFieldTest extends BrowserTestBase {
 
     // Add a link field to the newly-created type.
     $label = $this->randomMachineName();
-    $field_name = Unicode::strtolower($label);
+    $field_name = mb_strtolower($label);
     $storage_settings = ['cardinality' => 'number', 'cardinality_number' => 2];
     $this->fieldUIAddNewField($type_path, $field_name, $label, 'link', $storage_settings);
 
     // Manually clear cache on the tester side.
-    \Drupal::entityManager()->clearCachedFieldDefinitions();
+    \Drupal::service('entity_field.manager')->clearCachedFieldDefinitions();
 
     // Change the link widget and enable some attributes.
     \Drupal::entityTypeManager()
@@ -120,4 +123,5 @@ class LinkAttributesFieldTest extends BrowserTestBase {
     $this->assertEquals($expected_link_two, $field_values[1]['options']['attributes']['class']);
 
   }
+
 }

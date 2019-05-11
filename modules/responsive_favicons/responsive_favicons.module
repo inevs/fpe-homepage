@@ -125,8 +125,9 @@ function _responsive_favicons_validate_tags($html) {
   // Find all the apple touch icons.
   $tags = $dom->getElementsByTagName('link');
   foreach ($tags as $tag) {
-    $file_path = _responsive_favicons_normalise_path($tag->getAttribute('href'));
-    $tag->setAttribute('href', $file_path);
+    $url_path = _responsive_favicons_normalise_path($tag->getAttribute('href'));
+    $file_path = parse_url($url_path, PHP_URL_PATH);
+    $tag->setAttribute('href', $url_path);
 
     if (file_exists($docroot . $file_path) && is_readable($docroot . $file_path)) {
       $found[] = $dom->saveXML($tag);
@@ -143,8 +144,9 @@ function _responsive_favicons_validate_tags($html) {
 
     // We only validate the image file.
     if ($name === 'msapplication-TileImage') {
-      $file_path = _responsive_favicons_normalise_path($tag->getAttribute('content'));
-      $tag->setAttribute('content', $file_path);
+      $url_path = _responsive_favicons_normalise_path($tag->getAttribute('content'));
+      $file_path = parse_url($url_path, PHP_URL_PATH);
+      $tag->setAttribute('content', $url_path);
 
       if (file_exists($docroot . $file_path) && is_readable($docroot . $file_path)) {
         $found[] = $dom->saveXML($tag);

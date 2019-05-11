@@ -3,7 +3,7 @@
 namespace Drupal\Tests\link_attributes\Functional;
 
 use Drupal\menu_link_content\Entity\MenuLinkContent;
-use Drupal\simpletest\BlockCreationTrait;
+use Drupal\Tests\block\Traits\BlockCreationTrait;
 use Drupal\Tests\BrowserTestBase;
 
 /**
@@ -11,7 +11,7 @@ use Drupal\Tests\BrowserTestBase;
  *
  * @group link_attributes
  */
-class LinkAttributesTest extends BrowserTestBase {
+class LinkAttributesMenuTest extends BrowserTestBase {
 
   use BlockCreationTrait;
 
@@ -19,11 +19,9 @@ class LinkAttributesTest extends BrowserTestBase {
    * {@inheritdoc}
    */
   public static $modules = [
-    'link',
     'link_attributes',
     'menu_ui',
     'menu_link_content',
-    'system',
     'block',
   ];
 
@@ -74,7 +72,7 @@ class LinkAttributesTest extends BrowserTestBase {
     ];
     $this->assertEquals($expected, $menu_link->getUrlObject()->getOption('attributes')['class']);
 
-    // Edit the link, make sure the default value for the class is set correctly.
+    // Edit the link, make sure the default value for class is set correctly.
     $this->drupalGet($menu_link->toUrl('edit-form'));
     $this->assertSession()->fieldValueEquals('link[0][options][attributes][class]', 'menu__link--really_special menu__link--another-class');
 
