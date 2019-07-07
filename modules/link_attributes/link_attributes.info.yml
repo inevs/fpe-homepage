@@ -6,8 +6,8 @@ dependencies:
   - drupal:link
   - drupal:system (>=8.4)
 
-# Information added by Drupal.org packaging script on 2019-04-03
-version: '8.x-1.6'
+# Information added by Drupal.org packaging script on 2019-06-14
+version: '8.x-1.8'
 core: '8.x'
 project: 'link_attributes'
-datestamp: 1554334403
+datestamp: 1560473296

@@ -37,7 +37,7 @@ field.formatter.settings.bg_image_formatter:
           type: string
           label: 'Media query'
         bg_image_important:
-          type: string
+          type: integer
           label: 'Important'
         bg_image_background_size_ie8:
           type: integer
@@ -45,3 +45,6 @@ field.formatter.settings.bg_image_formatter:
         bg_image_path_format:
           type: string
           label: 'Image path format'
+        bg_image_gradient:
+          type: string
+          label: 'Image gradient'

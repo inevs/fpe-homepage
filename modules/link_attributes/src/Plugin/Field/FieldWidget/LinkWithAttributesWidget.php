@@ -110,11 +110,13 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
 
         // Set the default value, in case of a class that is stored as array,
         // convert it back to a string.
-        $default_value = isset($attributes[$attribute]) ? $attributes[$attribute] : '';
+        $default_value = isset($attributes[$attribute]) ? $attributes[$attribute] : NULL;
         if ($attribute === 'class' && is_array($default_value)) {
           $default_value = implode(' ', $default_value);
         }
-        $element['options']['attributes'][$attribute]['#default_value'] = $default_value;
+        if (isset($default_value)) {
+          $element['options']['attributes'][$attribute]['#default_value'] = $default_value;
+        }
       }
     }
     return $element;

@@ -3,8 +3,7 @@
 namespace Drupal\Tests\link_attributes\Functional;
 
 use Drupal\Tests\BrowserTestBase;
-use Drupal\Component\Utility\Unicode;
-use Drupal\field_ui\Tests\FieldUiTestTrait;
+use Drupal\Tests\field_ui\Traits\FieldUiTestTrait;
 
 /**
  * Tests link attributes functionality.
@@ -23,6 +22,7 @@ class LinkAttributesFieldTest extends BrowserTestBase {
     'link_attributes',
     'field_ui',
     'block',
+    'link_attributes_test_alterinfo',
   ];
 
   /**
@@ -45,6 +45,7 @@ class LinkAttributesFieldTest extends BrowserTestBase {
     $this->drupalLogin($this->adminUser);
     // Breadcrumb is required for FieldUiTestTrait::fieldUIAddNewField.
     $this->drupalPlaceBlock('system_breadcrumb_block');
+    \Drupal::state()->set('link_attributes_test_alterinfo.hook_link_attributes_plugin_alter', TRUE);
   }
 
   /**
@@ -75,6 +76,7 @@ class LinkAttributesFieldTest extends BrowserTestBase {
           'enabled_attributes' => [
             'rel' => TRUE,
             'class' => TRUE,
+            'target' => TRUE,
           ],
         ],
       ])
@@ -94,6 +96,13 @@ class LinkAttributesFieldTest extends BrowserTestBase {
     $attribute_class = 'field_' . $field_name . '[0][options][attributes][class]';
     $web_assert->fieldExists($attribute_class);
 
+    // Target attribute.
+    $attribute_target = 'field_' . $field_name . '[0][options][attributes][target]';
+    $web_assert->fieldExists($attribute_target);
+    $web_assert->fieldValueEquals($attribute_target, '_blank');
+
+    \Drupal::state()->set('link_attributes_test_alterinfo.hook_link_attributes_plugin_alter', FALSE);
+    \Drupal::service('plugin.manager.link_attributes')->clearCachedDefinitions();
     // Create a node.
     $edit = [
       'title[0][value]' => 'A multi field link test',

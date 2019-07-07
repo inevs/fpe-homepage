@@ -31,8 +31,7 @@ class ResponsiveBgImageFormatter extends BgImageFormatter {
     $element['image_style']['#description'] = $this->t(
         'Select <a href="@href_image_style">the responsive image style</a> to use.',
         [
-          '@href_image_style' =>
-          Url::fromRoute('entity.responsive_image_style.collection')->toString(),
+          '@href_image_style' => Url::fromRoute('entity.responsive_image_style.collection')->toString(),
         ]
     );
 
@@ -101,6 +100,10 @@ class ResponsiveBgImageFormatter extends BgImageFormatter {
         'responsive_image_style_id' => $settings['image_style'],
       ];
       template_preprocess_responsive_image($vars);
+
+      if (empty($vars['sources'])) {
+        continue;
+      }
 
       // Split each source into multiple rules.
       foreach (array_reverse($vars['sources']) as $source_i => $source) {

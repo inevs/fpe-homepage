@@ -7,11 +7,11 @@ RUN a2enmod rewrite
 RUN set -ex \
 	&& buildDeps=' \
 		libjpeg62-turbo-dev \
-		libpng-dev \
 		libpq-dev \
 	' \
 	&& runtimeDeps=' \
 		mysql-client \
+		libpng-dev \
 		sitecopy \
 	' \
 	&& apt-get update && apt-get install -y --no-install-recommends $buildDeps $runtimeDeps && rm -rf /var/lib/apt/lists/* \

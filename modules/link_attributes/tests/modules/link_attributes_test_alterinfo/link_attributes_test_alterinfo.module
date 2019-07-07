@@ -19,5 +19,6 @@ function link_attributes_test_alterinfo_link_attributes_plugin_alter(array &$def
       'button' => 'Button',
     ];
     $definitions['class']['default_value'] = 'button';
+    $definitions['target']['default_value'] = '_blank';
   }
 }

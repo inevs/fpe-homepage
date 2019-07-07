@@ -3,9 +3,7 @@
     "description": "This module provides an image formatter that allows you to set an image in background of a container.",
     "type": "drupal-module",
     "license": "GPL-2.0+",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "homepage": "https://drupal.org/project/link_trail_by_path",
+    "homepage": "https://drupal.org/project/bg_image_formatter",
     "authors": [
         {
             "name": "Pol Dellaiera (@drupol)",

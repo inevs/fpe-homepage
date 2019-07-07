@@ -6,8 +6,8 @@ dependencies:
   - bg_image_formatter
   - responsive_image
 
-# Information added by Drupal.org packaging script on 2019-02-14
-version: '8.x-1.6'
+# Information added by Drupal.org packaging script on 2019-07-01
+version: '8.x-1.10'
 core: '8.x'
 project: 'bg_image_formatter'
-datestamp: 1550152389
+datestamp: 1561974787

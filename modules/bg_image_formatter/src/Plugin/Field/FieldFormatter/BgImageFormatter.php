@@ -133,6 +133,7 @@ class BgImageFormatter extends ImageFormatter {
         'bg_image_repeat' => 'no-repeat',
         'bg_image_background_size' => '',
         'bg_image_background_size_ie8' => 0,
+        'bg_image_gradient' => '',
         'bg_image_media_query' => 'all',
         'bg_image_important' => 1,
         'bg_image_z_index' => 'auto',
@@ -182,6 +183,7 @@ class BgImageFormatter extends ImageFormatter {
     $important = $css_settings['bg_image_important'];
     $background_size = Xss::filter($css_settings['bg_image_background_size']);
     $background_size_ie8 = $css_settings['bg_image_background_size_ie8'];
+    $background_gradient = !empty($css_settings['bg_image_gradient']) ? $css_settings['bg_image_gradient'] . ',' : '';
     $media_query = Xss::filter($css_settings['bg_image_media_query']);
     $z_index = Xss::filter($css_settings['bg_image_z_index']);
 
@@ -222,7 +224,7 @@ class BgImageFormatter extends ImageFormatter {
       if ($bg_color) {
         $style .= sprintf('background-color: %s %s;', $bg_color, $important);
       }
-      $style .= sprintf("background-image: url('%s') %s;", $image_path, $important);
+      $style .= sprintf("background-image: %s url('%s') %s;", $background_gradient, $image_path, $important);
       if ($repeat) {
         $style .= sprintf('background-repeat: %s %s;', $repeat, $important);
       }
@@ -327,7 +329,7 @@ class BgImageFormatter extends ImageFormatter {
                       [<a href="@url">css property: background-color</a>]. One per line. If the field is a multivalue
                       field, the first line will be applied to the first value, the second to the second value...
                       and so on.',
-            ['@url' => 'http://www.w3schools.com/css/pr_background-color.asp']
+            ['@url' => 'https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient']
       ),
       '#default_value' => $settings['css_settings']['bg_image_color'],
     ];
@@ -416,6 +418,17 @@ class BgImageFormatter extends ImageFormatter {
                       Use at your own risk'
       ),
       '#default_value' => $settings['css_settings']['bg_image_background_size_ie8'],
+    ];
+    // Add gradient to background-image.
+    $element['css_settings']['bg_image_gradient'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Gradient'),
+      '#description' => $this->t(
+          'Apply this background image gradient css.
+                  Example: linear-gradient(red, yellow)
+                  [<a href="https://www.w3schools.com/css/css3_gradients.asp">Read about gradients</a>]'
+      ),
+      '#default_value' => $settings['css_settings']['bg_image_gradient'],
     ];
     // The media query specifics.
     $element['css_settings']['bg_image_media_query'] = [
