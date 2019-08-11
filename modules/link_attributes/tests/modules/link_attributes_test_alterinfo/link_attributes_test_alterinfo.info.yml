@@ -5,8 +5,8 @@ type: module
 dependencies:
   - link_attributes
 
-# Information added by Drupal.org packaging script on 2019-06-14
-version: '8.x-1.8'
+# Information added by Drupal.org packaging script on 2019-07-24
+version: '8.x-1.9'
 core: '8.x'
 project: 'link_attributes'
-datestamp: 1560473296
+datestamp: 1564012689

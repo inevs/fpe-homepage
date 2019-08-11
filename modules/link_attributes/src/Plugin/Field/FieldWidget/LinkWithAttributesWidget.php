@@ -153,9 +153,11 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
     }
 
     return array_map(function (array $value) {
-      $value['options']['attributes'] = array_filter($value['options']['attributes'], function ($attribute) {
-        return $attribute !== "";
-      });
+      if (isset($value['options']['attributes'])) {
+        $value['options']['attributes'] = array_filter($value['options']['attributes'], function ($attribute) {
+          return $attribute !== "";
+        });
+      }
       return $value;
     }, $values);
   }

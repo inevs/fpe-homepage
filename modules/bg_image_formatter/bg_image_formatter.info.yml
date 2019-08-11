@@ -3,8 +3,8 @@ description: 'Background Images Formatter provides an image formatter to display
 # core: 8.x
 type: module
 
-# Information added by Drupal.org packaging script on 2019-07-01
-version: '8.x-1.10'
+# Information added by Drupal.org packaging script on 2019-08-02
+version: '8.x-1.11'
 core: '8.x'
 project: 'bg_image_formatter'
-datestamp: 1561974787
+datestamp: 1564773197

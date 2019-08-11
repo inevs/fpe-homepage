@@ -130,7 +130,51 @@ class LinkAttributesFieldTest extends BrowserTestBase {
       'class-four',
     ];
     $this->assertEquals($expected_link_two, $field_values[1]['options']['attributes']['class']);
+  }
 
+  /**
+   * Tests saving a node without any attributes enabled in the widget settings.
+   */
+  public function testWidgetWithoutAttributes() {
+    // Add a content type.
+    $type = $this->drupalCreateContentType();
+    $type_path = 'admin/structure/types/manage/' . $type->id();
+    $add_path = 'node/add/' . $type->id();
+
+    // Add a link field to the newly-created type.
+    $label = $this->randomMachineName();
+    $field_name = mb_strtolower($label);
+    $storage_settings = ['cardinality' => 'number', 'cardinality_number' => 2];
+    $this->fieldUIAddNewField($type_path, $field_name, $label, 'link', $storage_settings);
+
+    // Manually clear cache on the tester side.
+    \Drupal::service('entity_field.manager')->clearCachedFieldDefinitions();
+
+    \Drupal::entityTypeManager()
+      ->getStorage('entity_form_display')
+      ->load('node.' . $type->id() . '.default')
+      ->setComponent('field_' . $field_name, [
+        'type' => 'link_attributes',
+        'settings' => [
+          'enabled_attributes' => [],
+        ],
+      ])
+      ->save();
+
+    $this->drupalGet($add_path);
+    $web_assert = $this->assertSession();
+    // Link attributes.
+    $web_assert->elementExists('css', '.field--widget-link-attributes');
+    // Create a node.
+    $edit = [
+      'title[0][value]' => 'A multi field link test',
+      'field_' . $field_name . '[0][title]' => 'Link One',
+      'field_' . $field_name . '[0][uri]' => '<front>',
+    ];
+    $this->drupalPostForm($add_path, $edit, t('Save'));
+    $node = $this->drupalGetNodeByTitle($edit['title[0][value]']);
+    $this->drupalGet($node->toUrl()->toString());
+    $web_assert->linkExists('Link One');
   }
 
 }
