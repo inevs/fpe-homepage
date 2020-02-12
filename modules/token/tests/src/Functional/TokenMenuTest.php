@@ -1,7 +1,8 @@
 <?php
 
-namespace Drupal\token\Tests;
+namespace Drupal\Tests\token\Functional;
 
+use Behat\Mink\Element\NodeElement;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Url;
 use Drupal\node\Entity\NodeType;
@@ -166,7 +167,7 @@ class TokenMenuTest extends TokenTestBase {
       'menu[title]' => 'Test preview',
     ], t('Save'));
     $node = $this->drupalGetNodeByTitle('Node menu title test');
-    $this->assertEqual('This is a Test preview token to the menu link title', $node->body->value);
+    $this->assertEquals('This is a Test preview token to the menu link title', $node->body->value);
 
     // Disable the menu link, save the node and verify that the menu link is
     // no longer displayed.
@@ -186,10 +187,10 @@ class TokenMenuTest extends TokenTestBase {
     $select = reset($selects);
     $options = $this->getAllOptions($select);
     // Filter to items with title containing 'Test preview'.
-    $options = array_filter($options, function (\SimpleXMLElement $item) {
-      return strpos((string) $item[0], 'Test preview') !== FALSE;
+    $options = array_filter($options, function (NodeElement $element) {
+      return strpos($element->getText(), 'Test preview') !== FALSE;
     });
-    $this->assertEqual(1, count($options));
+    $this->assertCount(1, $options);
     $this->drupalPostForm(NULL, [
       'title[0][value]' => 'Node menu title parent path test',
       'body[0][value]' => 'This is a [node:menu-link:parent:url:path] token to the menu link parent',
@@ -198,7 +199,7 @@ class TokenMenuTest extends TokenTestBase {
       'menu[menu_parent]' => 'main-menu:' . $parent_link->getPluginId(),
     ], t('Save'));
     $node = $this->drupalGetNodeByTitle('Node menu title parent path test');
-    $this->assertEqual('This is a /admin/config token to the menu link parent', $node->body->value);
+    $this->assertEquals('This is a /admin/config token to the menu link parent', $node->body->value);
 
     // Now edit the node and update the parent and title.
     $this->drupalPostForm('node/' . $node->id() . '/edit', [
@@ -207,7 +208,7 @@ class TokenMenuTest extends TokenTestBase {
       'body[0][value]' => 'This is a [node:menu-link:parent:url:path] token to the menu link parent',
     ], t('Save'));
     $node = $this->drupalGetNodeByTitle('Node menu title edit parent path test', TRUE);
-    $this->assertEqual(sprintf('This is a /node/%d token to the menu link parent', $loaded_node->id()), $node->body->value);
+    $this->assertEquals(sprintf('This is a /node/%d token to the menu link parent', $loaded_node->id()), $node->body->value);
 
     // Make sure that the previous node edit didn't result in two menu-links
     // being created by the computed menu-link ER field.
@@ -218,10 +219,10 @@ class TokenMenuTest extends TokenTestBase {
     $select = reset($selects);
     $options = $this->getAllOptions($select);
     // Filter to items with title containing 'Test preview'.
-    $options = array_filter($options, function (\SimpleXMLElement $item) {
-      return strpos((string) $item[0], 'Child link') !== FALSE;
+    $options = array_filter($options, function (NodeElement $item) {
+      return strpos($item->getText(), 'Child link') !== FALSE;
     });
-    $this->assertEqual(1, count($options));
+    $this->assertCount(1, $options);
 
     // Now add a new node with no menu.
     $this->drupalGet('node/add/page');
@@ -241,7 +242,7 @@ class TokenMenuTest extends TokenTestBase {
       'menu[menu_parent]' => 'main-menu:' . $parent_link->getPluginId(),
     ], t('Save'));
     $node = $this->drupalGetNodeByTitle('Node menu adding menu later test', TRUE);
-    $this->assertEqual('This is a /admin/config token to the menu link parent', $node->body->value);
+    $this->assertEquals('This is a /admin/config token to the menu link parent', $node->body->value);
     // And make sure the menu link exists with the right URI.
     $link = menu_ui_get_menu_link_defaults($node);
     $this->assertTrue(!empty($link['entity_id']));

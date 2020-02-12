@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\token\Tests;
+namespace Drupal\Tests\token\Functional;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Language\Language;
@@ -31,7 +31,7 @@ trait TokenTestTrait {
         $this->assertTrue(preg_match('/^' . $expected . '$/', $replacements[$token]), t("Token value for @token was '@actual', matching regular expression pattern '@expected'.", ['@type' => $type, '@token' => $token, '@actual' => $replacements[$token], '@expected' => $expected]));
       }
       else {
-        $this->assertEqual($replacements[$token], $expected, t("Token value for @token was '@actual', expected value '@expected'.", ['@type' => $type, '@token' => $token, '@actual' => $replacements[$token], '@expected' => $expected]));
+        $this->assertEquals($expected, $replacements[$token], t("Token value for @token was '@actual', expected value '@expected'.", ['@type' => $type, '@token' => $token, '@actual' => $replacements[$token], '@expected' => $expected]));
       }
     }
 
