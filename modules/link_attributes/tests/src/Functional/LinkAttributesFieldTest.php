@@ -26,6 +26,11 @@ class LinkAttributesFieldTest extends BrowserTestBase {
   ];
 
   /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
+
+  /**
    * A user that can edit content types.
    *
    * @var \Drupal\user\UserInterface
