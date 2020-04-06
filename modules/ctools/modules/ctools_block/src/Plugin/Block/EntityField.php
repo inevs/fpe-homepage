@@ -5,7 +5,6 @@ namespace Drupal\ctools_block\Plugin\Block;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\FieldableEntityInterface;
@@ -97,6 +96,8 @@ class EntityField extends BlockBase implements ContextAwarePluginInterface, Cont
    *   The entity type manager.
    * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
    *   The entity field manager.
+   * @param \Drupal\Core\Field\FieldTypePluginManagerInterface $field_type_manager
+   *   The field type manager.
    * @param \Drupal\Core\Field\FormatterPluginManager $formatter_manager
    *   The formatter manager.
    */
@@ -189,7 +190,7 @@ class EntityField extends BlockBase implements ContextAwarePluginInterface, Cont
     return [
       'formatter' => [
         'label' => 'above',
-        'type' => $field_type_definition['default_formatter'] ?: '',
+        'type' => isset($field_type_definition['default_formatter']) ? $field_type_definition['default_formatter'] : '',
         'settings' => [],
         'third_party_settings' => [],
         'weight' => 0,
@@ -295,6 +296,7 @@ class EntityField extends BlockBase implements ContextAwarePluginInterface, Cont
    * Gets the field definition.
    *
    * @return \Drupal\Core\Field\FieldDefinitionInterface
+   *   The field defination.
    */
   protected function getFieldDefinition() {
     if (empty($this->fieldDefinition)) {
@@ -310,6 +312,7 @@ class EntityField extends BlockBase implements ContextAwarePluginInterface, Cont
    * Gets the field storage definition.
    *
    * @return \Drupal\Core\Field\FieldStorageDefinitionInterface
+   *   The field storage defination.
    */
   protected function getFieldStorageDefinition() {
     if (empty($this->fieldStorageDefinition)) {
@@ -355,7 +358,7 @@ class EntityField extends BlockBase implements ContextAwarePluginInterface, Cont
    *   The formatter object.
    */
   protected function getFormatter($type, $label, array $settings, array $third_party_settings) {
-     return $this->formatterManager->createInstance($type, [
+    return $this->formatterManager->createInstance($type, [
       'field_definition' => $this->getFieldDefinition(),
       'view_mode' => 'default',
       'prepare' => TRUE,
@@ -365,12 +368,14 @@ class EntityField extends BlockBase implements ContextAwarePluginInterface, Cont
     ]);
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function __wakeup() {
     parent::__wakeup();
     // @todo figure out why this happens.
     // prevent $fieldStorageDefinition being erroneously set to $this.
     $this->fieldStorageDefinition = NULL;
   }
-
 
 }

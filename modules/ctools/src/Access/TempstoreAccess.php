@@ -2,13 +2,12 @@
 
 namespace Drupal\ctools\Access;
 
-
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Routing\Access\AccessInterface as CoreAccessInterface;
-use Drupal\Core\Routing\RouteMatch;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\ctools\Access\AccessInterface as CToolsAccessInterface;
-use Drupal\user\SharedTempStoreFactory;
+use Drupal\Core\TempStore\SharedTempStoreFactory;
 use Symfony\Component\Routing\Route;
 
 class TempstoreAccess implements CoreAccessInterface {
@@ -16,7 +15,7 @@ class TempstoreAccess implements CoreAccessInterface {
   /**
    * The shared tempstore factory.
    *
-   * @var \Drupal\user\SharedTempStoreFactory
+   * @var \Drupal\Core\TempStore\SharedTempStoreFactory
    */
   protected $tempstore;
 
@@ -28,7 +27,7 @@ class TempstoreAccess implements CoreAccessInterface {
     return $this->tempstore;
   }
 
-  public function access(Route $route, RouteMatch $match, AccountInterface $account) {
+  public function access(Route $route, RouteMatchInterface $match, AccountInterface $account) {
     $tempstore_id = $match->getParameter('tempstore_id') ? $match->getParameter('tempstore_id') : $route->getDefault('tempstore_id');
     $id = $match->getParameter($route->getRequirement('_ctools_access'));
     if ($tempstore_id && $id) {
@@ -48,4 +47,5 @@ class TempstoreAccess implements CoreAccessInterface {
     $access->addCacheContexts(['url.query_args:tempstore_id']);
     return $access;
   }
+
 }

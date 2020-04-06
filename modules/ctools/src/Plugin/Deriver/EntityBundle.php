@@ -2,7 +2,7 @@
 
 namespace Drupal\ctools\Plugin\Deriver;
 
-use Drupal\Core\Plugin\Context\ContextDefinition;
+use Drupal\Core\Plugin\Context\EntityContextDefinition;
 
 /**
  * Deriver that creates a condition for each entity type with bundles.
@@ -13,12 +13,12 @@ class EntityBundle extends EntityDeriverBase {
    * {@inheritdoc}
    */
   public function getDerivativeDefinitions($base_plugin_definition) {
-    foreach ($this->entityManager->getDefinitions() as $entity_type_id => $entity_type) {
+    foreach ($this->entityTypeManager->getDefinitions() as $entity_type_id => $entity_type) {
       if ($entity_type->hasKey('bundle')) {
         $this->derivatives[$entity_type_id] = $base_plugin_definition;
         $this->derivatives[$entity_type_id]['label'] = $this->getEntityBundleLabel($entity_type);
-        $this->derivatives[$entity_type_id]['context'] = [
-          "$entity_type_id" => new ContextDefinition('entity:' . $entity_type_id),
+        $this->derivatives[$entity_type_id]['context_definitions'] = [
+          "$entity_type_id" => new EntityContextDefinition('entity:' . $entity_type_id),
         ];
       }
     }
@@ -43,7 +43,7 @@ class EntityBundle extends EntityDeriverBase {
     $fallback = $entity_type->getLabel();
     if ($bundle_entity_type = $entity_type->getBundleEntityType()) {
       // This is a better fallback.
-      $fallback =  $this->entityManager->getDefinition($bundle_entity_type)->getLabel();
+      $fallback =  $this->entityTypeManager->getDefinition($bundle_entity_type)->getLabel();
     }
 
     return $this->t('@label bundle', ['@label' => $fallback]);
