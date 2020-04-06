@@ -9,7 +9,7 @@ use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Menu\MenuTreeParameters;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Menu\MenuLinkTree;
+use Drupal\Core\Menu\MenuLinkTreeInterface;
 use Drupal\Core\Menu\MenuLinkBase;
 
 /**
@@ -44,7 +44,7 @@ class EntityMenuLinkContentUrlGenerator extends EntityUrlGeneratorBase {
    * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    * @param \Drupal\simple_sitemap\EntityHelper $entityHelper
-   * @param \Drupal\Core\Menu\MenuLinkTree $menu_link_tree
+   * @param \Drupal\Core\Menu\MenuLinkTreeInterface $menu_link_tree
    */
   public function __construct(
     array $configuration,
@@ -55,7 +55,7 @@ class EntityMenuLinkContentUrlGenerator extends EntityUrlGeneratorBase {
     LanguageManagerInterface $language_manager,
     EntityTypeManagerInterface $entity_type_manager,
     EntityHelper $entityHelper,
-    MenuLinkTree $menu_link_tree
+    MenuLinkTreeInterface $menu_link_tree
   ) {
     parent::__construct(
       $configuration,
@@ -120,7 +120,7 @@ class EntityMenuLinkContentUrlGenerator extends EntityUrlGeneratorBase {
   /**
    * @inheritdoc
    *
-   * @todo Check if menu link has not been deleted after the queue has been built.
+   * @todo Find a way to be able to check if a menu link still exists. This is difficult as we don't operate on MenuLinkContent entities, but on Link entities directly (as some menu links are not MenuLinkContent entities).
    */
   protected function processDataSet($data_set) {
 

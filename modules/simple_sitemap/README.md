@@ -102,6 +102,14 @@ It is possible to have several sitemap instances of different sitemap types with
 specific links accessible under certain URLs. These sitemap variants can be
 configured under admin/config/search/simplesitemap/variants.
 
+#### AUTOMATIC SUBMISSION ####
+
+It is possible to have the module automatically submit specific sitemap
+variants to search engines. Google and Bing are preconfigured. This
+functionality is available through the included simple_sitemap_engines
+submodule. After enabling this module, go to
+admin/config/search/simplesitemap/engines/settings to set it up.
+
 ## USAGE ## 
 
 The sitemaps are accessible to the whole world under [variant name]/sitemap.xml.
@@ -114,9 +122,15 @@ to the 'Sitemap generation interval' setting.
 A manual generation is possible on admin/config/search/simplesitemap. This is
 also the place that shows the overall and variant specific generation status.
 
-The sitemap can be also generated via drush: Use the command
-'drush simple-sitemap:generate' ('ssg'), or 'drush simple-sitemap:rebuild-queue'
-('ssr').
+The sitemap can be also generated via drush:
+ * `simple-sitemap:generate` or `ssg`: Generates the sitemap (continues
+   generating from queue, or rebuilds queue for all variants beforehand if
+   nothing is queued).
+   
+ * `simple-sitemap:rebuild-queue` or `ssr`: Deletes queue and queues elements
+   for all or specific sitemap variants. Add `--variants` flag and specify a
+   comma separated list of variants if wanting to queue only specific variants
+   for the upcoming generation.
 
 Generation of hundreds of thousands of links can take time. Each variant gets
 published as soon as all of its links have been generated. The previous version
@@ -134,8 +148,9 @@ programmatic sitemap generation. These include:
  * setVariants
  * getSitemap
  * removeSitemap
- * generateSitemap
+ * queue
  * rebuildQueue
+ * generateSitemap
  * enableEntityType
  * disableEntityType
  * setBundleSettings
@@ -154,11 +169,7 @@ programmatic sitemap generation. These include:
     * addSitemapVariant
     * removeSitemapVariants
  * getQueueWorker
-    * deleteQueue
-    * rebuildQueue
     * getInitialElementCount
-    * getQueuedElementCount
-    * getStashedResultCount
     * getProcessedElementCount
     * generationInProgress
 

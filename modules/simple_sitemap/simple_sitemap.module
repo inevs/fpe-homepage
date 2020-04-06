@@ -113,21 +113,16 @@ function simple_sitemap_entity_form_submit($form, FormStateInterface &$form_stat
         switch ($f->getEntityCategory()) {
 
           case 'bundle':
-            $generator->setBundleSettings($f->getEntityTypeId(),
-              !empty($f->getBundleName()) ? $f->getBundleName() : $f->getFormEntityId(),
-              $settings
-            );
-
+            $generator->setBundleSettings($f->getEntityTypeId(), $f->getBundleName(), $settings);
             if (empty($settings['index'])) {
               $generator->removeEntityInstanceSettings($f->getEntityTypeId(), $f->getInstanceId());
             }
             break;
 
           case 'instance':
-            $generator->setEntityInstanceSettings($f->getEntityTypeId(),
-              !empty($f->getInstanceId()) ? $f->getInstanceId() : $f->getFormEntityId(),
-              $settings
-            );
+            if (!$f->entityIsNew()) {
+              $generator->setEntityInstanceSettings($f->getEntityTypeId(), $f->getInstanceId(), $settings);
+            }
             break;
         }
       }
@@ -234,4 +229,26 @@ function simple_sitemap_menu_delete(MenuInterface $menu) {
   /** @var \Drupal\simple_sitemap\Simplesitemap $generator */
   $generator = \Drupal::service('simple_sitemap.generator');
   $generator->setVariants(TRUE)->removeBundleSettings('menu_link_content', $menu->id());
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function simple_sitemap_page_attachments_alter(array &$attachments) {
+  /** @var \Drupal\simple_sitemap\Simplesitemap $generator */
+  $generator = \Drupal::service('simple_sitemap.generator');
+  if ($generator->getSetting('disable_language_hreflang')) {
+    // @fixme https://www.drupal.org/project/drupal/issues/1255092
+    // Content Translation module normally adds identical hreflang tags, so
+    // executing its hook_page_attachments() implementation would be harmless,
+    // but if an entity page is configured as the front page, it attaches
+    // extraneous hreflang tags using the entity URL.
+    foreach ($attachments['#attached']['html_head_link'] as $key => $list) {
+      foreach ($list as $k => $element) {
+        if (!empty($element['hreflang']) && !empty($element['rel'])) {
+          unset($attachments['#attached']['html_head_link'][$key]);
+        }
+      }
+    }
+  }
 }
