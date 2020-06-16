@@ -1,5 +1,5 @@
 # from https://www.drupal.org/requirements/php#drupalversions
-FROM php:7.1-apache
+FROM php:7.3-apache
 
 RUN a2enmod rewrite
 
@@ -8,9 +8,10 @@ RUN set -ex \
 	&& buildDeps=' \
 		libjpeg62-turbo-dev \
 		libpq-dev \
+		libzip-dev \
 	' \
 	&& runtimeDeps=' \
-		mysql-client \
+		default-mysql-client \
 		libpng-dev \
 		sitecopy \
 	' \
