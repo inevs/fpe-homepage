@@ -7,6 +7,6 @@ configure: responsive_favicons.admin
 
 # Information added by Drupal.org packaging script on 2019-05-01
 version: '8.x-1.5'
-core: '8.x'
+core_version_requirement: '^8.8 || ^9'
 project: 'responsive_favicons'
 datestamp: 1556679789

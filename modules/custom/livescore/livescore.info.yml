@@ -2,6 +2,6 @@ name: Live Score
 type: module
 description: Shows the Live Score from footballscores.herokuapp.com
 package: Custom
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - block
