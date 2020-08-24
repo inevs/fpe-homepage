@@ -24,7 +24,7 @@ function fpe_preprocess_html(&$variables) {
   if (!$variables['is_front']) {
     // Add unique classes for each page and website section.
     $path = \Drupal::service('path.current')->getPath();
-    $alias = \Drupal::service('path.alias_manager')->getAliasByPath($path);
+    $alias = \Drupal::service('path_alias.manager')->getAliasByPath($path);
     $alias = trim($alias, '/');
     if (!empty($alias)) {
       $name = str_replace('/', '-', $alias);
