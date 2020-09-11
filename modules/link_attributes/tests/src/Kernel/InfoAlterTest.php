@@ -38,7 +38,7 @@ class InfoAlterTest extends KernelTestBase {
     $linkAttributesManager->clearCachedDefinitions();
     $definition = $linkAttributesManager->getDefinitions();
     $this->assertTrue($definition['class']['type'] == 'select', 'After altering the plugin definition the class attribute is a select.');
-    $this->assertTrue(isset($definition['class']['options']['button']), 'After altering the plugin definition the class attribute has a "button" option.');
+    $this->assertArrayHasKey('button', $definition['class']['options']);
   }
 
 }

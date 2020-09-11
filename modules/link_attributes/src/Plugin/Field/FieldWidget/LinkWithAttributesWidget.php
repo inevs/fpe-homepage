@@ -88,8 +88,6 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $element = parent::formElement($items, $delta, $element, $form, $form_state);
-    // Add each of the enabled attributes.
-    // @todo move this to plugins that nominate form and label.
     $item = $items[$delta];
 
     $options = $item->get('options')->getValue();
@@ -104,6 +102,10 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
     foreach (array_keys(array_filter($this->getSetting('enabled_attributes'))) as $attribute) {
       if (isset($plugin_definitions[$attribute])) {
         foreach ($plugin_definitions[$attribute] as $property => $value) {
+          if ($property === 'id') {
+            // Don't set ID.
+            continue;
+          }
           $element['options']['attributes'][$attribute]['#' . $property] = $value;
         }
 

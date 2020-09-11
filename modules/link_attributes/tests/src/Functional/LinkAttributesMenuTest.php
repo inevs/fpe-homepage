@@ -52,7 +52,7 @@ class LinkAttributesMenuTest extends BrowserTestBase {
       // This is enough to check the fields are there.
       'link[0][options][attributes][target]' => '_blank',
       'link[0][options][attributes][class]' => 'menu__link--really_special menu__link--another-class',
-    ], t('Save'));
+    ], 'Save');
     $this->drupalGet('user');
     $page = $this->getSession()->getPage();
     // The link should exist and contain the required attributes.
@@ -88,7 +88,7 @@ class LinkAttributesMenuTest extends BrowserTestBase {
       'link[0][uri]' => '<front>',
       'link[0][options][attributes][target]' => '',
       'link[0][options][attributes][rel]' => 'author',
-    ], t('Save'));
+    ], 'Save');
     $this->drupalGet('user');
     $page = $this->getSession()->getPage();
     // The link should exist and contain the set rel attribute.

@@ -103,8 +103,9 @@ class LinkAttributesFieldTest extends BrowserTestBase {
 
     // Target attribute.
     $attribute_target = 'field_' . $field_name . '[0][options][attributes][target]';
-    $web_assert->fieldExists($attribute_target);
+    $target = $web_assert->fieldExists($attribute_target);
     $web_assert->fieldValueEquals($attribute_target, '_blank');
+    $this->assertNotEquals('target', $target->getAttribute('id'));
 
     \Drupal::state()->set('link_attributes_test_alterinfo.hook_link_attributes_plugin_alter', FALSE);
     \Drupal::service('plugin.manager.link_attributes')->clearCachedDefinitions();
@@ -118,7 +119,7 @@ class LinkAttributesFieldTest extends BrowserTestBase {
       'field_' . $field_name . '[1][uri]' => '<front>',
       'field_' . $field_name . '[1][options][attributes][class]' => 'class-three class-four',
     ];
-    $this->drupalPostForm($add_path, $edit, t('Save'));
+    $this->drupalPostForm($add_path, $edit, 'Save');
     $node = $this->drupalGetNodeByTitle($edit['title[0][value]']);
 
     // Load the field values.
@@ -176,7 +177,7 @@ class LinkAttributesFieldTest extends BrowserTestBase {
       'field_' . $field_name . '[0][title]' => 'Link One',
       'field_' . $field_name . '[0][uri]' => '<front>',
     ];
-    $this->drupalPostForm($add_path, $edit, t('Save'));
+    $this->drupalPostForm($add_path, $edit, 'Save');
     $node = $this->drupalGetNodeByTitle($edit['title[0][value]']);
     $this->drupalGet($node->toUrl()->toString());
     $web_assert->linkExists('Link One');
